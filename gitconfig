@@ -1,0 +1,6 @@
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[core]
+  excludesfiles = $HOME/.gitignore_global

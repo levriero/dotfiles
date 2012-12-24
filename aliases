@@ -1,0 +1,18 @@
+# Git
+alias gl="git pull --prune origin"
+alias gp="git push origin"
+alias gb="git branch"
+alias gc="git commit"
+alias gca="git commit -am"
+alias gs="git status -sb"
+alias gd="git diff | mate"
+alias go="git checkout"
+
+# Heroku
+alias prod="heroku run console --remote production"
+alias prod-tail="heroku logs --tail --remote production"
+alias staging="heroku run console --remote staging"
+alias staging-tail="heroku logs --tail --remote staging"
+
+# Bundler
+alias be="bundle exec"
