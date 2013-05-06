@@ -1,4 +1,4 @@
-dotfiles
+Awesome dotfiles
 ========
 
-Personal config files
+They are awesome.
