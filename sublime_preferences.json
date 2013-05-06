@@ -1,0 +1,58 @@
+{
+  "auto_complete_commit_on_tab": true,
+  "bold_folder_labels": true,
+  "color_scheme": "Packages/Solarized Color Scheme/Solarized (light).tmTheme",
+  "ensure_newline_at_eof_on_save": true,
+  "file_exclude_patterns":
+  [
+    "*.pyc",
+    "*.pyo",
+    "*.exe",
+    "*.dll",
+    "*.obj",
+    "*.o",
+    "*.a",
+    "*.lib",
+    "*.so",
+    "*.dylib",
+    "*.ncb",
+    "*.sdf",
+    "*.suo",
+    "*.pdb",
+    "*.idb",
+    ".DS_Store",
+    "*.class",
+    "*.db"
+  ],
+  "folder_exclude_patterns":
+  [
+    ".svn",
+    ".git",
+    ".hg",
+    "CVS",
+    "bin",
+    ".bundle",
+    "vendor/cache",
+    "tmp"
+  ],
+  "font_face": "Menlo",
+  "font_options":
+  [
+    "subpixel_antialias"
+  ],
+  "font_size": 13.0,
+  "highlight_line": true,
+  "highlight_modified_tabs": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "line_padding_bottom": 1,
+  "line_padding_top": 1,
+  "tab_size": 2,
+  "theme": "Soda Light.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_automatic_white_space": true,
+  "show_minimap": false,
+  "trim_trailing_white_space_on_save": true
+}
