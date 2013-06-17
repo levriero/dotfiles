@@ -2,42 +2,27 @@
   "auto_complete_commit_on_tab": true,
   "bold_folder_labels": true,
   "color_scheme": "Packages/Solarized Color Scheme/Solarized (light).tmTheme",
+  "create_window_at_startup": false,
   "ensure_newline_at_eof_on_save": true,
   "file_exclude_patterns":
   [
-    "*.pyc",
-    "*.pyo",
-    "*.exe",
-    "*.dll",
-    "*.obj",
-    "*.o",
-    "*.a",
-    "*.lib",
-    "*.so",
-    "*.dylib",
-    "*.ncb",
-    "*.sdf",
-    "*.suo",
-    "*.pdb",
-    "*.idb",
-    ".DS_Store",
-    "*.class",
-    "*.db"
+    ".DS_Store"
   ],
   "folder_exclude_patterns":
   [
     ".svn",
     ".git",
     ".hg",
-    "CVS",
     "bin",
     ".bundle",
     "vendor/cache",
-    "tmp"
+    "tmp",
+    ".sass-cache"
   ],
   "font_face": "Menlo",
   "font_options":
   [
+    "no_bold",
     "subpixel_antialias"
   ],
   "font_size": 13.0,
@@ -47,12 +32,13 @@
   [
     "Vintage"
   ],
-  "line_padding_bottom": 1,
-  "line_padding_top": 1,
+  "line_padding_bottom": 2,
+  "line_padding_top": 2,
   "tab_size": 2,
   "theme": "Soda Light.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_automatic_white_space": true,
+  "trim_trailing_white_space_on_save": true,
   "show_minimap": false,
-  "trim_trailing_white_space_on_save": true
+  "word_wrap": true
 }
