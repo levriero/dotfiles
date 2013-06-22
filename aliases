@@ -19,4 +19,9 @@ alias s="subl ."
 alias be="bundle exec"
 alias rs='bundle exec rspec'
 
-alias ls="command ls -G" # Always use color output for `ls`
+# Always use color output for `ls`
+alias ls="command ls -G"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
