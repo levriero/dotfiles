@@ -1,3 +1,6 @@
+# Navigation
+alias ..="cd .."
+
 # Git
 alias gl="git pull origin"
 alias gp="git push origin"
@@ -8,8 +11,11 @@ alias gs="git status -sb"
 alias gd="git diff"
 alias go="git checkout"
 
-# Bundler
+# Shortcuts
+alias p="cd ~/Projects"
+alias m="mate ."
+alias s="subl ."
 alias be="bundle exec"
-
-# Rspec
 alias rs='bundle exec rspec'
+
+alias ls="command ls -G" # Always use color output for `ls`
