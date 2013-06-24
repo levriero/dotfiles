@@ -1,4 +1,3 @@
-Awesome dotfiles
-========
+# Gus's dotfiles
 
-They are awesome.
+Personal dotfiles, automated installation coming sometime in the near future.
