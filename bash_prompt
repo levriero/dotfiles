@@ -13,7 +13,7 @@ if tput setaf 1 &> /dev/null; then
       ORANGE=$(tput setaf 172)
       GREEN=$(tput setaf 190)
       PURPLE=$(tput setaf 141)
-      WHITE=$(tput setaf 0)
+      WHITE=$(tput setaf 247)
     else
       MAGENTA=$(tput setaf 5)
       ORANGE=$(tput setaf 4)
@@ -41,6 +41,3 @@ parse_git_branch () {
 }
 
 PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
-
-# Open gem source with sublime
-function sublg { bundle show $@ | xargs subl; }
