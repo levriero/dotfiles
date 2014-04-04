@@ -1,6 +1,7 @@
+[user]
+  name = Gus Bonfant
+  email = gbonfant@gmail.com
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+  ui = true
 [core]
   excludesfiles = $HOME/.gitignore_global

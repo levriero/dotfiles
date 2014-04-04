@@ -1,0 +1,21 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"Alignment",
+		"AngularJS",
+		"BracketHighlighter",
+		"EJS",
+		"Emmet",
+		"ERB Snippets",
+		"Package Control",
+		"Puppet",
+		"Sass",
+		"SCSS",
+		"SideBarEnhancements",
+		"Solarized Color Scheme",
+		"SublimeLinter",
+		"Theme - Soda",
+		"Theme - Spacegray"
+	]
+}

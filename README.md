@@ -1,3 +1,3 @@
-# Gus's dotfiles
+# Dotfiles
 
-Personal dotfiles, automated installation coming sometime in the near future.
+Configuration files for easier setup.

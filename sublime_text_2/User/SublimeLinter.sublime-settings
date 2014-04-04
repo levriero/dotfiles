@@ -1,0 +1,11 @@
+{
+  "sublimelinter_popup_errors_on_save": true,
+  "sublimelinter_gutter_marks_theme": "bright",
+
+  "sublimelinter_executable_map": {
+    "ruby": "/Users/gus/.rbenv/versions/1.9.3-p448/bin/ruby"
+  },
+
+  // Javascript options
+  "javascript_linter": "gjslint"
+}

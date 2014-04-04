@@ -1,0 +1,7 @@
+{
+  "run_on_save": true,
+
+  "ignore_errors": [
+    "angular"
+  ]
+}

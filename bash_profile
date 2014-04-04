@@ -34,10 +34,43 @@ else
 fi
 
 parse_git_dirty () {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
 }
 parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
 PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+
+# Navigation
+alias ..="cd .."
+
+# Git
+alias gl="git pull origin"
+alias gp="git push origin"
+alias gb="git branch"
+alias gc="git commit"
+alias gca="git commit -am"
+alias gs="git status -sb"
+alias gd="git diff"
+alias go="git checkout"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Shortcuts
+alias p="cd ~/Projects"
+alias m="mate ."
+alias s="subl ."
+alias be="bundle exec"
+alias rs='bundle exec rspec'
+
+# Always use color output for `ls`
+alias ls="command ls -G"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+export PATH=/usr/local/bin:$PATH
