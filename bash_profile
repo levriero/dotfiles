@@ -59,6 +59,7 @@ alias gs="git status -sb"
 alias gd="git diff"
 alias go="git checkout"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gclean="git branch | grep -v "master" | xargs git branch -D"
 
 # Shortcuts
 alias p="cd ~/Projects"
