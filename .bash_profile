@@ -63,7 +63,6 @@ alias gclean="git branch | grep -v "master" | xargs git branch -D"
 
 # Shortcuts
 alias p="cd ~/Projects"
-alias m="mate ."
 alias s="subl ."
 alias be="bundle exec"
 alias rs='bundle exec rspec'
@@ -73,5 +72,5 @@ alias ls="command ls -G"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 export PATH=/usr/local/bin:$PATH
