@@ -8,6 +8,8 @@ git clone git@github.com:gbonfant/sublime_2.git
 sh sublime_2/init.sh
 rm -rf sublime_2
 
+git clone git@github.com:gbonfant/vim.git ~/.vim
+
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 brew install rbenv ruby-build
