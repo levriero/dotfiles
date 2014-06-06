@@ -1,5 +1,9 @@
 cd ~
 
+# Install homebrew and some kegs 
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+brew install rbenv ruby-build zsh
+
 # Copy dotfiles
 git clone git@github.com:gbonfant/dotfiles.git
 mv ~/dotfiles/.* -t ~/ -f
@@ -20,6 +24,9 @@ mkdir ~/.vim/tmp
 # Install all plugins
 vim +PluginInstall +qall
 
-# Install homebrew, rbenv and ruby-build
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew install rbenv ruby-build
+# Install oh-my-zsh
+curl -L http://install.ohmyz.sh | sh
+
+# Post rbenv installation for zsh
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(rbenv init -)"' >> ~/.zshrc
