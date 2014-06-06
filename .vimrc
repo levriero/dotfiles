@@ -10,8 +10,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'chriskempson/base16-vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'chriskempson/base16-vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,3 +58,10 @@ set shiftwidth=2
 if has('gui_running')
   set guifont=Source_Code_Pro:h16
 endif
+
+
+" ===============================================================================
+" Mappings 
+" ===============================================================================
+
+nnoremap <C-p> :Unite file_rec<CR>

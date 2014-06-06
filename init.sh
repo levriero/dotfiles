@@ -24,6 +24,9 @@ mkdir ~/.vim/tmp
 # Install all plugins
 vim +PluginInstall +qall
 
+# Post vimproc installation requirements
+make ~/.vim/bundle/vimproc.vim
+
 # Install oh-my-zsh
 curl -L http://install.ohmyz.sh | sh
 
