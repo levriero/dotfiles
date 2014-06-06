@@ -64,4 +64,4 @@ endif
 " Mappings 
 " ===============================================================================
 
-nnoremap <C-p> :Unite file_rec<CR>
+nnoremap <C-p> :Unite file_rec/async<CR>
