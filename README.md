@@ -11,4 +11,4 @@
 
 ### Post installation
 
-In order for powerline to properly display its icons, a patched font package needs to be installed:  ``https://github.com/gbonfant/powerline-fonts``
+In order for powerline to properly display its icons, a patched font package needs to be installed: https://github.com/gbonfant/powerline-fonts
