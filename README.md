@@ -11,4 +11,6 @@
 
 ### Post installation
 
-In order for powerline to properly display its icons, a patched font package needs to be installed: https://github.com/gbonfant/powerline-fonts
+- For Terminal.app download theme @ https://github.com/gbonfant/tomorrow-theme/tree/master/OS%20X%20Terminal
+- For iTerm download base16 theme @ https://github.com/gbonfant/base16-iterm2
+- Install patched font package needed for the theme: https://github.com/gbonfant/powerline-fonts
