@@ -14,9 +14,6 @@ curl -L http://install.ohmyz.sh | sh
 mkdir ~/.vim/backup
 mkdir ~/.vim/tmp
 
-# Install Vim plugins
-vim +PluginInstall +qall
-
 # Copy dotfiles
 git clone git@github.com:gbonfant/dotfiles.git
 mv ~/dotfiles/.* -t ~/ -f
