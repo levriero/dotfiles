@@ -27,4 +27,4 @@ rm -rf sublime_2
 
 # Post rbenv installation for zsh
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+echo 'eval "$(rbenv init - zsh)"' >> ~/.zshrc

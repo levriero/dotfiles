@@ -86,19 +86,14 @@ alias ls="ls -G"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 
-
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim -f -c "au VimLeave * opendiff -a Terminal"'
-fi
-
+# Path
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 
 # Enable shims and autocomplete rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+# Fix rbenv for zsh
+eval "$(rbenv init - zsh)"
+
+# Homebrew
+export PATH=/usr/local/sbin:$PATH
