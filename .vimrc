@@ -49,6 +49,7 @@ set splitbelow
 set showcmd                  " Display incomplete commands
 set hlsearch                 " Hightlight search matches
 set list                     " Hightlight whitespace characters
+set guioptions-=r            " Remove scrollbars
 
 " Set color scheme
 set background=dark
