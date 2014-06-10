@@ -44,6 +44,8 @@ set directory=~/.vim/tmp     " Specify temporary swap files directory
 set splitright               " Split new buffers to the right and bottom
 set splitbelow
 set showcmd                  " Display incomplete commands
+set hlsearch                 " Hightlight search matches
+set list                     " Hightlight whitespace characters
 
 " Set color scheme
 set background=dark
@@ -53,6 +55,9 @@ colorscheme base16-ocean
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
+" Customize whitespace characters shown
+set listchars=tab:▸\ ,trail:·
 
 " Set GUI font
 if has('gui_running')
@@ -71,14 +76,14 @@ call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cach
 
 
 " ===============================================================================
-" Mappings 
+" Mappings
 " ===============================================================================
 
 nnoremap <C-p> :Unite file_rec/async<CR>
 
 
 " ===============================================================================
-" Functions 
+" Functions
 " ===============================================================================
 
 function! <SID>StripTrailingWhitespaces()
