@@ -40,7 +40,7 @@ set encoding=utf-8
 syntax on                    " Enable syntax highlighting
 set number                   " Enable line numbers
 set autoread                 " Enable auto-reading of files if they have been changed from the outside
-set autowrite                " Save on buffer switch
+set autowriteall             " Save on buffer switch
 set backup                   " Enable creation of backup files
 set backupdir=~/.vim/backup  " Specify backup directory
 set directory=~/.vim/tmp     " Specify temporary swap files directory
@@ -78,12 +78,22 @@ endif
 " Ignore folders for unite
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache')
 
+" Files are shown ordered
+call unite#custom#source( 'buffer', 'converters', ['converter_file_directory'])
+
+" Grep configuration
+let g:unite_source_grep_max_candidates = 200
+let g:unite_source_grep_default_opts = "-iRHn"
+      \ . " --exclude-dir='.git'"
+      \ . " --exclude-dir='.rsync_cache'"
 
 " ===============================================================================
 " Mappings
 " ===============================================================================
 
-nnoremap <C-p> :Unite file_rec/async<CR>
+nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
+nnoremap <space>s :Unite -quick-match buffer<CR>
+nnoremap <space>f :Unite grep:.<CR>
 
 
 " ===============================================================================
