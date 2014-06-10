@@ -86,14 +86,10 @@ alias ls="ls -G"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 
-# Path
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
 
 # Enable shims and autocomplete rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-
-# Fix rbenv for zsh
 eval "$(rbenv init - zsh)"
 
-# Homebrew
-export PATH=/usr/local/sbin:$PATH
+export EDITOR="mvim -f"

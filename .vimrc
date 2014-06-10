@@ -34,6 +34,9 @@ filetype plugin indent on    " required
 " General Settings
 " ===============================================================================
 
+scriptencoding utf-8
+set encoding=utf-8
+
 syntax on                    " Enable syntax highlighting
 set number                   " Enable line numbers
 set autoread                 " Enable auto-reading of files if they have been changed from the outside
