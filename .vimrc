@@ -60,6 +60,10 @@ if has('gui_running')
 endif
 
 
+" Ignore folders for unite
+call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache')
+
+
 " ===============================================================================
 " Mappings 
 " ===============================================================================
