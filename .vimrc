@@ -60,6 +60,12 @@ if has('gui_running')
 endif
 
 
+" Remove trailing whitespaces automatically when a file is saved
+if has('autocmd')
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+endif
+
+
 " Ignore folders for unite
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache')
 
@@ -69,3 +75,20 @@ call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cach
 " ===============================================================================
 
 nnoremap <C-p> :Unite file_rec/async<CR>
+
+
+" ===============================================================================
+" Functions 
+" ===============================================================================
+
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
