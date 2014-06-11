@@ -15,6 +15,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +52,7 @@ set showcmd                  " Display incomplete commands
 set hlsearch                 " Hightlight search matches
 set list                     " Hightlight whitespace characters
 set guioptions-=r            " Remove scrollbars
+set guioptions-=L
 
 " Set color scheme
 set background=dark
@@ -75,19 +77,26 @@ if has('autocmd')
   autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 endif
 
+" ===============================================================================
+" Unite
+" ===============================================================================
+
+" Use ag for search
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_max_candidates = 200
+endif
 
 " Ignore folders for unite
-call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache')
+call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images')
 
-" Files are shown ordered
-call unite#custom#source( 'buffer', 'converters', ['converter_file_directory'])
+autocmd FileType unite nmap <buffer> <C-r> <Plug>(unite_redraw)
 
-" Grep configuration
-let g:unite_source_grep_max_candidates = 200
-let g:unite_source_grep_default_opts = "-iRHn"
-      \ . " --exclude-dir='.git'"
-      \ . " --exclude-dir='.rsync_cache'"
-
+" ===============================================================================
+" Neocomplete
+" ===============================================================================
 
 " Enable neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -128,10 +137,9 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Mappings
 " ===============================================================================
 
-nnoremap <C-p> :Unite -start-insert -auto-preview file_rec/async<CR>
+nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
 nnoremap <space>s :Unite -quick-match buffer<CR>
 nnoremap <space>f :Unite grep:.<CR>
-
 
 " ===============================================================================
 " Functions

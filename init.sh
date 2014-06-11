@@ -1,8 +1,8 @@
 cd ~
 
-# Install homebrew and some kegs 
+# Install homebrew and some kegs
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew install rbenv ruby-build zsh
+brew install rbenv ruby-build zsh ag
 brew install macvim --with-cscope --with-lua --HEAD
 
 # Install Vundle
