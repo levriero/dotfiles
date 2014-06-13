@@ -95,5 +95,19 @@ eval "$(rbenv init - zsh)"
 # Use mvim as default editor
 export EDITOR="mvim -f"
 
+# Set zle in vi mode
+bindkey -v
+
+# Keep key shortcuts
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+# Fix 0.4s delay after changing modes (via ESC)
+export KEYTIMEOUT=1
+
 # Use homebrew instead of system-provided programs
 export PATH=/usr/local/bin:$PATH
