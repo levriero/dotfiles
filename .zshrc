@@ -92,4 +92,8 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
+# Use mvim as default editor
 export EDITOR="mvim -f"
+
+# Use homebrew instead of system-provided programs
+export PATH=/usr/local/bin:$PATH
