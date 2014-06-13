@@ -11,6 +11,6 @@
 
 ### Post installation
 
-- For Terminal.app download theme @ https://github.com/gbonfant/tomorrow-theme/tree/master/OS%20X%20Terminal
-- For iTerm download base16 theme @ https://github.com/gbonfant/base16-iterm2
-- Install patched font package needed for the theme: https://github.com/gbonfant/powerline-fonts
+- For Terminal.app download colorscheme [here](https://github.com/gbonfant/tomorrow-theme/tree/master/OS%20X%20Terminal)
+- For iTerm download base16 colorscheme [here](https://github.com/gbonfant/base16-iterm2)
+- Agnoster needs a patched font package, get it [here](https://github.com/gbonfant/powerline-fonts)
