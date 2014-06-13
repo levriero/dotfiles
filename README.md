@@ -1,13 +1,21 @@
 ### Installation
 
-``$ wget --no-check-certificate https://raw.githubusercontent.com/gbonfant/dotfiles/master/init.sh -O - | sh``
+``$ curl -k https://raw.githubusercontent.com/gbonfant/dotfiles/master/init.sh -O - | sh``
 
 
 ### Requirements
 
 * git
 * curl
-* wget
+
+### What do I get?
+
+* Homebrew
+* rbenv + ruby-build
+* zsh + oh-my-zsh
+* The Silver Searcher
+* Latest MacVim with lua support
+* Vundle
 
 ### Post installation
 
