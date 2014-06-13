@@ -16,6 +16,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +54,7 @@ set hlsearch                 " Hightlight search matches
 set list                     " Hightlight whitespace characters
 set guioptions-=r            " Remove scrollbars
 set guioptions-=L
+set t_Co=256                 " Enable 256 color schemes
 
 " Set color scheme
 set background=dark
