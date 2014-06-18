@@ -12,10 +12,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
 # =====================
-# Aliases
+# User configuration
 # =====================
 
 # Navigation
@@ -35,7 +33,6 @@ alias gclean="git branch | grep -v "master" | xargs git branch -D"
 
 # Shortcuts
 alias p="cd ~/Projects"
-alias s="subl ."
 alias be="bundle exec"
 alias rs='bundle exec rspec'
 
@@ -46,9 +43,10 @@ alias ls="ls -G"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig en0 inet"
 
+# Path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
 
-# Enable shims and autocomplete rbenv
+# Enable shims and autocomplete in rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
