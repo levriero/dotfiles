@@ -152,7 +152,6 @@ let g:user_emmet_leader_key='<C-y>'
 " Vim-airline
 " ===============================================================================
 set laststatus=2
-set timeoutlen=50
 set noshowmode
 
 let g:airline_powerline_fonts = 1
