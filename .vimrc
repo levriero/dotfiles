@@ -18,6 +18,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
