@@ -18,6 +18,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,7 +72,7 @@ set listchars=tab:▸\ ,trail:·
 
 " Set GUI font
 if has('gui_running')
-  set guifont=Source_Code_Pro:h16
+  set guifont=Source_Code_Pro_for_Powerline:h16
 endif
 
 
@@ -144,6 +145,15 @@ let g:user_emmet_install_global = 0 "Enable just for the given file types
 let g:user_emmet_mode='a'           "Enable all functions in all modes
 autocmd FileType html,css,eruby,scss EmmetInstall
 let g:user_emmet_leader_key='<C-y>'
+
+" ===============================================================================
+" Vim-airline
+" ===============================================================================
+set laststatus=2
+set timeoutlen=50
+set noshowmode
+
+let g:airline_powerline_fonts = 1
 
 " ===============================================================================
 " Mappings
