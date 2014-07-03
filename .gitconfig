@@ -7,3 +7,12 @@
   excludesfiles = $HOME/.gitignore_global
 [push]
   default = simple
+[alias]
+  st  = status -s
+  pl  = pull origin
+  ps  = push origin
+  br  = branch
+  ci  = commit
+  cim = commit -am
+  co  = checkout
+  lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

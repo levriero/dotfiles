@@ -16,22 +16,10 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # =====================
 
-# Navigation
 alias ..="cd .."
 
-# Git
-alias gl="git pull origin"
-alias gp="git push origin"
-alias gb="git branch"
-alias gc="git commit"
-alias gca="git commit -am"
-alias gs="git status -s"
-alias gd="git diff"
-alias go="git checkout"
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gclean="git branch | grep -v "master" | xargs git branch -D"
 
-# Shortcuts
 alias p="cd ~/Projects"
 alias be="bundle exec"
 alias rs='bundle exec rspec'
