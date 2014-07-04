@@ -55,10 +55,12 @@ set splitright               " Split new buffers to the right and bottom
 set splitbelow
 set showcmd                  " Display incomplete commands
 set hlsearch                 " Hightlight search matches
+set incsearch                " Incremental search
 set list                     " Hightlight whitespace characters
 set guioptions-=r            " Remove scrollbars
 set guioptions-=L
 set t_Co=256                 " Enable 256 color schemes
+set cursorline               " Hightlights the line the cursor is on
 
 " Set color scheme
 set background=dark
