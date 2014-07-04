@@ -8,11 +8,12 @@
 [push]
   default = simple
 [alias]
-  s  = status -s
-  pl = pull origin
-  ph = push origin
-  b  = branch
-  c  = commit
-  cm = commit -am
+  st = status -s
+  aa = add --all
+  ap = add -p
+  cv = commit -v
+  ca = commit --amend
   co = checkout
   lg = log --graph --pretty = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[fetch]
+  prune = true
