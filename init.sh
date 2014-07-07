@@ -2,20 +2,24 @@ cd ~
 
 # Install homebrew and some kegs
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew install rbenv ruby-build zsh ag
+brew install rbenv ruby-build fish ag
 brew install macvim --with-cscope --with-lua --HEAD
+
+# Set fish as default shell
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+
+# Install Oh-my-fish
+curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
 
 # Install Vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Install oh-my-zsh
-curl -L http://install.ohmyz.sh | sh
-
 # Create backup and temp folders for Vim
-mkdir ~/.vim/backup
-mkdir ~/.vim/tmp
+mkdir -p ~/.vim/backup
+mkdir -p ~/.vim/tmp
 
-# Copy dotfiles
+# Copy git dotfiles into home
 git clone git@github.com:gbonfant/dotfiles.git
 mv ~/dotfiles/.* -t ~/ -f
 rm -rf ~/dotfiles
@@ -24,7 +28,6 @@ rm -rf ~/dotfiles
 git clone git@github.com:gbonfant/sublime_2.git
 sh ~/sublime_2/init.sh
 rm -rf sublime_2
-
 
 # Post rbenv installation for zsh
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
