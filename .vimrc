@@ -62,6 +62,10 @@ set guioptions-=L
 set t_Co=256                 " Enable 256 color schemes
 set cursorline               " Hightlights the line the cursor is on
 
+if has('fullscreen')
+  set fullscreen               " Start in fullscreen
+endif
+
 " Set color scheme
 set background=dark
 colorscheme base16-ocean

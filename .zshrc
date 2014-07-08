@@ -2,13 +2,10 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="agnoster"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+# Plugins
+plugins=(git bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -21,7 +18,6 @@ alias ..="cd .."
 alias gclean="git branch | grep -v "master" | xargs git branch -D"
 
 alias p="cd ~/Projects"
-alias be="bundle exec"
 alias rs='bundle exec rspec'
 
 # Always use color output for `ls`
