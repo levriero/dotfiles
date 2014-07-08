@@ -12,7 +12,7 @@
 
 * Homebrew
 * rbenv + ruby-build
-* fish + oh-my-fish
+* zsh + oh-my-zsh
 * The Silver Searcher
 * Latest MacVim with lua support
 * Vundle
