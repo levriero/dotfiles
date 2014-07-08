@@ -2,18 +2,17 @@ cd ~
 
 # Install homebrew and some kegs
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew install rbenv ruby-build fish ag
+brew install rbenv ruby-build zsh ag
 
 # Install latest version of vim and macvim with lua support
 brew install macvim --with-cscope --with-lua --HEAD
 brew install vim --with-lua
 
-# Set fish as default shell
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
+# Set zsh as default shell
+chsh -s /usr/local/bin/zsh
 
-# Install Oh-my-fish
-curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
+# Install Oh-my-zsh
+curl -L http://install.ohmyz.sh | sh
 
 # Install Vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
