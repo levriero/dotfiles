@@ -2,11 +2,14 @@ cd ~
 
 # Install homebrew and some kegs
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-brew install rbenv ruby-build fish ag
+brew install ruby-build fish ag
+
+# Install latest version of rbenv with support for fish
+brew install rbenv --HEAD
 
 # Install latest version of vim and macvim with lua support
 brew install macvim --with-cscope --with-lua --HEAD
-brew install vim --with-lua
+brew install vim --with-lua --override-system-vim
 
 # Set fish as default shell
 chsh -s /usr/local/bin/fish
