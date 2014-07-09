@@ -30,3 +30,6 @@ rm -rf ~/dotfiles
 git clone git@github.com:gbonfant/sublime_2.git
 sh ~/sublime_2/init.sh
 rm -rf sublime_2
+
+# Make sure fish uses latest vim as editor
+set EDITOR /usr/local/bin/vim
