@@ -8,17 +8,17 @@
 * git
 * curl
 
-### What do I get?
+### What does it install?
 
+* fish
 * Homebrew
 * rbenv + ruby-build
-* zsh + oh-my-zsh
 * The Silver Searcher
-* Latest MacVim with lua support
+* Latest MacVim & Vim with lua support
 * Vundle
+* Own configuration
 
 ### Post installation
 
-- For Terminal.app download colorscheme [here](https://github.com/gbonfant/tomorrow-theme/tree/master/OS%20X%20Terminal)
 - For iTerm download base16 colorscheme [here](https://github.com/gbonfant/base16-iterm2)
-- Agnoster needs a patched font package, get it [here](https://github.com/gbonfant/powerline-fonts)
+- For Terminal.app download colorscheme [here](https://github.com/gbonfant/tomorrow-theme/tree/master/OS%20X%20Terminal)
