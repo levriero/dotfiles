@@ -6,10 +6,7 @@ set shell=/bin/sh " Vim doesn't like non POSIX shells i.e. fish
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-ruby/vim-ruby'
@@ -25,19 +22,8 @@ Plugin 'bling/vim-airline'
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call vundle#end()         " required
+filetype plugin indent on " required
 
 " ===============================================================================
 " General Settings
@@ -87,6 +73,11 @@ endif
 if has('autocmd')
   autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 endif
+
+" ===============================================================================
+" Autocommand
+" ===============================================================================
+au FocusLost * :wa "Save file on focus lost
 
 " ===============================================================================
 " Unite
