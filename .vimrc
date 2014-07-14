@@ -20,7 +20,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()         " required
 filetype plugin indent on " required
@@ -69,15 +68,13 @@ if has('fullscreen')
   set fullscreen " Start in fullscreen
 endif
 
-" Remove trailing whitespaces automatically when a file is saved
-if has('autocmd')
-  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-endif
-
 " ===============================================================================
 " Autocommand
 " ===============================================================================
-au FocusLost * :wa "Save file on focus lost
+if has('autocmd')
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
+  autocmd FocusLost * :wa                                     " Save file on focus lost
+endif
 
 " ===============================================================================
 " Unite
