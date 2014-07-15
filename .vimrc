@@ -1,7 +1,8 @@
-set nocompatible  " be iMproved, required
-filetype off      " required
-
-set shell=/bin/sh " Vim doesn't like non POSIX shells i.e. fish
+scriptencoding utf-8 " Set encoding to UTF-8
+set encoding=utf-8
+set shell=/bin/sh    " Use shell for commands - For fish, as it is a non POSIX shell
+set nocompatible     " Don't be compatible with vi
+filetype off         " Required for Vundle
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -20,53 +21,48 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 
-
-" All of your Plugins must be added before the following line
-call vundle#end()         " required
-filetype plugin indent on " required
+call vundle#end()         " Required for Vundle
+filetype plugin indent on " Enable back filetype plugins
 
 " ===============================================================================
 " General Settings
 " ===============================================================================
 
-scriptencoding utf-8
-set encoding=utf-8
-
-syntax on                   " Enable syntax highlighting
-set nowrap                  " Don't wrap lines
-set number                  " Enable line numbers
-set autoread                " Enable auto-reading of files if they have been changed from the outside
-set autowriteall            " Save on buffer switch
-set backup                  " Enable creation of backup files
-set backupdir=~/.vim/backup " Specify backup directory
-set directory=~/.vim/tmp    " Specify temporary swap files directory
-set splitright              " Split new buffers to the right
-set showcmd                 " Display incomplete commands
-set hlsearch                " Hightlight search matches
-set incsearch               " Incremental search
-set list                    " Hightlight whitespace characters
-set t_Co=256                " Enable 256 color schemes
-set background=dark         " Set dark background
-
-" Soft tab indentation with 2 spaces
-set expandtab
-set tabstop=2
+syntax on                     " Enable syntax highlighting
+set autoindent                " Enable autoindent
+set showmatch                 " Show bracket matches
+set number                    " Enable line numbers
+set autoread                  " Enable auto-reading of files if they have been changed from the outside
+set autowriteall              " Save on buffer switch
+set splitright                " Split new buffers to the right
+set showcmd                   " Display incomplete commands
+set hlsearch                  " Hightlight search matches
+set incsearch                 " Incremental search
+set ignorecase                " Ignore case in search
+set smartcase                 " Don't ignore case if an uppercase letter is used
+set cursorline                " Hightlight the line the cursor is on
+set list                      " Hightlight whitespace characters
+set t_Co=256                  " Enable 256 color schemes
+set background=dark           " Set dark background
+set expandtab                 " Use spaces not tabs
+set tabstop=2                 " Set indentation to 2 spaces
 set shiftwidth=2
-
-" Customize whitespace characters shown
-set listchars=tab:▸\ ,trail:·
+set mouse=a                   " Enable mouse support for all modes
+set listchars=tab:▸\ ,trail:· " Customize whitespace characters shown
 
 if has('gui_running')
   set guifont=Source_Code_Pro_for_Powerline:h16 " Set font
   set guioptions-=r                             " Remove scrollbars
   set guioptions-=L                             " Remove scrollbars
-  set cursorline                                " Hightlights the line the cursor is on
   colorscheme base16-ocean                      " Set color scheme
 endif
 
 if has('fullscreen')
   set fullscreen " Start in fullscreen
 endif
+
+" Set leader key to comma
+let mapleader=","
 
 " ===============================================================================
 " Autocommand
