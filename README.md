@@ -1,22 +1,10 @@
 ### Installation
 
-``$ curl -k https://raw.githubusercontent.com/gbonfant/dotfiles/master/init.sh -O - | sh``
-
-
-### Requirements
-
-* git
-* curl
-
-### What does it install?
-
-* fish
-* Homebrew
-* rbenv + ruby-build
-* The Silver Searcher
-* Latest MacVim & Vim with lua support
-* Vundle
-* Own configuration
+```bash
+$ cd ~
+$ git clone git@github.com:gbonfant/dotfiles.git .
+$ ./script/init
+```
 
 ### Post installation
 
