@@ -20,6 +20,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 
+
 " All of your Plugins must be added before the following line
 call vundle#end()         " required
 filetype plugin indent on " required
@@ -39,8 +40,7 @@ set autowriteall            " Save on buffer switch
 set backup                  " Enable creation of backup files
 set backupdir=~/.vim/backup " Specify backup directory
 set directory=~/.vim/tmp    " Specify temporary swap files directory
-set splitright              " Split new buffers to the right and bottom
-set splitbelow              " Split new buffers to the right and bottom
+set splitright              " Split new buffers to the right
 set showcmd                 " Display incomplete commands
 set hlsearch                " Hightlight search matches
 set incsearch               " Incremental search
@@ -68,13 +68,15 @@ if has('fullscreen')
   set fullscreen " Start in fullscreen
 endif
 
+" Remove trailing whitespaces automatically when a file is saved
+if has('autocmd')
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+endif
+
 " ===============================================================================
 " Autocommand
 " ===============================================================================
-if has('autocmd')
-  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
-  autocmd FocusLost * :wa                                     " Save file on focus lost
-endif
+au FocusLost * :wa "Save file on focus lost
 
 " ===============================================================================
 " Unite
