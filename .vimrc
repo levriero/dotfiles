@@ -68,15 +68,13 @@ if has('fullscreen')
   set fullscreen " Start in fullscreen
 endif
 
-" Remove trailing whitespaces automatically when a file is saved
-if has('autocmd')
-  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-endif
-
 " ===============================================================================
 " Autocommand
 " ===============================================================================
-au FocusLost * :wa "Save file on focus lost
+if has('autocmd')
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
+  autocmd FocusLost * :wa                                     " Save file on focus lost
+endif
 
 " ===============================================================================
 " Unite
@@ -99,18 +97,15 @@ autocmd FileType unite nmap <buffer> <C-r> <Plug>(unite_redraw)
 " Neocomplete
 " ===============================================================================
 
-" Enable neocomplete
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#enable_at_startup = 1                 " Enable neocomplete
+let g:neocomplete#enable_smart_case = 1                 " Use smartcase.
+let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
+
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Plugin key-mappings.
