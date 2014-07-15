@@ -28,34 +28,31 @@ filetype plugin indent on " Enable back filetype plugins
 " General Settings
 " ===============================================================================
 
-syntax on                     " Enable syntax highlighting
-set autoindent                " Enable autoindent
-set showmatch                 " Show bracket matches
-set number                    " Enable line numbers
-set autoread                  " Enable auto-reading of files if they have been changed from the outside
-set autowriteall              " Save on buffer switch
-set splitright                " Split new buffers to the right
-set showcmd                   " Display incomplete commands
-set hlsearch                  " Hightlight search matches
-set incsearch                 " Incremental search
-set ignorecase                " Ignore case in search
-set smartcase                 " Don't ignore case if an uppercase letter is used
-set cursorline                " Hightlight the line the cursor is on
-set list                      " Hightlight whitespace characters
-set t_Co=256                  " Enable 256 color schemes
-set background=dark           " Set dark background
-set expandtab                 " Use spaces not tabs
-set tabstop=2                 " Set indentation to 2 spaces
+syntax on                                     " Enable syntax highlighting
+set autoindent                                " Enable autoindent
+set showmatch                                 " Show bracket matches
+set number                                    " Enable line numbers
+set autoread                                  " Enable auto-reading of files if they have been changed from the outside
+set autowriteall                              " Save on buffer switch
+set splitright                                " Split new buffers to the right
+set showcmd                                   " Display incomplete commands
+set hlsearch                                  " Hightlight search matches
+set incsearch                                 " Incremental search
+set ignorecase                                " Ignore case in search
+set smartcase                                 " Don't ignore case if an uppercase letter is used
+set cursorline                                " Hightlight the line the cursor is on
+set list                                      " Hightlight whitespace characters
+set t_Co=256                                  " Enable 256 color schemes
+set background=dark                           " Set dark background
+set expandtab                                 " Use spaces not tabs
+set tabstop=2                                 " Set indentation to 2 spaces
 set shiftwidth=2
-set mouse=a                   " Enable mouse support for all modes
-set listchars=tab:▸\ ,trail:· " Customize whitespace characters shown
-
-if has('gui_running')
-  set guifont=Source_Code_Pro_for_Powerline:h16 " Set font
-  set guioptions-=r                             " Remove scrollbars
-  set guioptions-=L                             " Remove scrollbars
-  colorscheme base16-ocean                      " Set color scheme
-endif
+set mouse=a                                   " Enable mouse support for all modes
+set listchars=tab:▸\ ,trail:·                 " Customize whitespace characters shown
+set guifont=Source_Code_Pro_for_Powerline:h16 " Set font
+set guioptions-=r                             " Remove scrollbars
+set guioptions-=L                             " Remove scrollbars
+colorscheme base16-ocean                      " Set color scheme
 
 if has('fullscreen')
   set fullscreen " Start in fullscreen
