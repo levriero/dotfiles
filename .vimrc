@@ -64,26 +64,26 @@ let mapleader=","
 " ===============================================================================
 " Autocommand
 " ===============================================================================
-if has('autocmd')
-  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
-  autocmd FocusLost * :wa                                     " Save file on focus lost
-endif
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
+autocmd FocusLost * :wa                                     " Save file on focus lost
 
 " ===============================================================================
 " Unite
 " ===============================================================================
 
-" Use ag for search
+" Use ag for content searching
 if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_command        = 'ag'
+  let g:unite_source_grep_default_opts   = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt  = ''
   let g:unite_source_grep_max_candidates = 200
 endif
 
-" Ignore folders for unite
+" Ignore folders for file searching
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images')
 
+" Clear unite's file searching cache
 autocmd FileType unite nmap <buffer> <C-r> <Plug>(unite_redraw)
 
 " ===============================================================================
@@ -94,18 +94,10 @@ let g:neocomplete#enable_at_startup = 1                 " Enable neocomplete
 let g:neocomplete#enable_smart_case = 1                 " Use smartcase.
 let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
 
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
 
-" Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
@@ -113,22 +105,23 @@ function! s:my_cr_function()
   " For no inserting <CR> key.
   "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
+inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplete#close_popup()
+inoremap <expr><C-e> neocomplete#cancel_popup()
 
 " ===============================================================================
 " Emmet-vim
 " ===============================================================================
 
-let g:user_emmet_install_global = 0 "Enable just for the given file types
-let g:user_emmet_mode='a'           "Enable all functions in all modes
-autocmd FileType html,css,eruby,scss EmmetInstall
+let g:user_emmet_install_global = 0               " Enable just for the given file types
+let g:user_emmet_mode='a'                         " Enable all functions in all modes
+autocmd FileType html,css,eruby,scss EmmetInstall " Only for frontend code
 let g:user_emmet_leader_key='<C-y>'
 
 " ===============================================================================
@@ -144,8 +137,8 @@ let g:airline_powerline_fonts = 1
 " ===============================================================================
 
 nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
-nnoremap <space>s :Unite -quick-match buffer<CR>
-nnoremap <space>f :Unite grep:.<CR>
+nnoremap <leader>b :Unite -quick-match buffer<CR>
+nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
 " Functions
