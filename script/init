@@ -63,4 +63,7 @@ chsh -s /usr/local/bin/fish
 echo "  > Pulling latest changes"
 git pull &> /dev/null
 
+echo "  > Copying directories"
+cp -r .* ~/
+
 echo "==> Done."
