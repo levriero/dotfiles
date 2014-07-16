@@ -13,3 +13,4 @@ $ sh .dotfiles/script/init
 
 ## Troubleshooting
 If the colorscheme looks odd, make sure you are not using the 256 version of the base16 colorscheme.
+IF your terminal feels slow make sure to clean the logs ``sudo rm /private/var/log/asl/*.asl ``
