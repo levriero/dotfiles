@@ -51,7 +51,7 @@ else
 fi
 
 echo "  > Installing macvim..."
-if command -v macvim >/dev/null 2>&1; then
+if command -v mvim >/dev/null 2>&1; then
   echo "  > Skipping, already installed"
 else
   brew install macvim --with-cscope --with-lua --HEAD
@@ -68,6 +68,6 @@ echo "  > Pulling latest changes"
 git pull &> /dev/null
 
 echo "  > Copying directories"
-cp -r ~/.dotfiles/.* ~/
+cp -r ~/.dotfiles/.* ~/ &> /dev/null
 
 echo "==> Done."
