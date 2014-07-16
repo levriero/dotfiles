@@ -2,8 +2,8 @@
 
 ```bash
 $ cd ~
-$ git clone git@github.com:gbonfant/dotfiles.git .
-$ ./script/init
+$ git clone git@github.com:gbonfant/dotfiles.git .dotfiles/
+$ sh .dotfiles/script/init
 ```
 
 ## Post installation
