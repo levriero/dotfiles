@@ -64,10 +64,10 @@ else
   brew install vim --with-lua --override-system-vim
 fi
 
-echo "  > Pulling latest changes"
+echo "  > Pulling latest changes..."
 git pull &> /dev/null
 
-echo "  > Copying directories"
+echo "  > Copying directories..."
 cp -r ~/.dotfiles/.* ~/ &> /dev/null
 
 echo "==> Done."
