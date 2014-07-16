@@ -34,6 +34,8 @@ set showmatch                                 " Show bracket matches
 set number                                    " Enable line numbers
 set autoread                                  " Enable auto-reading of files if they have been changed from the outside
 set autowriteall                              " Save on buffer switch
+set nobackup                                  " Disable backup files
+set noswapfile                                " Disable swap files
 set splitright                                " Split new buffers to the right
 set showcmd                                   " Display incomplete commands
 set hlsearch                                  " Hightlight search matches
