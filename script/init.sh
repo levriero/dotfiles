@@ -47,7 +47,6 @@ if command -v fish >/dev/null 2>&1; then
   echo "  > Skipping, already installed"
 else
   brew install fish
-  set EDITOR /usr/local/bin/vim
 
   echo "  > Setting fish as default shell..."
   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
