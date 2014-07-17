@@ -1,13 +1,17 @@
 #!/bin/sh
 
-echo "      _       _      __ _ _"
-echo "   __| | ___ | |_   / _(_) | ___  ___"
-echo "  / _\` |/ _ \| __|| |_| | |/ _ \/ __|"
-echo " | (_| | (_) | ||  |  _| | |  __/\__ \\"
-echo "  \__,_|\___/ \__| |_| |_|_|\___||___/"
 echo ""
+echo "      _       _    __ _ _            "
+echo "     | |     | |  / _(_) |           "
+echo "   __| | ___ | |_| |_ _| | ___  ___  "
+echo "  / _` |/ _ \| __|  _| | |/ _ \/ __| "
+echo " | (_| | (_) | |_| | | | |  __/\__ \ "
+echo "  \__,_|\___/ \__|_| |_|_|\___||___/ "
+echo "                                     "
+echo "                                     "
 
-cd ~
+
+cd ~/.dotfiles
 echo "==> Installing..."
 
 # ===================================
@@ -44,23 +48,30 @@ if command -v fish >/dev/null 2>&1; then
 else
   brew install fish
   set EDITOR /usr/local/bin/vim
+
+  echo "  > Setting fish as default shell..."
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/fish
 fi
 
 echo "  > Installing macvim..."
-if command -v macvim >/dev/null 2>&1; then
+if command -v mvim >/dev/null 2>&1; then
   echo "  > Skipping, already installed"
 else
   brew install macvim --with-cscope --with-lua --HEAD
 fi
 
 echo "  > Installing vim..."
-brew install vim --with-lua --override-system-vim
+if command -v vim >/dev/null 2>&1; then
+  echo "  > Skipping, already installed"
+else
+  brew install vim --with-lua --override-system-vim
+fi
 
-echo "  > Setting fish as default shell"
-echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/fish
-
-echo "  > Pulling latest changes"
+echo "  > Pulling latest changes..."
 git pull &> /dev/null
+
+echo "  > Copying directories..."
+cp -r ~/.dotfiles/.* ~/ &> /dev/null
 
 echo "==> Done."

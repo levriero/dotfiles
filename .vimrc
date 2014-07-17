@@ -34,6 +34,8 @@ set showmatch                                 " Show bracket matches
 set number                                    " Enable line numbers
 set autoread                                  " Enable auto-reading of files if they have been changed from the outside
 set autowriteall                              " Save on buffer switch
+set nobackup                                  " Disable backup files
+set noswapfile                                " Disable swap files
 set splitright                                " Split new buffers to the right
 set showcmd                                   " Display incomplete commands
 set hlsearch                                  " Hightlight search matches
@@ -52,6 +54,7 @@ set listchars=tab:▸\ ,trail:·                 " Customize whitespace characte
 set guifont=Source_Code_Pro_for_Powerline:h16 " Set font
 set guioptions-=r                             " Remove scrollbars
 set guioptions-=L                             " Remove scrollbars
+set clipboard=unnamed                         " Use system clipboard
 colorscheme base16-ocean                      " Set color scheme
 
 if has('fullscreen')
@@ -67,6 +70,7 @@ let mapleader=","
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
 autocmd FocusLost * :wa                                     " Save file on focus lost
+autocmd FileType markdown,text setlocal spell               " Enable spell check for text files
 
 " ===============================================================================
 " Unite

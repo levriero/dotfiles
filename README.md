@@ -2,14 +2,15 @@
 
 ```bash
 $ cd ~
-$ git clone git@github.com:gbonfant/dotfiles.git .
-$ ./script/init
+$ git clone git@github.com:gbonfant/dotfiles.git .dotfiles/
+$ sh .dotfiles/script/init
 ```
 
 ## Post installation
 
-- For iTerm download base16 colorscheme [here](https://github.com/gbonfant/base16-iterm2)
-- For Terminal.app download colorscheme [here](https://github.com/gbonfant/tomorrow-theme/tree/master/OS%20X%20Terminal)
+- Download iTerm base16 colorscheme [here](https://github.com/gbonfant/base16-iterm2)
+- Set command to ``/usr/local/bin/fish -l`` in Profiles > General > Preferences
 
 ## Troubleshooting
-If the colorscheme looks odd, make sure you are not using the 256 version of the base16 colorscheme.
+- Colorscheme looks odd? Make sure you are not using the 256 version of the base16 colorscheme.
+- iTerm2 is slow? Make sure to clean the logs ``sudo rm /private/var/log/asl/*.asl ``
