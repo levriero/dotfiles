@@ -32,7 +32,6 @@ syntax on                                     " Enable syntax highlighting
 set autoindent                                " Enable autoindent
 set showmatch                                 " Show bracket matches
 set number                                    " Enable line numbers
-set relativenumber                            " Display relative line numbers for current line
 set autoread                                  " Enable auto-reading of files if they have been changed from the outside
 set autowriteall                              " Save on buffer switch
 set nobackup                                  " Disable backup files
