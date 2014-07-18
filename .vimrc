@@ -32,16 +32,19 @@ syntax on                                     " Enable syntax highlighting
 set autoindent                                " Enable autoindent
 set showmatch                                 " Show bracket matches
 set number                                    " Enable line numbers
+set relativenumber                            " Display relative line numbers for current line
 set autoread                                  " Enable auto-reading of files if they have been changed from the outside
 set autowriteall                              " Save on buffer switch
 set nobackup                                  " Disable backup files
 set noswapfile                                " Disable swap files
 set splitright                                " Split new buffers to the right
 set showcmd                                   " Display incomplete commands
+set hidden                                    " Hides buffers instead of closing them
 set hlsearch                                  " Hightlight search matches
 set incsearch                                 " Incremental search
 set ignorecase                                " Ignore case in search
 set smartcase                                 " Don't ignore case if an uppercase letter is used
+set gdefault                                  " Apply global substitutions by default
 set cursorline                                " Hightlight the line the cursor is on
 set list                                      " Hightlight whitespace characters
 set t_Co=256                                  " Enable 256 color schemes
@@ -143,6 +146,21 @@ let g:airline_powerline_fonts = 1
 nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
 nnoremap <leader>b :Unite -quick-match buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
+nnoremap <leader><space> :noh<CR>
+nnoremap <tab> %
+vnoremap <tab> %
+nnoremap j gj
+nnoremap k gk
+nnoremap ; :
+inoremap jj <ESC>
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s<C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap / /\v
+vnoremap / /\v
 
 " ===============================================================================
 " Functions
