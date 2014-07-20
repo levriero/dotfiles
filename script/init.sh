@@ -1,10 +1,11 @@
 #!/bin/sh
 
-echo ""
+set -e
+
 echo "      _       _    __ _ _            "
 echo "     | |     | |  / _(_) |           "
 echo "   __| | ___ | |_| |_ _| | ___  ___  "
-echo "  / _` |/ _ \| __|  _| | |/ _ \/ __| "
+echo "  / _\` |/ _ \| __|  _| | |/ _ \/ __| "
 echo " | (_| | (_) | |_| | | | |  __/\__ \ "
 echo "  \__,_|\___/ \__|_| |_|_|\___||___/ "
 echo "                                     "
@@ -72,5 +73,7 @@ git pull &> /dev/null
 
 echo "  > Copying directories..."
 cp -r ~/.dotfiles/.* ~/ &> /dev/null
+cp ~/.dotfiles/com.* ~/ &> /dev/null
+rm -rf ~/.git &> /dev/null
 
 echo "==> Done."
