@@ -4,14 +4,16 @@
 [color]
   ui = true
 [core]
+  editor = vim
   excludesfiles = $HOME/.gitignore_global
 [push]
   default = simple
 [alias]
-  st = status -s
+  st = status
   aa = add --all
   ap = add -p
-  cv = commit -v
+  ci = commit
+  cm = commit -m
   ca = commit --amend
   co = checkout
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
