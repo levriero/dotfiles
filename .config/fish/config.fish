@@ -9,3 +9,7 @@ set -gx PATH $homebrew $default_path
 
 # rbenv
 status --is-interactive; and . (rbenv init -|psub)
+
+# Editor
+set -gx EDITOR vim
+
