@@ -12,7 +12,7 @@
   st = status
   aa = add --all
   ap = add -p
-  ci = commit
+  ci = commit -v
   cm = commit -m
   ca = commit --amend
   co = checkout
