@@ -74,6 +74,6 @@ git pull &> /dev/null
 echo "  > Copying directories..."
 cp -r ~/.dotfiles/.* ~/ &> /dev/null
 cp ~/.dotfiles/com.* ~/ &> /dev/null
-rm -rf ~/.git &> /dev/null
+rm -rf ~/.git/ &> /dev/null
 
 echo "==> Done."
