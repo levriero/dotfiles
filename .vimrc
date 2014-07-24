@@ -20,6 +20,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Enable back filetype plugins
@@ -125,10 +126,21 @@ let g:user_emmet_leader_key='<C-y>'
 " ===============================================================================
 " Vim-airline
 " ===============================================================================
+
 set laststatus=2
 set noshowmode
 
 let g:airline_powerline_fonts = 1
+
+" ===============================================================================
+" rspec.vim
+" ===============================================================================
+
+let g:rspec_runner = "os_x_iterm"
+
+nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
 " ===============================================================================
 " Mappings
