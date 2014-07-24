@@ -89,8 +89,11 @@ endif
 " Ignore folders for file searching
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images')
 
-" Clear unite's file searching cache
-autocmd FileType unite nmap <buffer> <C-r> <Plug>(unite_redraw)
+" Mappings
+nnoremap <leader>e :Unite file<CR>
+nnoremap <leader>p :Unite -start-insert -default-action=vsplit file_rec/async <CR>
+nnoremap <leader>b :Unite -quick-match buffer<CR>
+nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
 " Neocomplete
@@ -142,9 +145,6 @@ let g:airline_powerline_fonts = 1
 " Mappings
 " ===============================================================================
 
-nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
-nnoremap <leader>b :Unite -quick-match buffer<CR>
-nnoremap <leader>f :Unite grep:.<CR>
 nnoremap <leader><space> :noh<CR>
 nnoremap <tab> %
 vnoremap <tab> %
