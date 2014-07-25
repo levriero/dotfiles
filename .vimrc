@@ -63,8 +63,8 @@ if has('fullscreen')
   set fullscreen " Start in fullscreen
 endif
 
-" Set leader key to comma
-let mapleader=","
+" Set leader key to space
+let mapleader="\<space>"
 
 " ===============================================================================
 " Autocommand
