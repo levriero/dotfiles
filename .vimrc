@@ -20,6 +20,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Enable back filetype plugins
@@ -78,10 +79,10 @@ autocmd FileType markdown,text setlocal spell               " Enable spell check
 " Unite
 " ===============================================================================
 
-" Use ag for content searching
+" Use ag for grep searching
 if executable('ag')
   let g:unite_source_grep_command        = 'ag'
-  let g:unite_source_grep_default_opts   = '--nogroup --nocolor --column'
+  let g:unite_source_grep_default_opts   = '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
   let g:unite_source_grep_recursive_opt  = ''
   let g:unite_source_grep_max_candidates = 200
 endif
@@ -89,37 +90,29 @@ endif
 " Ignore folders for file searching
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images')
 
-" Clear unite's file searching cache
-autocmd FileType unite nmap <buffer> <C-r> <Plug>(unite_redraw)
+" Mappings
+nnoremap <leader>e :Unite file<CR>
+nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
+nnoremap <leader>b :Unite -quick-match buffer<CR>
+nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
 " Neocomplete
 " ===============================================================================
 
-let g:neocomplete#enable_at_startup = 1                 " Enable neocomplete
-let g:neocomplete#enable_smart_case = 1                 " Use smartcase.
+let g:neocomplete#enable_at_startup                 = 1 " Enable neocomplete
+let g:neocomplete#enable_smart_case                 = 1 " Use smartcase.
 let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
 
-" Plugin key-mappings.
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-l> neocomplete#complete_common_string()
-
-" <CR>: close popup and save indent.
+" Close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
 function! s:my_cr_function()
   return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 
-" <TAB>: completion.
+" Tab completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplete#close_popup()
-inoremap <expr><C-e> neocomplete#cancel_popup()
 
 " ===============================================================================
 " Emmet-vim
@@ -133,18 +126,26 @@ let g:user_emmet_leader_key='<C-y>'
 " ===============================================================================
 " Vim-airline
 " ===============================================================================
+
 set laststatus=2
 set noshowmode
 
 let g:airline_powerline_fonts = 1
 
 " ===============================================================================
+" rspec.vim
+" ===============================================================================
+
+let g:rspec_runner = "os_x_iterm"
+
+nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
+
+" ===============================================================================
 " Mappings
 " ===============================================================================
 
-nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
-nnoremap <leader>b :Unite -quick-match buffer<CR>
-nnoremap <leader>f :Unite grep:.<CR>
 nnoremap <leader><space> :noh<CR>
 nnoremap <tab> %
 vnoremap <tab> %
