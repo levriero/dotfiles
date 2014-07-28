@@ -8,6 +8,8 @@
   excludesfiles = $HOME/.gitignore_global
 [push]
   default = simple
+[help]
+  autocorrect = 1
 [alias]
   st = status
   aa = add --all
