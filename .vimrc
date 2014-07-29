@@ -30,6 +30,7 @@ filetype plugin indent on " Enable back filetype plugins
 " ===============================================================================
 
 syntax on                                     " Enable syntax highlighting
+set ttyfast                                   " Notify of running fast terminal, improves redrawing
 set autoindent                                " Enable autoindent
 set showmatch                                 " Show bracket matches
 set number                                    " Enable line numbers
