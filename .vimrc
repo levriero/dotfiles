@@ -47,7 +47,6 @@ set incsearch                                 " Incremental search
 set ignorecase                                " Ignore case in search
 set smartcase                                 " Don't ignore case if an uppercase letter is used
 set gdefault                                  " Apply global substitutions by default
-set cursorline                                " Hightlight the line the cursor is on
 set list                                      " Hightlight whitespace characters
 set t_Co=256                                  " Enable 256 color schemes
 set background=dark                           " Set dark background
@@ -76,6 +75,13 @@ let mapleader="\<space>"
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
 autocmd FocusLost * :wa                                     " Save file on focus lost
 autocmd FileType markdown,text setlocal spell               " Enable spell check for text files
+
+" Only show cursorline in the current window and in normal mode
+augroup cline
+  au!
+  au WinLeave,InsertEnter * set nocursorline
+  au WinEnter,InsertLeave * set cursorline
+augroup END
 
 " ===============================================================================
 " Unite
