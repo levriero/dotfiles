@@ -61,10 +61,6 @@ set guioptions-=L                             " Remove scrollbars
 set clipboard=unnamed                         " Use system clipboard
 colorscheme base16-ocean                      " Set color scheme
 
-if has('fullscreen')
-  set fullscreen " Start in fullscreen
-endif
-
 " Set leader key to space
 let mapleader="\<space>"
 
