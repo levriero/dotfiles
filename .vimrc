@@ -123,9 +123,10 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " ===============================================================================
 
 let g:user_emmet_install_global = 0               " Enable just for the given file types
-let g:user_emmet_mode='a'                         " Enable all functions in all modes
+let g:user_emmet_mode           = 'a'             " Enable all functions in all modes
+let g:user_emmet_leader_key     = '<C-y>'
+
 autocmd FileType html,css,eruby,scss EmmetInstall " Only for frontend code
-let g:user_emmet_leader_key='<C-y>'
 
 " ===============================================================================
 " Vim-airline
