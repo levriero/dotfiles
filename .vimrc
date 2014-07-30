@@ -165,6 +165,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap / /\v
 vnoremap / /\v
+nnoremap H ^
+nnoremap L $
 
 " ===============================================================================
 " Functions
