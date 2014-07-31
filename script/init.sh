@@ -72,10 +72,7 @@ echo "  > Pulling latest changes..."
 git pull &> /dev/null
 
 echo "  > Copying directories..."
-cp -r ~/.dotfiles/.* ~/ &> /dev/null
-cp ~/.dotfiles/com.* ~/ &> /dev/null
+rsync -av ~/.dotfiles ~/ --exclude .git
 
-echo " > Cleaning up..."
-rm -rf ~/.git &> /dev/null
 
 echo "==> Done."
