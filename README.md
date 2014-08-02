@@ -13,4 +13,4 @@ $ sh .dotfiles/script/init
 
 ## Troubleshooting
 - Colorscheme looks odd? Make sure you are not using the 256 version of the base16 colorscheme.
-- iTerm2 is slow? Make sure to clean the logs ``sudo rm /private/var/log/asl/*.asl ``
+- iTerm2 is slow? Check this [post](http://www.gbonfant.com/blog/speed-up-performance-of-iterm-and-vim/)
