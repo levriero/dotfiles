@@ -61,11 +61,18 @@ else
   brew install macvim --with-cscope --with-lua --HEAD
 fi
 
-echo "  > Installing vim..."
-if command -v vim >/dev/null 2>&1; then
+echo " > Installing node..."
+if command -v node >/dev/null 2>&1; then
   echo "  > Skipping, already installed"
 else
-  brew install vim --with-lua --override-system-vim
+  brew install node
+fi
+
+echo " > Installing jshint..."
+if command -v jshint >/dev/null 2>&1; then
+  echo "  > Skipping, already installed"
+else
+  npm install -g jshint
 fi
 
 echo "  > Pulling latest changes..."
