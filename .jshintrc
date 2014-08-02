@@ -1,4 +1,10 @@
 {
-  "predef": ["angular", "describe", "beforeEach", "it", "expect", "inject"],
+  "predef": [
+    // AngularJS/Angular-Mocks
+    "angular", "inject",
+
+    // Jasmine
+    "describe", "beforeEach", "it", "expect", "spyOn"
+  ],
   "globalstrict": true
 }
