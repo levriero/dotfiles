@@ -11,15 +11,17 @@
 [help]
   autocorrect = 1
 [alias]
-  st = status
-  aa = add --all
-  ap = add -p
-  ci = commit -v
-  cm = commit -m
-  ca = commit --amend
-  co = checkout
-  di = diff
-  dc = diff --cached
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  up  = pull --rebase --prune
+  st  = status
+  aa  = add --all
+  ap  = add -p
+  ci  = commit -v
+  cm  = commit -m
+  ca  = commit --amend
+  co  = checkout
+  cob = checkout -b
+  di  = diff
+  dc  = diff --cached
+  lg  = log --graph --pretty  = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [fetch]
   prune = true
