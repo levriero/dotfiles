@@ -22,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-endwise'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Enable back filetype plugins
