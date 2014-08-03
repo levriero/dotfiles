@@ -168,6 +168,8 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap H ^
 nnoremap L $
+nnoremap ; :
+nnoremap : ;
 
 " ===============================================================================
 " Functions
