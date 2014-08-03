@@ -4,7 +4,10 @@
     "angular", "inject",
 
     // Jasmine
-    "describe", "beforeEach", "it", "expect", "spyOn"
+    "describe", "beforeEach", "it", "expect", "spyOn",
+
+    // Underscore/Lodash
+    "_"
   ],
   "globalstrict": true
 }
