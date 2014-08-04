@@ -97,7 +97,6 @@ endif
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images')
 
 " Mappings
-nnoremap <leader>e :Unite file<CR>
 nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
 nnoremap <leader>b :Unite -quick-match buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
@@ -154,6 +153,7 @@ nnoremap <Leader>ra :call RunAllSpecs()<CR>
 " ===============================================================================
 
 nnoremap <leader><space> :noh<CR>
+nnoremap <leader>e :Ex<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap j gj
