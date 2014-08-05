@@ -57,7 +57,6 @@ set tabstop=2                                 " Set indentation to 2 spaces
 set shiftwidth=2
 set mouse=a                                   " Enable mouse support for all modes
 set listchars=tab:▸\ ,trail:·                 " Customize whitespace characters shown
-set guifont=Source_Code_Pro_for_Powerline:h16 " Set font
 set guioptions-=r                             " Remove scrollbars
 set guioptions-=L                             " Remove scrollbars
 set clipboard=unnamed                         " Use system clipboard
