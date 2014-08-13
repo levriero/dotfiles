@@ -2,6 +2,16 @@
 
 set -e
 
+DOTFILES_DIR=$(pwd)
+
+create_symlinks() {
+  for file in *; do
+    if ! (echo $file | grep -q "script\|com\|text_\|README"); then
+      ln -sf $(pwd)/$file $HOME/.$file
+    fi
+  done
+}
+
 echo "      _       _    __ _ _            "
 echo "     | |     | |  / _(_) |           "
 echo "   __| | ___ | |_| |_ _| | ___  ___  "
@@ -12,7 +22,7 @@ echo "                                     "
 echo "                                     "
 
 
-cd ~/.dotfiles
+cd $DOTFILES_DIR
 echo "==> Installing..."
 
 # ===================================
@@ -85,8 +95,7 @@ fi
 echo "  > Pulling latest changes..."
 git pull &> /dev/null
 
-echo "  > Copying directories..."
-rsync -ar ~/.dotfiles/.* ~/ --exclude=.git
-rsync -ar ~/.dotfiles/com.*
+echo "  > Creating symlinks..."
+create_symlinks
 
 echo "==> Done."
