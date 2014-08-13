@@ -1,9 +1,8 @@
 ## Installation
 
 ```bash
-$ cd ~
-$ git clone git@github.com:gbonfant/dotfiles.git .dotfiles/
-$ sh .dotfiles/script/init
+$ git clone git@github.com:gbonfant/dotfiles.git
+$ sh dotfiles/script/bootstrap.sh
 ```
 
 ## Post installation
