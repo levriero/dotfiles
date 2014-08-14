@@ -4,6 +4,7 @@ set -e
 
 DOTFILES_DIR=$(pwd)
 BREW_DEPENDENCIES=(rbenv ruby-build ag tree tig node)
+NPM_DEPENDENCIES=(jshint)
 
 create_symlinks() {
   for file in *; do
@@ -17,8 +18,16 @@ install_dependencies_with_homebrew() {
   for dependency in ${BREW_DEPENDENCIES[@]}; do
     if ! hash $dependency 2>/dev/null; then
       echo "  > Installing" $dependency "..."
-
       brew install $dependency
+    fi
+  done
+}
+
+install_dependencies_with_npm() {
+  for dependency in ${NPM_DEPENDENCIES[@]}; do
+    if ! hash $dependency 2>/dev/null; then
+      echo "  > Installing" $dependency "..."
+      npm install -g $dependency
     fi
   done
 }
@@ -55,21 +64,14 @@ echo "  > Updating homebrew..."
 brew update &> /dev/null
 
 install_dependencies_with_homebrew
+install_dependencies_with_npm
 install_fish
-
 
 echo "  > Installing macvim..."
 if command -v mvim >/dev/null 2>&1; then
   echo "  > Skipping, already installed"
 else
   brew install macvim --with-cscope --with-lua --HEAD
-fi
-
-echo "  > Installing jshint..."
-if command -v jshint >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  npm install -g jshint
 fi
 
 echo "  > Pulling latest changes..."
