@@ -23,6 +23,17 @@ install_dependencies_with_homebrew() {
   done
 }
 
+install_fish() {
+  if ! hash fish 2>/dev/null; then
+    echo "  > Installing fish..."
+    brew install fish
+
+    echo "  > Setting fish as default shell..."
+    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+    chsh -s /usr/local/bin/fish
+  fi
+}
+
 echo "      _       _    __ _ _            "
 echo "     | |     | |  / _(_) |           "
 echo "   __| | ___ | |_| |_ _| | ___  ___  "
@@ -44,17 +55,8 @@ echo "  > Updating homebrew..."
 brew update &> /dev/null
 
 install_dependencies_with_homebrew
+installed_fish
 
-echo "  > Installing fish..."
-if command -v fish >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install fish
-
-  echo "  > Setting fish as default shell..."
-  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-  chsh -s /usr/local/bin/fish
-fi
 
 echo "  > Installing macvim..."
 if command -v mvim >/dev/null 2>&1; then
