@@ -3,6 +3,7 @@
 set -e
 
 DOTFILES_DIR=$(pwd)
+BREW_DEPENDENCIES=(rbenv ruby-build ag tree tig node)
 
 create_symlinks() {
   for file in *; do
