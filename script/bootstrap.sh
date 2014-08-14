@@ -43,6 +43,13 @@ install_fish() {
   fi
 }
 
+install_macvim() {
+  if ! hash mvim 2>/dev/null; then
+    echo "  > Installing macvim..."
+    brew install macvim --with-cscope --with-lua --HEAD
+  fi
+}
+
 echo "      _       _    __ _ _            "
 echo "     | |     | |  / _(_) |           "
 echo "   __| | ___ | |_| |_ _| | ___  ___  "
@@ -66,13 +73,7 @@ brew update &> /dev/null
 install_dependencies_with_homebrew
 install_dependencies_with_npm
 install_fish
-
-echo "  > Installing macvim..."
-if command -v mvim >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install macvim --with-cscope --with-lua --HEAD
-fi
+install_macvim
 
 echo "  > Pulling latest changes..."
 git pull &> /dev/null
