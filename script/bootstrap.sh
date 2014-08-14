@@ -55,7 +55,7 @@ echo "  > Updating homebrew..."
 brew update &> /dev/null
 
 install_dependencies_with_homebrew
-installed_fish
+install_fish
 
 
 echo "  > Installing macvim..."
