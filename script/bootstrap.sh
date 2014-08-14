@@ -13,6 +13,16 @@ create_symlinks() {
   done
 }
 
+install_dependencies_with_homebrew() {
+  for dependency in ${BREW_DEPENDENCIES[@]}; do
+    if ! hash $dependency 2>/dev/null; then
+      echo "  > Installing" $dependency "..."
+
+      brew install $dependency
+    fi
+  done
+}
+
 echo "      _       _    __ _ _            "
 echo "     | |     | |  / _(_) |           "
 echo "   __| | ___ | |_| |_ _| | ___  ___  "
