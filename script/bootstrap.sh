@@ -60,6 +60,20 @@ else
   brew install tree
 fi
 
+echo "  > Installing tree..."
+if command -v tree >/dev/null 2>&1; then
+  echo "  > Skipping, already installed"
+else
+  brew install tree
+fi
+
+echo "  > Installing tig..."
+if command -v tig >/dev/null 2>&1; then
+  echo "  > Skipping, already installed"
+else
+  brew install tig
+fi
+
 echo "  > Installing fish..."
 if command -v fish >/dev/null 2>&1; then
   echo "  > Skipping, already installed"
