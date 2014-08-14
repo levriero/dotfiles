@@ -43,47 +43,7 @@ echo "==> Installing..."
 echo "  > Updating homebrew..."
 brew update &> /dev/null
 
-echo "  > Installing rbenv..."
-if command -v rbenv >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install rbenv --HEAD
-fi
-
-echo "  > Installing ruby-build..."
-if command -v ruby-build >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install ruby-build
-fi
-
-echo "  > Installing the_silver_searcher..."
-if command -v ag >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install the_silver_searcher
-fi
-
-echo "  > Installing tree..."
-if command -v tree >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install tree
-fi
-
-echo "  > Installing tree..."
-if command -v tree >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install tree
-fi
-
-echo "  > Installing tig..."
-if command -v tig >/dev/null 2>&1; then
-  echo "  > Skipping, already installed"
-else
-  brew install tig
-fi
+install_dependencies_with_homebrew
 
 echo "  > Installing fish..."
 if command -v fish >/dev/null 2>&1; then
