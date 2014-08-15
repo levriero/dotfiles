@@ -1,10 +1,10 @@
 scriptencoding utf-8 " Set encoding to UTF-8
-set encoding=utf-8
-set shell=/bin/sh    " Use shell for commands - For fish, as it is a non POSIX shell
-set nocompatible     " Don't be compatible with vi
+set encoding=utf-8   " Set encoding to UTF-8
+set shell=/bin/sh    " Use sh for shell commands
+set nocompatible     " Don't be backwards compatible with vi
 filetype off         " Required for Vundle
 
-" set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle, and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -31,36 +31,36 @@ filetype plugin indent on " Enable back filetype plugins
 " General Settings
 " ===============================================================================
 
-syntax on                                     " Enable syntax highlighting
-set ttyfast                                   " Notify of running fast terminal, improves redrawing
-set lazyredraw                                " Don't redraw when running macros
-set autoindent                                " Enable autoindent
-set showmatch                                 " Show bracket matches
-set number                                    " Enable line numbers
-set autoread                                  " Enable auto-reading of files if they have been changed from the outside
-set autowriteall                              " Save on buffer switch
-set nobackup                                  " Disable backup files
-set noswapfile                                " Disable swap files
-set splitright                                " Split new buffers to the right
-set showcmd                                   " Display incomplete commands
-set hidden                                    " Hides buffers instead of closing them
-set hlsearch                                  " Hightlight search matches
-set incsearch                                 " Incremental search
-set ignorecase                                " Ignore case in search
-set smartcase                                 " Don't ignore case if an uppercase letter is used
-set gdefault                                  " Apply global substitutions by default
-set list                                      " Hightlight whitespace characters
-set t_Co=256                                  " Enable 256 color schemes
-set background=dark                           " Set dark background
-set expandtab                                 " Use spaces not tabs
-set tabstop=2                                 " Set indentation to 2 spaces
+syntax on                     " Enable syntax highlighting
+set ttyfast                   " Notify of running fast terminal, improves redrawing
+set lazyredraw                " Don't redraw when running macros
+set autoindent                " Enable autoindent
+set showmatch                 " Show bracket matches
+set number                    " Enable line numbers
+set autoread                  " Enable auto-reading of files if they have been changed from the outside
+set autowriteall              " Save on buffer switch
+set nobackup                  " Disable backup files
+set noswapfile                " Disable swap files
+set splitright                " Split new buffers to the right
+set showcmd                   " Display incomplete commands
+set hidden                    " Hides buffers instead of closing them
+set hlsearch                  " Hightlight search matches
+set incsearch                 " Incremental search
+set ignorecase                " Ignore case in search
+set smartcase                 " Don't ignore case if an uppercase letter is used
+set gdefault                  " Apply global substitutions by default
+set list                      " Hightlight whitespace characters
+set t_Co=256                  " Enable 256 color schemes
+set background=dark           " Set dark background
+set expandtab                 " Use spaces not tabs
+set tabstop=2                 " Set indentation to 2 spaces
 set shiftwidth=2
-set mouse=a                                   " Enable mouse support for all modes
-set listchars=tab:▸\ ,trail:·                 " Customize whitespace characters shown
-set guioptions-=r                             " Remove scrollbars
-set guioptions-=L                             " Remove scrollbars
-set clipboard=unnamed                         " Use system clipboard
-colorscheme base16-ocean                      " Set color scheme
+set mouse=a                   " Enable mouse support for all modes
+set listchars=tab:▸\ ,trail:· " Customize whitespace characters shown
+set guioptions-=r             " Remove scrollbars
+set guioptions-=L             " Remove scrollbars
+set clipboard=unnamed         " Use system clipboard
+colorscheme base16-ocean      " Set color scheme
 
 " Set leader key to space
 let mapleader="\<space>"
@@ -92,8 +92,8 @@ if executable('ag')
   let g:unite_source_grep_max_candidates = 200
 endif
 
-" Ignore folders for file searching
-call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images')
+" Ignore folders on file searching
+call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images\|\node_modules')
 
 " Mappings
 nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
@@ -122,9 +122,9 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Emmet-vim
 " ===============================================================================
 
-let g:user_emmet_install_global = 0               " Enable just for the given file types
-let g:user_emmet_mode           = 'a'             " Enable all functions in all modes
-let g:user_emmet_leader_key     = '<C-y>'
+let g:user_emmet_install_global = 0       " Enable just for the given file types
+let g:user_emmet_mode           = 'a'     " Enable all functions in all modes
+let g:user_emmet_leader_key     = '<C-y>' " Trigger emmet (followed by comma)
 
 autocmd FileType html,css,eruby,scss EmmetInstall " Only for frontend code
 
