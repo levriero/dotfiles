@@ -70,7 +70,6 @@ let mapleader="\<space>"
 " ===============================================================================
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
-autocmd FocusLost * :wa                                     " Save file on focus lost
 autocmd FileType markdown,text setlocal spell               " Enable spell check for text files
 
 " Only show cursorline in the current window and in normal mode
