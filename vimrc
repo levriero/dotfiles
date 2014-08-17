@@ -109,7 +109,7 @@ call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cach
 
 " Mappings
 nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
-nnoremap <leader>b :Unite -quick-match buffer<CR>
+nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
