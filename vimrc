@@ -196,6 +196,20 @@ nnoremap ; :
 nnoremap : ;
 
 " ===============================================================================
+" Abbreviations
+" ===============================================================================
+
+autocmd FileType javascript :iabbrev <buffer> iif (function() {
+      \<CR>'use strict';
+      \<CR>
+      \<CR>})();<ESC><s-O>
+
+autocmd FileType javascript :iabbrev <buffer> jdescribe describe('', function() {
+      \<CR>it('should ', function() {
+      \<CR>});
+      \<CR>});<ESC><up><s-O>
+
+" ===============================================================================
 " Functions
 " ===============================================================================
 
