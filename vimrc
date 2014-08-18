@@ -204,7 +204,7 @@ autocmd FileType javascript :iabbrev <buffer> iif (function() {
       \<CR>
       \<CR>})();<ESC><s-O>
 
-autocmd FileType javascript :iabbrev <buffer> jdescribe describe('', function() {
+autocmd FileType javascript :iabbrev <buffer> jdes describe('', function() {
       \<CR>it('should ', function() {
       \<CR>});
       \<CR>});<ESC><up><s-O>
