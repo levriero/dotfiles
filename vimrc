@@ -23,6 +23,7 @@ Plugin 'bling/vim-airline'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-endwise'
+Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
