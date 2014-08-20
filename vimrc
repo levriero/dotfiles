@@ -170,7 +170,7 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 " netrw
 " ===============================================================================
 
-let g:netrw_list_hide= '.git'
+let g:netrw_list_hide= '.git,.DS_Store'
 
 " ===============================================================================
 " Mappings
