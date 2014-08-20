@@ -3,7 +3,7 @@
 set -e
 
 DOTFILES_DIR=$(pwd)
-BREW_DEPENDENCIES=(rbenv ruby-build ag tree tig node reattach-to-user-namespace)
+BREW_DEPENDENCIES=(rbenv ruby-build ag tree tig node reattach-to-user-namespace ctags)
 NPM_DEPENDENCIES=(jshint)
 
 create_symlinks() {
