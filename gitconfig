@@ -5,7 +5,7 @@
   ui = true
 [core]
   editor = vim
-  excludesfiles = $HOME/.gitignore_global
+  excludesfiles = ~/.gitignore
 [push]
   default = simple
 [help]
