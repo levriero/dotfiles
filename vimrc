@@ -55,7 +55,7 @@ set hidden                    " Hide buffers instead of closing them
 set splitright                " Split new buffers to the right
 
 set showcmd                   " Display incomplete commands
-set wildmenu                  " Enhance command line complition
+set wildmenu                  " Enhance command line completion
 
 set hlsearch                  " Hightlight search matches
 set incsearch                 " Incremental search
