@@ -8,7 +8,7 @@ NPM_DEPENDENCIES=(jshint)
 
 create_symlinks() {
   for file in *; do
-    if ! (echo $file | grep -q "script\|com\|text_\|README"); then
+    if ! (echo $file | grep -q "script\|README"); then
       ln -sf $(pwd)/$file $HOME/.$file
     fi
   done
