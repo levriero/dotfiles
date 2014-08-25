@@ -55,6 +55,7 @@ set hidden                    " Hide buffers instead of closing them
 set splitright                " Split new buffers to the right
 
 set showcmd                   " Display incomplete commands
+set wildmenu                  " Enhance command line complition
 
 set hlsearch                  " Hightlight search matches
 set incsearch                 " Incremental search
@@ -72,9 +73,6 @@ set shiftwidth=2              " Set indentation to 2 spaces
 
 set mouse=a                   " Enable mouse support for all modes
 set clipboard=unnamed         " Use system clipboard
-
-set guioptions-=r             " Remove scrollbars
-set guioptions-=L             " Remove scrollbars
 
 " Set leader key to space
 let mapleader="\<space>"
