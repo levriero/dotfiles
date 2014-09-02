@@ -104,7 +104,7 @@ if executable('ag')
 endif
 
 " Ignore folders on file searching
-call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.git\|\images\|\node_modules')
+call unite#custom#source('file, file_rec/async', 'ignore_pattern', '\.rsync_cache\|\.sass-cache\|\.git\|\images\|\node_modules')
 
 " Mappings
 nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
