@@ -9,5 +9,7 @@
     // Underscore/Lodash
     "_"
   ],
-  "globalstrict": true
+
+  "globalstrict": true,
+  "camelcase": false
 }
