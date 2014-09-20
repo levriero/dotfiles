@@ -6,8 +6,15 @@ set -x EDITOR 'mvim -v'
 set -x GIT_EDITOR 'mvim -v'
 
 # Homebrew
-set -x PATH /usr/local/bin $PATH
+set homebrew /usr/local/bin
+
+# heroku CLI
+set heroku /usr/local/heroku/bin
+
+# PATH
+set -x PATH $homebrew $heroku $PATH
 
 # rbenv
 set PATH $HOME/.rbenv/bin $PATH
 . (rbenv init -|psub)
+
