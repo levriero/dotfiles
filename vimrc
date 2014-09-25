@@ -74,6 +74,9 @@ set shiftwidth=2              " Set indentation to 2 spaces
 set mouse=a                   " Enable mouse support for all modes
 set clipboard=unnamed         " Use system clipboard
 
+set noerrorbells              " Disable error bells
+set novisualbell              " Disable error flashing
+
 " Set leader key to space
 let mapleader="\<space>"
 
