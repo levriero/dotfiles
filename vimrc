@@ -33,10 +33,10 @@ filetype plugin indent on " Turn file type detection back on
 " ===============================================================================
 
 syntax on                     " Enable syntax highlighting
-colorscheme base16-ocean      " Set color scheme
+colorscheme base16-tomorrow   " Set color scheme
 
 set t_Co=256                  " Enable 256 color schemes
-set background=dark           " Set dark background
+set background=light          " Set light background
 
 set ttyfast                   " Notify of running fast terminal, improves redrawing
 set lazyredraw                " Don't redraw when running macros
