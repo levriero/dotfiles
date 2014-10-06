@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -32,8 +32,8 @@ filetype plugin indent on " Turn file type detection back on
 " General Settings
 " ===============================================================================
 
-syntax on                     " Enable syntax highlighting
-colorscheme base16-tomorrow   " Set color scheme
+syntax enable                 " Enable syntax highlighting
+colorscheme solarized         " Set color scheme
 
 set t_Co=256                  " Enable 256 color schemes
 set background=light          " Set light background
