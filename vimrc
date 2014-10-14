@@ -161,8 +161,9 @@ let g:airline_powerline_fonts = 1
 " ===============================================================================
 " rspec.vim
 " ===============================================================================
-
-let g:rspec_runner = "os_x_iterm"
+"
+let g:rspec_command = '!bundle exec rspec {spec}'
+let g:rspec_runner  = 'os_x_iterm'
 
 nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>rn :call RunNearestSpec()<CR>
