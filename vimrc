@@ -119,7 +119,10 @@ endif
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
   \ '\.git/',
   \ '\.tmp/',
+  \ 'tmp',
   \ 'node_modules',
+  \ 'coverage',
+  \ 'images',
   \ 'bower_components',
   \ '.sass-cache',
   \ '.pdf',
