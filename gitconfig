@@ -24,5 +24,6 @@
   dc  = diff --cached
   lg  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   ls  = branch
+  dd  = branch -D
 [fetch]
   prune = true
