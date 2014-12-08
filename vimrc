@@ -82,15 +82,7 @@ set novisualbell              " Disable error flashing
 " Set leader key to space
 let mapleader="\<space>"
 
-" ===============================================================================
-" Graphic
-" ===============================================================================
-if has('gui_running')
-  set guifont=Source_Code_Pro_Medium:h13
-  set guioptions-=r " Remove right-hand scroll bar
-  set guioptions-=L " Remove left-hand scroll bar
-endif
-
+"
 " ===============================================================================
 " Autocommand
 " ===============================================================================
