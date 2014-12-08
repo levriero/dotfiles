@@ -2,7 +2,7 @@
 
 ```bash
 $ git clone git@github.com:gbonfant/dotfiles.git
-$ sh dotfiles/script/bootstrap.sh
+$ sh dotfiles/script/setup.sh
 ```
 
 ## Post installation

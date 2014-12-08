@@ -61,22 +61,17 @@ echo "                                     "
 
 
 cd $DOTFILES_DIR
-echo "==> Installing..."
-
-# ===================================
-# Homebrew installs
-# ===================================
 
 echo "  > Updating homebrew..."
 brew update &> /dev/null
+
+echo "  > Pulling latest changes..."
+git pull &> /dev/null
 
 install_dependencies_with_homebrew
 install_dependencies_with_npm
 install_fish
 install_macvim
-
-echo "  > Pulling latest changes..."
-git pull &> /dev/null
 
 echo "  > Creating symlinks..."
 create_symlinks
