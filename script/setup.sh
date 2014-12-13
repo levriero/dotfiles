@@ -71,7 +71,6 @@ git pull &> /dev/null
 install_dependencies_with_homebrew
 install_dependencies_with_npm
 install_fish
-install_macvim
 
 echo "  > Creating symlinks..."
 create_symlinks
