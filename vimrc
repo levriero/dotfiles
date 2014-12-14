@@ -1,31 +1,20 @@
-scriptencoding utf-8 " Set encoding to UTF-8
-set encoding=utf-8   " Set encoding to UTF-8
-set shell=/bin/sh    " Use sh for shell commands
-set nocompatible     " Don't be backwards compatible with vi
-filetype off         " Required for Vundle
+" Set encoding to UTF-8
+scriptencoding utf-8
+set encoding=utf-8
 
-" set the runtime path to include Vundle, and initialize
+" Use sh for shell commands
+set shell=/bin/sh
+
+" Don't be backwards compatible with vi
+set nocompatible
+
+" Required for Vundle
+filetype off
+
+" Set the runtime path to include Vundle, and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-endwise'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
@@ -35,7 +24,6 @@ filetype plugin indent on " Turn file type detection back on
 " ===============================================================================
 
 syntax enable                 " Enable syntax highlighting
-colorscheme solarized         " Set color scheme
 
 set t_Co=256                  " Enable 256 color schemes
 set background=light          " Set light background
@@ -96,90 +84,6 @@ augroup cline
   au WinLeave,InsertEnter * set nocursorline
   au WinEnter,InsertLeave * set cursorline
 augroup END
-
-" ===============================================================================
-" Unite
-" ===============================================================================
-
-" Use ag for grep searching
-if executable('ag')
-  let g:unite_source_grep_command        = 'ag'
-  let g:unite_source_grep_default_opts   = '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
-  let g:unite_source_grep_recursive_opt  = ''
-  let g:unite_source_grep_max_candidates = 200
-endif
-
-" Ignore folders on file searching
-call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
-  \ '\.git/',
-  \ '\.tmp/',
-  \ 'tmp',
-  \ 'node_modules',
-  \ 'coverage',
-  \ 'images',
-  \ 'bower_components',
-  \ '.sass-cache',
-  \ '.pdf',
-  \ ], '\|'))
-
-" Mappings
-nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
-nnoremap <leader>b :Unite buffer<CR>
-nnoremap <leader>f :Unite grep:.<CR>
-
-" ===============================================================================
-" Neocomplete
-" ===============================================================================
-
-let g:neocomplete#enable_at_startup                 = 1 " Enable neocomplete
-let g:neocomplete#enable_smart_case                 = 1 " Use smartcase.
-let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
-
-" Close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-endfunction
-
-" Tab completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" ===============================================================================
-" Emmet-vim
-" ===============================================================================
-
-let g:user_emmet_install_global = 0       " Enable just for the given file types
-let g:user_emmet_mode           = 'a'     " Enable all functions in all modes
-let g:user_emmet_leader_key     = '<C-y>' " Trigger emmet (followed by comma)
-
-autocmd FileType html,css,eruby,scss EmmetInstall " Only for frontend code
-
-" ===============================================================================
-" Vim-airline
-" ===============================================================================
-
-set laststatus=2
-set noshowmode
-
-let g:airline_powerline_fonts = 1
-
-" ===============================================================================
-" rspec.vim
-" ===============================================================================
-"
-let g:rspec_command = '!bundle exec rspec {spec}'
-let g:rspec_runner  = 'os_x_iterm'
-
-nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <Leader>ra :call RunAllSpecs()<CR>
-
-" ===============================================================================
-" Syntastic
-" ===============================================================================
-
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " ===============================================================================
 " netrw
