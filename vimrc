@@ -20,6 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
@@ -33,7 +34,7 @@ syntax enable
 
 " Set colorscheme
 set t_Co=256
-set background=light
+let g:seoul256_light_background = 256
 colorscheme seoul256-light
 
 set ttyfast                   " Notify of running fast terminal, improves redrawing
@@ -102,6 +103,18 @@ augroup END
 " ===============================================================================
 
 let g:netrw_list_hide= '.git,.DS_Store'
+
+" ===============================================================================
+" tmuxline
+" ===============================================================================
+
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#I #W',
+      \'x'    : '%a',
+      \'y'    : '%R',
+      \'z'    : '#h'}
 
 " ===============================================================================
 " Mappings
