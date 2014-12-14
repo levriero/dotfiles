@@ -15,6 +15,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'junegunn/seoul256.vim'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
@@ -23,10 +28,13 @@ filetype plugin indent on " Turn file type detection back on
 " General Settings
 " ===============================================================================
 
-syntax enable                 " Enable syntax highlighting
+" Enable syntax highlighting
+syntax enable
 
-set t_Co=256                  " Enable 256 color schemes
-set background=light          " Set light background
+" Set colorscheme
+set t_Co=256
+set background=light
+colorscheme seoul256-light
 
 set ttyfast                   " Notify of running fast terminal, improves redrawing
 set lazyredraw                " Don't redraw when running macros
@@ -67,16 +75,20 @@ set clipboard=unnamed         " Use system clipboard
 set noerrorbells              " Disable error bells
 set novisualbell              " Disable error flashing
 
+set laststatus=2              " Display status var
+
 " Set leader key to space
 let mapleader="\<space>"
 
-"
 " ===============================================================================
 " Autocommand
 " ===============================================================================
 
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces() " Remove trailing whitespaces automatically when a file is saved
-autocmd FileType markdown,text setlocal spell               " Enable spell check for text files
+" Remove trailing whitespaces automatically when a file is saved
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Enable spell check for text files
+autocmd FileType markdown,text setlocal spell
 
 " Only show cursorline in the current window and in normal mode
 augroup cline
