@@ -8,7 +8,7 @@ NPM_DEPENDENCIES=(jshint)
 
 create_symlinks() {
   for file in *; do
-    if ! (echo $file | grep -q "script\|README"); then
+    if ! (echo $file | grep -q "script\|README\|config"); then
       ln -sf $(pwd)/$file $HOME/.$file
     fi
   done
@@ -40,13 +40,6 @@ install_fish() {
     echo "  > Setting fish as default shell..."
     echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
     chsh -s /usr/local/bin/fish
-  fi
-}
-
-install_macvim() {
-  if ! hash mvim 2>/dev/null; then
-    echo "  > Installing macvim..."
-    brew install macvim --with-cscope --with-lua --HEAD
   fi
 }
 
