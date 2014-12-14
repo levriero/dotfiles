@@ -28,6 +28,7 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'wincent/Command-T'
 Plugin 'junegunn/goyo.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
