@@ -24,7 +24,6 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'wincent/Command-T'
 Plugin 'junegunn/goyo.vim'
@@ -111,18 +110,6 @@ augroup END
 " ===============================================================================
 
 let g:netrw_list_hide= '.git,.DS_Store'
-
-" ===============================================================================
-" tmuxline
-" ===============================================================================
-
-let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '#I #W',
-      \'x'    : '%a',
-      \'y'    : '%R',
-      \'z'    : '#h'}
 
 " ===============================================================================
 " command-t
