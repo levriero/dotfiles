@@ -18,9 +18,16 @@ call vundle#begin()
 " Let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'wincent/Command-T'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
@@ -115,6 +122,16 @@ let g:tmuxline_preset = {
       \'x'    : '%a',
       \'y'    : '%R',
       \'z'    : '#h'}
+
+" ===============================================================================
+" command-t
+" ===============================================================================
+
+let g:CommandTMatchWindowAtTop = 1
+let g:CommandTMaxHeight = 30
+let g:CommandTInputDebounce = 100
+
+nnoremap <silent> <Leader>p :CommandT<CR>
 
 " ===============================================================================
 " Mappings
