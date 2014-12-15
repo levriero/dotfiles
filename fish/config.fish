@@ -8,5 +8,4 @@ set heroku /usr/local/heroku/bin
 set -x PATH $heroku $PATH
 
 # rbenv
-set -gx RBENV_ROOT /usr/local/var/rbenv
-. (rbenv init -|psub)
+status --is-interactive; and . (rbenv init -|psub)
