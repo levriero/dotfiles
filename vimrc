@@ -136,9 +136,9 @@ call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
   \ ], '\|'))
 
 " Mappings
-nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
+nnoremap <leader>p :Unite -start-insert file_rec/async<CR>
 nnoremap <leader>b :Unite buffer<CR>
-nnoremap <leader>f :Unite ag: <CR>
+nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
 " Mappings
