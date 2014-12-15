@@ -22,6 +22,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/syntastic'
@@ -85,6 +86,7 @@ set noerrorbells              " Disable error bells
 set novisualbell              " Disable error flashing
 
 set laststatus=2              " Display status var
+set noshowmode                " Don't show default vim mode information
 
 " Set leader key to space
 let mapleader="\<space>"
@@ -113,6 +115,24 @@ augroup END
 let g:netrw_list_hide= '.git,.DS_Store'
 
 " ===============================================================================
+" lightline
+" ===============================================================================
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightlineFugitive'
+      \ }
+      \ }
+
+function! LightlineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+" ===============================================================================
 " Unite
 " ===============================================================================
 
@@ -135,7 +155,6 @@ call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
   \ '.pdf',
   \ ], '\|'))
 
-" Mappings
 nnoremap <leader>p :Unite -start-insert file_rec/async<CR>
 nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
