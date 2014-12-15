@@ -27,8 +27,8 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'junegunn/goyo.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
@@ -86,9 +86,6 @@ set novisualbell              " Disable error flashing
 
 set laststatus=2              " Display status var
 
-" Use ag over grep
-set grepprg=ag\ --nogroup\ --nocolor
-
 " Set leader key to space
 let mapleader="\<space>"
 
@@ -116,13 +113,32 @@ augroup END
 let g:netrw_list_hide= '.git,.DS_Store'
 
 " ===============================================================================
-" ctrlp
+" Unite
 " ===============================================================================
 
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
+" Use ag for grep searching
+let g:unite_source_grep_command        = 'ag'
+let g:unite_source_grep_default_opts   = '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
+let g:unite_source_grep_recursive_opt  = ''
+
+" Ignore folders on file searching
+call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
+  \ '\.git/',
+  \ '\.tmp/',
+  \ 'tmp',
+  \ 'node_modules',
+  \ 'coverage',
+  \ 'images',
+  \ 'fonts',
+  \ 'bower_components',
+  \ '.sass-cache',
+  \ '.pdf',
+  \ ], '\|'))
+
+" Mappings
+nnoremap <leader>p :Unite -start-insert file_rec/async <CR>
+nnoremap <leader>b :Unite buffer<CR>
+nnoremap <leader>f :Unite ag: <CR>
 
 " ===============================================================================
 " Mappings
