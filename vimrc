@@ -25,9 +25,10 @@ Plugin 'tpope/vim-endwise'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'wincent/Command-T'
 Plugin 'junegunn/goyo.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
@@ -112,14 +113,10 @@ augroup END
 let g:netrw_list_hide= '.git,.DS_Store'
 
 " ===============================================================================
-" command-t
+" ctrlp
 " ===============================================================================
 
-let g:CommandTMatchWindowAtTop = 1
-let g:CommandTMaxHeight = 30
-let g:CommandTInputDebounce = 100
-
-nnoremap <silent> <Leader>p :CommandT<CR>
+let g:ctrlp_map = '<leader>p'
 
 " ===============================================================================
 " Mappings
