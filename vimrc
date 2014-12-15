@@ -48,6 +48,7 @@ colorscheme seoul256-light
 
 set ttyfast                   " Notify of running fast terminal, improves redrawing
 set lazyredraw                " Don't redraw when running macros
+set synmaxcol=128             " Maximum column number to highlight
 
 set number                    " Enable line numbers
 set autoindent                " Enable autoindent
@@ -100,13 +101,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Enable spell check for text files
 autocmd FileType markdown,text setlocal spell
-
-" Only show cursorline in the current window and in normal mode
-augroup cline
-  au!
-  au WinLeave,InsertEnter * set nocursorline
-  au WinEnter,InsertLeave * set cursorline
-augroup END
 
 " ===============================================================================
 " netrw
