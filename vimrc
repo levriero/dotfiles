@@ -86,6 +86,9 @@ set novisualbell              " Disable error flashing
 
 set laststatus=2              " Display status var
 
+" Use ag over grep
+set grepprg=ag\ --nogroup\ --nocolor
+
 " Set leader key to space
 let mapleader="\<space>"
 
@@ -118,6 +121,12 @@ let g:netrw_list_hide= '.git,.DS_Store'
 
 let g:ctrlp_map = '<leader>p'
 
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" ag is fast enough that CtrlP doesn't need to cache
+let g:ctrlp_use_caching = 0
+
 " ===============================================================================
 " Mappings
 " ===============================================================================
@@ -133,6 +142,7 @@ nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>j
 nnoremap / /\v
 vnoremap / /\v
+nnoremap \ :Ag<SPACE>
 nnoremap H ^
 nnoremap L $
 nnoremap ; :
