@@ -18,19 +18,28 @@ call vundle#begin()
 " Let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
+" UI
+Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'junegunn/goyo.vim'
-Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+
+" Editing
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+
+" tmux
+Plugin 'tpope/vim-dispatch'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Clojure
+Plugin 'tpope/vim-fireplace'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
