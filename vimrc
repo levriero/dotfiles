@@ -25,7 +25,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-vinegar'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/syntastic'
@@ -108,7 +107,7 @@ autocmd FileType markdown,text setlocal spell
 " netrw
 " ===============================================================================
 
-let g:netrw_list_hide= '.git,.DS_Store'
+let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
 
 " ===============================================================================
 " lightline
