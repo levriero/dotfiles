@@ -53,8 +53,8 @@ syntax enable
 
 " Set colorscheme
 set t_Co=256
-let g:seoul256_light_background = 256
-colorscheme seoul256-light
+set background=dark
+colorscheme seoul256
 
 set ttyfast                   " Notify of running fast terminal, improves redrawing
 set lazyredraw                " Don't redraw when running macros
