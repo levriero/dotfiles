@@ -130,12 +130,22 @@ let g:lightline = {
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive'
+      \   'fugitive': 'LightlineFugitive',
+      \   'fileformat': 'LightlineFileFormat',
+      \   'fileencoding': 'LightlineFileEncoding',
       \ }
       \ }
 
 function! LightlineFugitive()
   return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! LightlineFileFormat()
+  return ''
+endfunction
+
+function! LightlineFileEncoding()
+  return ''
 endfunction
 
 " ===============================================================================
