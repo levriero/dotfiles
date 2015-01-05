@@ -41,6 +41,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Clojure
 Plugin 'tpope/vim-fireplace'
 
+" Ruby
+Plugin 'thoughtbot/vim-rspec'
+
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
 
@@ -161,6 +164,16 @@ call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
 nnoremap <leader>p :Unite -start-insert file_rec/async<CR>
 nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
+
+" ===============================================================================
+" rspec.vim
+" ===============================================================================
+"
+let g:rspec_command = 'Dispatch rspec {spec}'
+
+nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
 " ===============================================================================
 " Mappings
