@@ -23,6 +23,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/seoul256.vim'
 Plugin 'itchyny/lightline.vim'
 
+" Misc
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'ervandew/supertab'
@@ -38,11 +39,10 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Clojure
-Plugin 'tpope/vim-fireplace'
-
-" Ruby
+" Languages
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
