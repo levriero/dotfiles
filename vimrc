@@ -195,9 +195,9 @@ nnoremap H ^
 nnoremap L $
 nnoremap ; :
 nnoremap : ;
-nnoremap <Leader>rc :call RunCurrentTestFile()<CR>
-nnoremap <Leader>rn :call RunNearestTest()<CR>
-nnoremap <Leader>ra :call RunAllTests()<CR>
+nnoremap <Leader>rc :w<CR> :call RunCurrentTestFile()<CR>
+nnoremap <Leader>rn :w<CR> :call RunNearestTest()<CR>
+nnoremap <Leader>ra :w<CR> :call RunAllTests()<CR>
 
 function! RunCurrentTestFile()
   let command = "rspec " . @%
