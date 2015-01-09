@@ -37,10 +37,10 @@ Plugin 'tpope/vim-endwise'
 
 " tmux
 Plugin 'tpope/vim-dispatch'
+Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Languages
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-rails'
 
@@ -176,16 +176,6 @@ nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
-" rspec.vim
-" ===============================================================================
-"
-let g:rspec_command = 'Dispatch rspec {spec}'
-
-nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <Leader>ra :call RunAllSpecs()<CR>
-
-" ===============================================================================
 " Mappings
 " ===============================================================================
 
@@ -205,6 +195,24 @@ nnoremap H ^
 nnoremap L $
 nnoremap ; :
 nnoremap : ;
+nnoremap <Leader>rc :call RunCurrentTestFile()<CR>
+nnoremap <Leader>rn :call RunNearestTest()<CR>
+nnoremap <Leader>ra :call RunAllTests()<CR>
+
+function! RunCurrentTestFile()
+  let command = "rspec " . @%
+  VimuxRunCommand(command)
+endfunction
+
+function! RunNearestTest()
+  let command = "rspec " . @% . ":" . line(".")
+  VimuxRunCommand(command)
+endfunction
+
+function! RunAllTests()
+  let command = "rspec spec"
+  VimuxRunCommand(command)
+endfunction
 
 " ===============================================================================
 " Abbreviations
