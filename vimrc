@@ -114,6 +114,11 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " Enable spell check for text files
 autocmd FileType markdown,text setlocal spell
 
+" Save on buffer focus lost
+augroup AutoWrite
+  autocmd! BufLeave * :update
+augroup END
+
 " ===============================================================================
 " netrw
 " ===============================================================================
