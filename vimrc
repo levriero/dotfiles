@@ -205,17 +205,17 @@ nnoremap <Leader>rn :w<CR> :call RunNearestTest()<CR>
 nnoremap <Leader>ra :w<CR> :call RunAllTests()<CR>
 
 function! RunCurrentTestFile()
-  let command = "rspec " . @%
+  let command = "zeus rspec " . @%
   VimuxRunCommand(command)
 endfunction
 
 function! RunNearestTest()
-  let command = "rspec " . @% . ":" . line(".")
+  let command = "zeus rspec " . @% . ":" . line(".")
   VimuxRunCommand(command)
 endfunction
 
 function! RunAllTests()
-  let command = "rspec spec"
+  let command = "zeus rspec spec"
   VimuxRunCommand(command)
 endfunction
 
