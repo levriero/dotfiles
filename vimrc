@@ -185,7 +185,7 @@ nnoremap <leader>f :Unite grep:.<CR>
 " ===============================================================================
 
 nnoremap <leader><space> :noh<CR>
-nnoremap <leader>e :Ex<CR>
+nnoremap <leader>e :Explore<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap j gj
