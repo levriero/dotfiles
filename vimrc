@@ -63,7 +63,10 @@ set ttyfast                   " Notify of running fast terminal, improves redraw
 set lazyredraw                " Don't redraw when running macros
 set synmaxcol=128             " Maximum column number to highlight
 
-set number                    " Enable line numbers
+" Show (relative) line numbers
+set number
+set relativenumber
+
 set autoindent                " Enable autoindent
 set showmatch                 " Show bracket matches
 
