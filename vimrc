@@ -67,8 +67,12 @@ set number                    " Enable line numbers
 set autoindent                " Enable autoindent
 set showmatch                 " Show bracket matches
 
-set autoread                  " Enable auto-reading of files if they have been changed from the outside
-set autowriteall              " Save on buffer switch
+" Enable auto-reading of files if they have been changed from the outside
+set autoread
+
+" Save on 'focus' switch
+set autowrite
+set autowriteall
 
 set nobackup                  " Disable backup files
 set noswapfile                " Disable swap files
