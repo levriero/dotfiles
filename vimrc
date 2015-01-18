@@ -77,6 +77,9 @@ set autoread
 set autowrite
 set autowriteall
 
+" Sane backspacing
+set backspace=indent,eol,start
+
 set nobackup                  " Disable backup files
 set noswapfile                " Disable swap files
 
