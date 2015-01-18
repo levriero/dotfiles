@@ -1,14 +1,10 @@
-# Greeting message
 set fish_greeting
 
-# heroku CLI
 set heroku /usr/local/heroku/bin
-
-# cdpath
 set cdpath $HOME/Projects
-set -x CDPATH . ~ $cdpath
 
-# PATH
+set -x EDITOR "vim"
+set -x CDPATH . ~ $cdpath
 set -x PATH $heroku $PATH
 
 # rbenv
