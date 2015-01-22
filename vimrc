@@ -43,6 +43,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Languages
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-rails'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx.git'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
