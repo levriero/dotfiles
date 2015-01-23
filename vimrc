@@ -223,9 +223,10 @@ nnoremap H ^
 nnoremap L $
 nnoremap ; :
 nnoremap : ;
-nnoremap <Leader>rc :w<CR> :call RunCurrentTestFile()<CR>
-nnoremap <Leader>rn :w<CR> :call RunNearestTest()<CR>
-nnoremap <Leader>ra :w<CR> :call RunAllTests()<CR>
+nnoremap <Leader>rc :w<CR>:call RunCurrentTestFile()<CR>
+nnoremap <Leader>rn :w<CR>:call RunNearestTest()<CR>
+nnoremap <Leader>ra :w<CR>:call RunAllTests()<CR>
+nnoremap <Leader>n :e %:h/
 
 function! RunCurrentTestFile()
   let command = "zeus rspec " . @%
