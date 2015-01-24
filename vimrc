@@ -213,7 +213,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
-inoremap jj <ESC>
+inoremap jk <ESC>
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>j
 nnoremap / /\v
