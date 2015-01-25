@@ -5,6 +5,7 @@ set -e
 DOTFILES_DIR=$(pwd)
 BREW_DEPENDENCIES=(rbenv ruby-build ag tree tig node reattach-to-user-namespace ctags tmux)
 NPM_DEPENDENCIES=(jshint)
+GEM_DEPENDENCIES=(pry reek flog zeus)
 
 create_symlinks() {
   for file in *; do
@@ -29,6 +30,12 @@ install_dependencies_with_npm() {
       echo "  > Installing" $dependency "..."
       npm install -g $dependency
     fi
+  done
+}
+
+install_dependencies_with_rubygems() {
+  for dependency in ${GEM_DEPENDENCIES[@]}; do
+    gem install $dependency
   done
 }
 
