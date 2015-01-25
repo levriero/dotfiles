@@ -227,7 +227,6 @@ nnoremap <Leader>tc :w<CR>:call RunCurrentTestFile()<CR>
 nnoremap <Leader>tn :w<CR>:call RunNearestTest()<CR>
 nnoremap <Leader>ta :w<CR>:call RunAllTests()<CR>
 nnoremap <Leader>r :w<CR>:call VimuxRunCommand("reek " . @%)<CR>
-nnoremap <Leader>f :w<CR>:call VimuxRunCommand("flog " . @%)<CR>
 nnoremap <Leader>n :e %:h/
 
 function! RunCurrentTestFile()
