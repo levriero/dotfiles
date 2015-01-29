@@ -18,8 +18,8 @@ def create_symlink(file)
 
   if file_exists_at(destination)
     puts "#{error_message} - The file already exists at the destination."
-  elsif File.directory?(source)
-    puts "#{error_message} - The file is a directory."
+  elsif File.basename(source) == ".git"
+    puts "#{error_message} - The file is a git directory."
   else
     File.symlink(source, destination)
   end
