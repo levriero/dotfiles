@@ -1,3 +1,27 @@
+desc "Set up dotfiles"
+task :setup do
+  puts "  > Pulling latest changes..."
+  `git pull &> /dev/null`
+
+  puts " > Installed brew dependencies..."
+  `brew tap Homebrew/brewdler`
+  `brew brewdle`
+
+  unless installed?("bundler")
+    puts " > Installing Bundler..."
+    `gem install bundler`
+  end
+
+  puts " > Installing gems..."
+  `bundle install`
+
+  puts " > Creating symlinks..."
+  Rake::Task["symlink"].invoke
+
+  puts " > Setting fish as default shell..."
+  Rake::Task["shell"].invoke
+end
+
 desc "Create symlinks to $HOME"
 task :symlink do
   Dir.foreach(Dir.pwd) do |file|
@@ -5,6 +29,12 @@ task :symlink do
 
     create_symlink(file)
   end
+end
+
+desc "Sets fish as default shell"
+task :shell do
+  system('echo "/usr/local/bin/fish" | sudo tee -a /etc/shells')
+  system('chsh -s /usr/local/bin/fish')
 end
 
 def file_exists_at(path)
@@ -23,4 +53,8 @@ def create_symlink(file)
   else
     File.symlink(source, destination)
   end
+end
+
+def installed?(command)
+  system("which #{command} > /dev/null 2>&1")
 end
