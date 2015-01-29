@@ -1,1 +1,13 @@
-.netrwhist
+# OS specific folder views and configuration files
+.DS_Store
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# ctags
+tags
