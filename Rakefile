@@ -42,6 +42,13 @@ task :shell do
   system('chsh -s /usr/local/bin/fish')
 end
 
+desc "Install Vundle, vim dependencies, and compile vimproc"
+task :vim do
+  `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+  `vundle`
+  `cd ~/.vim/bundle/vimproc.vim/; and ruby extconf.rb; and make`
+end
+
 def file_exists_at(path)
   File.exist?(path) || File.symlink?(path)
 end
