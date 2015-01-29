@@ -3,9 +3,12 @@ task :setup do
   puts "  > Pulling latest changes..."
   `git pull &> /dev/null`
 
-  puts " > Installed brew dependencies..."
+  puts " > Installing brew dependencies..."
   `brew tap Homebrew/brewdler`
   `brew brewdle`
+
+  puts " > Installing npm dependencies..."
+  `npm install jshint`
 
   unless installed?("bundler")
     puts " > Installing Bundler..."
@@ -20,6 +23,8 @@ task :setup do
 
   puts " > Setting fish as default shell..."
   Rake::Task["shell"].invoke
+
+  puts " > Done!"
 end
 
 desc "Create symlinks to $HOME"
