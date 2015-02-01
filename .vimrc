@@ -37,7 +37,6 @@ Plugin 'tpope/vim-endwise'
 
 " tmux
 Plugin 'tpope/vim-dispatch'
-Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Languages
@@ -45,6 +44,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-rails'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx.git'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()         " Required for Vundle
 filetype plugin indent on " Turn file type detection back on
@@ -145,8 +145,14 @@ let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
 " ===============================================================================
 " syntastic
 " ===============================================================================
-"
+
 let g:syntastic_javascript_checkers = ['jsxhint']
+
+" ===============================================================================
+" vim-rspec
+" ===============================================================================
+
+let g:rspec_command = '!zeus rspec {spec}'
 
 " ===============================================================================
 " lightline
@@ -223,25 +229,11 @@ nnoremap H ^
 nnoremap L $
 nnoremap ; :
 nnoremap : ;
-nnoremap <Leader>rc :w<CR>:call RunCurrentTestFile()<CR>
-nnoremap <Leader>rn :w<CR>:call RunNearestTest()<CR>
-nnoremap <Leader>ra :w<CR>:call RunAllTests()<CR>
 nnoremap <Leader>n :e %:h/
-
-function! RunCurrentTestFile()
-  let command = "zeus rspec " . @%
-  VimuxRunCommand(command)
-endfunction
-
-function! RunNearestTest()
-  let command = "zeus rspec " . @% . ":" . line(".")
-  VimuxRunCommand(command)
-endfunction
-
-function! RunAllTests()
-  let command = "zeus rspec spec"
-  VimuxRunCommand(command)
-endfunction
+nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>rl :call RunLastSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
 " ===============================================================================
 " Abbreviations
