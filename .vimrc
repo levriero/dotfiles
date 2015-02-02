@@ -38,6 +38,7 @@ Plugin 'tpope/vim-endwise'
 " tmux
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'jgdavey/tslime.vim'
 
 " Languages
 Plugin 'tpope/vim-fireplace'
@@ -152,7 +153,7 @@ let g:syntastic_javascript_checkers = ['jsxhint']
 " vim-rspec
 " ===============================================================================
 
-let g:rspec_command = '!zeus rspec {spec}'
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
 " ===============================================================================
 " lightline
