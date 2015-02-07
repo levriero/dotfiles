@@ -21,6 +21,8 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
+Plug 'justinmk/vim-gtfo'
+Plug 'mhinz/vim-signify'
 
 " Editing
 Plug 'tpope/vim-commentary'
@@ -143,10 +145,9 @@ let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
 let g:syntastic_javascript_checkers = ['jsxhint']
 
 " ===============================================================================
-" vim-rspec
+" vim-signify
 " ===============================================================================
-
-let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+let g:signify_vcs_list = ['git']
 
 " ===============================================================================
 " lightline
