@@ -32,7 +32,7 @@ Plug 'tpope/vim-endwise'
 " tmux
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jgdavey/tslime.vim'
+Plug 'benmills/vimux'
 
 " Languages
 Plug 'tpope/vim-fireplace',        { 'for': 'clojure' }
@@ -41,7 +41,7 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'tpope/vim-rails'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'thoughtbot/vim-rspec'
+Plug 'skalnik/vim-vroom'
 
 call plug#end()
 
@@ -205,13 +205,20 @@ nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
+" Vroom
+" ===============================================================================
+
+let g:vroom_use_vimux = 1
+nnoremap <leader>r :VroomRunTestFile<CR>
+nnoremap <leader>R :VroomRunNearestTest<CR>
+nnoremap <leader>l :VroomRunLastTest<CR>
+
+" ===============================================================================
 " Mappings
 " ===============================================================================
 
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>e :Explore<CR>
-nnoremap <tab> %
-vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
 inoremap jk <ESC>
@@ -219,16 +226,11 @@ nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>j
 nnoremap / /\v
 vnoremap / /\v
-nnoremap \ :Ag<SPACE>
 nnoremap H ^
 nnoremap L $
 nnoremap ; :
 nnoremap : ;
 nnoremap <Leader>n :e %:h/
-nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <Leader>rl :call RunLastSpec()<CR>
-nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
 " ===============================================================================
 " Abbreviations
