@@ -8,47 +8,40 @@ set shell=/bin/sh
 " Don't be backwards compatible with vi
 set nocompatible
 
-" Required for Vundle
-filetype off
-
-" Set the runtime path to include Vundle, and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " UI
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'itchyny/lightline.vim'
 
 " Misc
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
 
 " Editing
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
 
 " tmux
-Plugin 'tpope/vim-dispatch'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'jgdavey/tslime.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jgdavey/tslime.vim'
 
 " Languages
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-rails'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx.git'
-Plugin 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-fireplace',        { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static',    { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'tpope/vim-rails'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'thoughtbot/vim-rspec'
 
-call vundle#end()         " Required for Vundle
-filetype plugin indent on " Turn file type detection back on
+call plug#end()
 
 " ===============================================================================
 " General Settings
