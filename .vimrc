@@ -129,8 +129,8 @@ endif
 " Remove trailing whitespaces automatically when a file is saved
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-" Enable spell check for text files
-autocmd FileType markdown,text setlocal spell
+" Enable spell check and line wrapping for text files
+autocmd FileType markdown,text setlocal spell wrap linebreak nolist
 
 " Save on buffer focus lost
 augroup AutoWrite
