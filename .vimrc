@@ -153,7 +153,7 @@ let g:syntastic_javascript_checkers = ['jsxhint']
 " vim-rspec
 " ===============================================================================
 
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
 
 " ===============================================================================
 " lightline
@@ -220,7 +220,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
-inoremap jj <ESC>
+inoremap jk <ESC>
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>j
 nnoremap / /\v
