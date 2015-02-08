@@ -42,11 +42,10 @@ task :shell do
   system('chsh -s /usr/local/bin/fish')
 end
 
-desc "Install Vundle, vim dependencies, and compile vimproc"
+desc "Install vim-plug"
 task :vim do
-  `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-  `vundle`
-  `cd ~/.vim/bundle/vimproc.vim/; and ruby extconf.rb; and make`
+  `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 end
 
 def file_exists_at(path)
