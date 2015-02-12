@@ -5,9 +5,6 @@
 
     // Jasmine
     "describe", "beforeEach", "it", "expect", "spyOn",
-
-    // Underscore/Lodash
-    "_"
   ],
 
   "camelcase": false
