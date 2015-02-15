@@ -132,6 +132,9 @@ augroup AutoWrite
   autocmd! BufLeave * :update
 augroup END
 
+" Automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
 " ===============================================================================
 " netrw
 " ===============================================================================
