@@ -233,7 +233,13 @@ nnoremap H ^
 nnoremap L $
 nnoremap ; :
 nnoremap : ;
+
+" create a new file in the open buffer dir
 nnoremap <Leader>n :e %:h/
+
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 " ===============================================================================
 " Abbreviations
