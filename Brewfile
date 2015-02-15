@@ -9,3 +9,4 @@ brew 'ctags'
 brew 'tmux'
 brew 'vim', args: ['--with-lua']
 brew 'fish', args: ['--HEAD']
+brew 'htop'
