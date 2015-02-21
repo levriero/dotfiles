@@ -30,9 +30,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 
 " tmux
-Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-runner'
 
 " Languages
 Plug 'tpope/vim-fireplace',        { 'for': 'clojure' }
