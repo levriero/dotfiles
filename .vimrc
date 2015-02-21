@@ -40,7 +40,7 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'tpope/vim-rails'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'skalnik/vim-vroom'
+Plug 'thoughtbot/vim-rspec'
 
 call plug#end()
 
@@ -207,13 +207,25 @@ nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
 
 " ===============================================================================
-" Vroom
+" vim-rspec
 " ===============================================================================
 
-let g:vroom_use_vimux = 1
-nnoremap <leader>r :VroomRunTestFile<CR>
-nnoremap <leader>R :VroomRunNearestTest<CR>
-nnoremap <leader>l :VroomRunLastTest<CR>
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+
+nnoremap <Leader>R :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>r :call RunNearestSpec()<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
+nnoremap <Leader>a :call RunAllSpecs()<CR>
+
+
+" ===============================================================================
+" VimTmuxRunner
+" ===============================================================================
+
+nnoremap <leader>ta :VtrAttachToPane<cr>
+nnoremap <leader>to :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
+nnoremap <leader>tl :VtrSendLinesToRunner<cr>
+vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 
 " ===============================================================================
 " Mappings
