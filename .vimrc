@@ -145,6 +145,7 @@ let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
 " ===============================================================================
 
 let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " ===============================================================================
 " vim-signify
