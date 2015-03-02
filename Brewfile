@@ -1,4 +1,4 @@
-brew 'rbenv'
+brew 'rbenv', args: ['--HEAD']
 brew 'ruby-build'
 brew 'ag'
 brew 'tree'
