@@ -2,6 +2,7 @@ brew 'ag'
 brew 'battery'
 brew 'ctags'
 brew 'fish', args: ['--HEAD']
+brew 'git'
 brew 'htop'
 brew 'node'
 brew 'rbenv', args: ['--HEAD']
