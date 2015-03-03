@@ -213,10 +213,10 @@ nnoremap <leader>f :Unite grep:.<CR>
 
 let g:rspec_command = "call VtrSendCommand('bundle exec rspec {spec}')"
 
-nnoremap <Leader>R :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>r :call RunNearestSpec()<CR>
-nnoremap <Leader>l :call RunLastSpec()<CR>
-nnoremap <Leader>a :call RunAllSpecs()<CR>
+nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>rl :call RunLastSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
 
 " ===============================================================================
