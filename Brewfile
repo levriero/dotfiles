@@ -1,12 +1,13 @@
-brew 'rbenv', args: ['--HEAD']
-brew 'ruby-build'
 brew 'ag'
-brew 'tree'
-brew 'tig'
-brew 'node'
-brew 'reattach-to-user-namespace'
+brew 'battery'
 brew 'ctags'
-brew 'tmux'
-brew 'vim', args: ['--with-lua']
 brew 'fish', args: ['--HEAD']
 brew 'htop'
+brew 'node'
+brew 'rbenv', args: ['--HEAD']
+brew 'reattach-to-user-namespace'
+brew 'ruby-build'
+brew 'tig'
+brew 'tmux'
+brew 'tree'
+brew 'vim', args: ['--with-lua']
