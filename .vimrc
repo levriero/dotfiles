@@ -38,6 +38,7 @@ Plug 'tpope/vim-fireplace',        { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static',    { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'tpope/vim-rails'
+Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'thoughtbot/vim-rspec'
