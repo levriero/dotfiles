@@ -19,7 +19,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'ervandew/supertab'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'justinmk/vim-gtfo'
 Plug 'mhinz/vim-signify'
@@ -145,8 +144,8 @@ let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
 " syntastic
 " ===============================================================================
 
-let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_ruby_checkers = ['mri']
+" let g:syntastic_javascript_checkers = ['jsxhint']
+" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " ===============================================================================
 " vim-signify
