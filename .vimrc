@@ -212,7 +212,7 @@ nnoremap <leader>f :Unite grep:.<CR>
 " vim-rspec
 " ===============================================================================
 
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+let g:rspec_command = "call VtrSendCommand('spring rspec {spec}')"
 
 nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>rn :call RunNearestSpec()<CR>
