@@ -60,6 +60,7 @@ colorscheme seoul256
 set ttyfast                   " Notify of running fast terminal, improves redrawing
 set lazyredraw                " Don't redraw when running macros
 set synmaxcol=128             " Maximum column number to highlight
+set colorcolumn=80            " Display column at 80 characters
 
 " Show (relative) line numbers
 set number
