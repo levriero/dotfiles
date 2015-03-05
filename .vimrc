@@ -22,6 +22,7 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
 Plug 'justinmk/vim-gtfo'
 Plug 'mhinz/vim-signify'
+Plug 'scrooloose/syntastic'
 
 " Editing
 Plug 'tpope/vim-commentary'
@@ -144,8 +145,8 @@ let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
 " syntastic
 " ===============================================================================
 
-" let g:syntastic_javascript_checkers = ['jsxhint']
-" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " ===============================================================================
 " vim-signify
