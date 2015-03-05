@@ -45,9 +45,9 @@ Plug 'thoughtbot/vim-rspec'
 
 call plug#end()
 
-" ===============================================================================
+" =============================================================================
 " General Settings
-" ===============================================================================
+" =============================================================================
 
 " Enable syntax highlighting
 syntax enable
@@ -57,17 +57,27 @@ set t_Co=256
 set background=dark
 colorscheme seoul256
 
-set ttyfast                   " Notify of running fast terminal, improves redrawing
-set lazyredraw                " Don't redraw when running macros
-set synmaxcol=128             " Maximum column number to highlight
-set colorcolumn=80            " Display column at 80 characters
+" Notify of running fast terminal, improves redrawing
+set ttyfast
+
+" Don't redraw when running macros
+set lazyredraw
+
+" Maximum column number to highlight
+set synmaxcol=250
+
+" Display column at 80 characters
+set colorcolumn=80
 
 " Show (relative) line numbers
 set number
 set relativenumber
 
-set autoindent                " Enable autoindent
-set showmatch                 " Show bracket matches
+" Enable autoindent
+set autoindent
+
+" Show bracket matches
+set showmatch
 
 " Enable auto-reading of files if they have been changed from the outside
 set autoread
@@ -79,36 +89,56 @@ set autowriteall
 " Sane backspacing
 set backspace=indent,eol,start
 
-set nobackup                  " Disable backup files
-set noswapfile                " Disable swap files
+" Disable backup files
+set nobackup
+set noswapfile
 
-set hidden                    " Hide buffers instead of closing them
-set splitright                " Split new buffers to the right
+" Hide buffers instead of closing them
+set hidden
 
-set showcmd                   " Display incomplete commands
-set wildmenu                  " Enhance command line completion
+" Split new buffers to the right
+set splitright
 
-set hlsearch                  " Hightlight search matches
-set incsearch                 " Incremental search
-set ignorecase                " Case-insensitive searching
-set smartcase                 " Use case-sensitive searching if expression contains capital letter
+" Autocomplete commands
+set showcmd
+set wildmenu
 
-set gdefault                  " Apply global substitutions by default
+" Hightlight search matches
+set hlsearch
 
-set list                      " Hightlight whitespace characters
-set listchars=tab:▸\ ,trail:· " Customize whitespace characters shown
+" Incremental search
+set incsearch
 
-set expandtab                 " Use spaces not tabs
-set tabstop=2                 " Set indentation to 2 spaces
-set shiftwidth=2              " Set indentation to 2 spaces
+" Case-insensitive searching
+set ignorecase
 
-set clipboard=unnamed         " Use system clipboard
+" Use case-sensitive searching if expression contains capital letter
+set smartcase
 
-set noerrorbells              " Disable error bells
-set novisualbell              " Disable error flashing
+" Apply global substitutions by default
+set gdefault
 
-set laststatus=2              " Display status var
-set noshowmode                " Don't show default vim mode information
+" Hightlight whitespace characters
+set list
+set listchars=tab:▸\ ,trail:·
+
+" Use 2 spaces for indentation
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" Use the system clipboard for yanking
+set clipboard=unnamed
+
+" Disable beeping sounds
+set noerrorbells
+set novisualbell
+
+" Display status var
+set laststatus=2
+
+" Don't show default vim mode information
+set noshowmode
 
 " Set leader key to space
 let mapleader="\<space>"
@@ -118,9 +148,9 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
 
-" ===============================================================================
+" =============================================================================
 " Autocommand
-" ===============================================================================
+" =============================================================================
 
 " Remove trailing whitespaces automatically when a file is saved
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
@@ -136,27 +166,27 @@ augroup END
 " Automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
-" ===============================================================================
+" =============================================================================
 " netrw
-" ===============================================================================
+" =============================================================================
 
 let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
 
-" ===============================================================================
+" =============================================================================
 " syntastic
-" ===============================================================================
+" =============================================================================
 
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
-" ===============================================================================
+" =============================================================================
 " vim-signify
-" ===============================================================================
+" =============================================================================
 let g:signify_vcs_list = ['git']
 
-" ===============================================================================
+" =============================================================================
 " lightline
-" ===============================================================================
+" =============================================================================
 
 let g:lightline = {
       \ 'active': {
@@ -182,9 +212,9 @@ function! LightlineFileEncoding()
   return ''
 endfunction
 
-" ===============================================================================
+" =============================================================================
 " Unite
-" ===============================================================================
+" =============================================================================
 
 " Use ag for grep searching
 let g:unite_source_grep_command        = 'ag'
@@ -209,9 +239,9 @@ nnoremap <leader>p :Unite -start-insert file_rec/async<CR>
 nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
 
-" ===============================================================================
+" =============================================================================
 " vim-rspec
-" ===============================================================================
+" =============================================================================
 
 let g:rspec_command = "call VtrSendCommand('spring rspec {spec}')"
 
@@ -221,18 +251,18 @@ nnoremap <Leader>rl :call RunLastSpec()<CR>
 nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
 
-" ===============================================================================
+" =============================================================================
 " VimTmuxRunner
-" ===============================================================================
+" =============================================================================
 
 nnoremap <leader>ta :VtrAttachToPane<cr>
 nnoremap <leader>to :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
 nnoremap <leader>tl :VtrSendLinesToRunner<cr>
 vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 
-" ===============================================================================
+" =============================================================================
 " Mappings
-" ===============================================================================
+" =============================================================================
 
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>e :Explore<CR>
@@ -255,23 +285,9 @@ nnoremap <Leader>n :e %:h/
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
-" ===============================================================================
-" Abbreviations
-" ===============================================================================
-
-autocmd FileType javascript :iabbrev <buffer> iif (function() {
-      \<CR>'use strict';
-      \<CR>
-      \<CR>})();<ESC><s-O>
-
-autocmd FileType javascript :iabbrev <buffer> jdes describe('', function() {
-      \<CR>it('should ', function() {
-      \<CR>});
-      \<CR>});<ESC><up><s-O>
-
-" ===============================================================================
+" =============================================================================
 " Functions
-" ===============================================================================
+" =============================================================================
 
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
