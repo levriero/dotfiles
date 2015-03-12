@@ -28,6 +28,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
+Plug 'duggiefresh/vim-easydir'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
