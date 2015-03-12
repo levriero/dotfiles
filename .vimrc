@@ -65,6 +65,9 @@ set ttyfast
 " Don't redraw when running macros
 set lazyredraw
 
+" Speed up scroll displaying
+set ttyscroll=3
+
 " Maximum column number to highlight
 set synmaxcol=250
 
