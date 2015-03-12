@@ -1,5 +1,5 @@
 " Set default font
-set guifont=Menlo:h11
+set guifont=Inconsolata:h11
 
 " Remove toolbar and scrollbars from macvim
 set guioptions-=T

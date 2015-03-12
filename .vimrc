@@ -53,7 +53,6 @@ call plug#end()
 " -----------------------------------------------------------------------------
 " General Settings
 " -----------------------------------------------------------------------------
-
 " Enable syntax highlighting
 syntax enable
 
@@ -159,7 +158,6 @@ endif
 " -----------------------------------------------------------------------------
 " Autocommand
 " -----------------------------------------------------------------------------
-
 " Remove trailing whitespaces automatically when a file is saved
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
@@ -177,14 +175,12 @@ autocmd VimResized * :wincmd =
 " -----------------------------------------------------------------------------
 " netrw
 " -----------------------------------------------------------------------------
-
 let g:netrw_list_hide = '.git,.DS_Store,.sass-cache'
 let g:netrw_liststyle = 3 " Use tree style
 
 " -----------------------------------------------------------------------------
 " syntastic
 " -----------------------------------------------------------------------------
-
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
@@ -196,7 +192,6 @@ let g:signify_vcs_list = ['git']
 " -----------------------------------------------------------------------------
 " lightline
 " -----------------------------------------------------------------------------
-
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -224,7 +219,6 @@ endfunction
 " -----------------------------------------------------------------------------
 " Unite
 " -----------------------------------------------------------------------------
-
 " Use ag for grep searching
 let g:unite_source_grep_command        = 'ag'
 let g:unite_source_grep_default_opts   = '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
@@ -251,7 +245,6 @@ nnoremap <leader>f :Unite grep:.<CR>
 " -----------------------------------------------------------------------------
 " vim-rspec
 " -----------------------------------------------------------------------------
-
 let g:rspec_command = "call VtrSendCommand('spring rspec {spec}')"
 
 nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
@@ -259,11 +252,9 @@ nnoremap <Leader>rn :call RunNearestSpec()<CR>
 nnoremap <Leader>rl :call RunLastSpec()<CR>
 nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
-
 " -----------------------------------------------------------------------------
 " VimTmuxRunner
 " -----------------------------------------------------------------------------
-
 nnoremap <leader>ta :VtrAttachToPane<cr>
 nnoremap <leader>to :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
 nnoremap <leader>tl :VtrSendLinesToRunner<cr>
@@ -272,7 +263,6 @@ vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 " -----------------------------------------------------------------------------
 " Mappings
 " -----------------------------------------------------------------------------
-
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap j gj
