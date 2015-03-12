@@ -172,7 +172,8 @@ autocmd VimResized * :wincmd =
 " netrw
 " =============================================================================
 
-let g:netrw_list_hide= '.git,.DS_Store,.sass-cache'
+let g:netrw_list_hide = '.git,.DS_Store,.sass-cache'
+let g:netrw_liststyle = 3 " Use tree style
 
 " =============================================================================
 " syntastic
