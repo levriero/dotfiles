@@ -16,21 +16,23 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
 
-" Misc
+" Navigation
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-fugitive'
 Plug 'justinmk/vim-gtfo'
+Plug 'duggiefresh/vim-easydir'
+
+" Git
+Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
-Plug 'scrooloose/syntastic'
 
 " Editing
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
-Plug 'duggiefresh/vim-easydir'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
