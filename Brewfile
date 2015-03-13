@@ -1,5 +1,4 @@
 brew 'ag'
-brew 'battery'
 brew 'ctags'
 brew 'fish', args: ['--HEAD']
 brew 'git'
