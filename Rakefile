@@ -55,7 +55,7 @@ end
 def create_symlink(file)
   error_message = " > Warn: Skipping symlink to #{file}"
   source = File.expand_path(file)
-  destination = '#{Dir.home}/#{file}'
+  destination = "#{Dir.home}/#{file}"
 
   if file_exists_at(destination)
     puts "#{error_message} - The file already exists at the destination."
