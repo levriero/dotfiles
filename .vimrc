@@ -292,14 +292,6 @@ augroup lisp
   autocmd FileType clojure,scheme RainbowParentheses
 augroup END
 
-" ----------------------------------------------------------------------------
-" markdown
-" ----------------------------------------------------------------------------
-augroup markdown
-  autocmd!
-  autocmd FileType markdown,text Goyo
-augroup END
-
 " -----------------------------------------------------------------------------
 " Functions
 " -----------------------------------------------------------------------------
