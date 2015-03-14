@@ -243,6 +243,10 @@ call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
   \ '.pdf',
   \ ], '\|'))
 
+" Match candidates by filename
+call unite#custom#source('file_rec/async', 'matchers', 'matcher_default')
+call unite#custom#source('file_rec/async', 'converters', 'converter_file_directory')
+
 nnoremap <leader>p :Unite -start-insert file_rec/async<CR>
 nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
