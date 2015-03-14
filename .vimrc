@@ -220,9 +220,14 @@ endfunction
 " Unite
 " -----------------------------------------------------------------------------
 " Use ag for grep searching
-let g:unite_source_grep_command        = 'ag'
-let g:unite_source_grep_default_opts   = '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
-let g:unite_source_grep_recursive_opt  = ''
+let g:unite_source_grep_command       = 'ag'
+let g:unite_source_grep_default_opts  =
+      \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
+let g:unite_source_grep_recursive_opt = ''
+
+" Use ag for file search
+let g:unite_source_rec_async_command  =
+                \ 'ag --follow --nocolor --nogroup --hidden -g ""'
 
 " Ignore folders on file searching
 call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
