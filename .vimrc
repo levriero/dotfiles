@@ -182,7 +182,7 @@ let g:netrw_liststyle = 3 " Use tree style
 " syntastic
 " -----------------------------------------------------------------------------
 let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:syntastic_ruby_checkers = ['mri']
 
 " -----------------------------------------------------------------------------
 " vim-signify
