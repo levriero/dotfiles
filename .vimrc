@@ -21,6 +21,7 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -225,31 +226,34 @@ let g:unite_source_grep_default_opts  =
       \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
 let g:unite_source_grep_recursive_opt = ''
 
-" Use ag for file search
-let g:unite_source_rec_async_command  =
-                \ 'ag --follow --nocolor --nogroup --hidden -g ""'
-
-" Ignore folders on file searching
-call unite#custom#source('file, file_rec/async', 'ignore_pattern', join([
-  \ '\.git/',
-  \ '\.tmp/',
-  \ 'tmp',
-  \ 'node_modules',
-  \ 'coverage',
-  \ 'images',
-  \ 'fonts',
-  \ 'bower_components',
-  \ '.sass-cache',
-  \ '.pdf',
-  \ ], '\|'))
-
-" Match candidates by filename
-call unite#custom#source('file_rec/async', 'matchers', 'matcher_default')
-call unite#custom#source('file_rec/async', 'converters', 'converter_file_directory')
-
-nnoremap <leader>p :Unite -start-insert file_rec/async<CR>
-nnoremap <leader>b :Unite buffer<CR>
 nnoremap <leader>f :Unite grep:.<CR>
+
+" ----------------------------------------------------------------------------
+" fzf
+" ----------------------------------------------------------------------------
+" Open files in vertical horizontal split
+nnoremap <silent> <Leader>p :call fzf#run({
+      \   'down': '40%',
+      \   'sink':  'vertical botright split' })<CR>
+
+" Select buffer
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+nnoremap <silent> <Leader>b :call fzf#run({
+      \   'source':  reverse(<sid>buflist()),
+      \   'sink':    function('<sid>bufopen'),
+      \   'options': '+m',
+      \   'down':    len(<sid>buflist()) + 2
+      \ })<CR>
 
 " -----------------------------------------------------------------------------
 " vim-rspec
