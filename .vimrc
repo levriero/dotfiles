@@ -231,10 +231,8 @@ nnoremap <leader>f :Unite grep:.<CR>
 " ----------------------------------------------------------------------------
 " fzf
 " ----------------------------------------------------------------------------
-" Open files in vertical horizontal split
-nnoremap <silent> <Leader>p :call fzf#run({
-      \   'down': '40%',
-      \   'sink':  'vertical botright split' })<CR>
+" Fuzzy search
+nnoremap <silent> <Leader>p :call fzf#run({'down': '40%', 'sink': 'e'})<CR>
 
 " Select buffer
 function! s:buflist()
