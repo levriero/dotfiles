@@ -232,7 +232,7 @@ nnoremap <leader>f :Unite grep:.<CR>
 " fzf
 " ----------------------------------------------------------------------------
 " Fuzzy search
-nnoremap <silent> <Leader>p :call fzf#run({ 'sink': 'e'})<CR>
+nnoremap <silent> <Leader>p :call fzf#run({ 'down': '40%', 'sink': 'e'})<CR>
 
 " Select buffer
 function! s:buflist()
