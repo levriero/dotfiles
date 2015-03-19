@@ -218,10 +218,10 @@ endfunction
 " ----------------------------------------------------------------------------
 " fzf
 " ----------------------------------------------------------------------------
-" Fuzzy search
-nnoremap <silent> <Leader>p :call fzf#run({ 'down': '40%', 'sink': 'e'})<CR>
 
+" -------------
 " Select buffer
+" -------------
 function! s:buflist()
   redir => ls
   silent ls
@@ -233,14 +233,9 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-nnoremap <silent> <Leader>b :call fzf#run({
-      \   'source':  reverse(<sid>buflist()),
-      \   'sink':    function('<sid>bufopen'),
-      \   'options': '+m',
-      \   'down':    len(<sid>buflist()) + 2
-      \ })<CR>
-
-" Fuzzy grep
+" ---------
+" Fuzzy ag
+" ---------
 function! s:escape(path)
   return substitute(a:path, ' ', '\\ ', 'g')
 endfunction
@@ -259,6 +254,15 @@ command! -nargs=+ Fag call fzf#run({
       \ 'options': '+m',
       \ 'down': '40%'
       \ })
+
+nnoremap <leader>f :Fag<space>
+nnoremap <silent><Leader>p :call fzf#run({ 'down': '40%', 'sink': 'e'})<CR>
+nnoremap <silent><Leader>b :call fzf#run({
+      \   'source':  reverse(<sid>buflist()),
+      \   'sink':    function('<sid>bufopen'),
+      \   'options': '+m',
+      \   'down':    len(<sid>buflist()) + 2
+      \ })<CR>
 
 " -----------------------------------------------------------------------------
 " vim-rspec
