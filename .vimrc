@@ -253,6 +253,26 @@ nnoremap <silent> <Leader>b :call fzf#run({
       \   'down':    len(<sid>buflist()) + 2
       \ })<CR>
 
+" Fuzzy grep
+function! s:escape(path)
+  return substitute(a:path, ' ', '\\ ', 'g')
+endfunction
+
+function! AgHandler(line)
+  let parts = split(a:line, ':')
+  let [fn, lno] = parts[0 : 1]
+  execute 'e '. s:escape(fn)
+  execute lno
+  normal! zz
+endfunction
+
+command! -nargs=+ Fag call fzf#run({
+      \ 'source': 'ag "<args>"',
+      \ 'sink': function('AgHandler'),
+      \ 'options': '+m',
+      \ 'down': '40%'
+      \ })
+
 " -----------------------------------------------------------------------------
 " vim-rspec
 " -----------------------------------------------------------------------------
