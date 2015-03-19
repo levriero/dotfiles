@@ -17,8 +17,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
 
 " Navigation
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
@@ -216,17 +214,6 @@ endfunction
 function! LightlineFileEncoding()
   return ''
 endfunction
-
-" -----------------------------------------------------------------------------
-" Unite
-" -----------------------------------------------------------------------------
-" Use ag for grep searching
-let g:unite_source_grep_command       = 'ag'
-let g:unite_source_grep_default_opts  =
-      \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
-let g:unite_source_grep_recursive_opt = ''
-
-nnoremap <leader>f :Unite grep:.<CR>
 
 " ----------------------------------------------------------------------------
 " fzf
