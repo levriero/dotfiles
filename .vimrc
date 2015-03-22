@@ -278,7 +278,6 @@ nnoremap <Leader>ra :call RunAllSpecs()<CR>
 " VimTmuxRunner
 " -----------------------------------------------------------------------------
 nnoremap <leader>ta :VtrAttachToPane<cr>
-nnoremap <leader>to :VtrOpenRunner {'orientation': 'v', 'percentage': 20}<cr>
 nnoremap <leader>tl :VtrSendLinesToRunner<cr>
 vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 
