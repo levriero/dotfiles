@@ -248,14 +248,14 @@ function! AgHandler(line)
   normal! zz
 endfunction
 
-command! -nargs=+ Fag call fzf#run({
+command! -nargs=+ Search call fzf#run({
       \ 'source': 'ag "<args>"',
       \ 'sink': function('AgHandler'),
       \ 'options': '+m',
       \ 'down': '40%'
       \ })
 
-nnoremap <leader>f :Ag<space>
+nnoremap <leader>f :Search<space>
 nnoremap <silent><Leader>p :call fzf#run({ 'down': '40%', 'sink': 'e'})<CR>
 nnoremap <silent><Leader>b :call fzf#run({
       \   'source':  reverse(<sid>buflist()),
