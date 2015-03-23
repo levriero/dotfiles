@@ -6,6 +6,9 @@ set -x EDITOR "vim"
 set -x CDPATH . ~ $cdpath
 set -U fish_user_paths /usr/local/sbin $HOME/.fzf/bin
 
+# vi mode
+set fish_bind_mode insert
+
 # rbenv
 status --is-interactive; and . (rbenv init -|psub)
 
