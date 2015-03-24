@@ -300,8 +300,6 @@ nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>j
 nnoremap / /\v
 vnoremap / /\v
-nnoremap H ^
-nnoremap L $
 nnoremap ; :
 nnoremap : ;
 
