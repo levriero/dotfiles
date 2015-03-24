@@ -283,6 +283,12 @@ nnoremap <leader>tl :VtrSendLinesToRunner<cr>
 vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 
 " -----------------------------------------------------------------------------
+" Undotree
+" -----------------------------------------------------------------------------
+let g:undotree_WindowLayout = 2
+nnoremap U :UndotreeToggle<cr>
+
+" -----------------------------------------------------------------------------
 " Mappings
 " -----------------------------------------------------------------------------
 nnoremap <leader><space> :noh<CR>
