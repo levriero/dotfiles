@@ -32,6 +32,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
