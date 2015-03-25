@@ -11,13 +11,13 @@ function _zsh_prompt() {
 
   if [ "$branch_name" ]; then
     if [ "$(_is_git_dirty)" ]; then
-      local fancy_branch_name="%F{red}[$branch_name] ±%f"
+      local fancy_branch_name=" %F{red}[$branch_name] ±%f"
     else
-      local fancy_branch_name="%F{green}[$branch_name]%f"
+      local fancy_branch_name=" %F{green}[$branch_name]%f"
     fi
   fi
 
-  echo "%B%F{cyan}%1~%f $fancy_branch_name%b » "
+  echo "%B%F{cyan}%1~%f$fancy_branch_name%b » "
 }
 
 setopt PROMPT_SUBST
