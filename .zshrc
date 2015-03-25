@@ -1,3 +1,15 @@
+# ---------------
+# General
+# ---------------
+export EDITOR='vim'
+bindkey -e # Use emacs shortcuts in shell
+
+# ---------------
+# aliases
+# ---------------
+alias be='bundle exec'
+alias g='git'
+
 function _git_branch_name() {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||'
 }
