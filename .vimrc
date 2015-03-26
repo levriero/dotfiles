@@ -172,6 +172,10 @@ augroup END
 " Automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
+" show/hide current line when entering/leaving buffers
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+
 " -----------------------------------------------------------------------------
 " netrw
 " -----------------------------------------------------------------------------
