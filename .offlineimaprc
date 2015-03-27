@@ -16,7 +16,7 @@ localfolders = ~/Mail/gus-gbonfant.com
 type = IMAP
 remotehost = mail.messagingengine.com
 remoteuser = gbonfant@fastmail.com
-remotepasseval = get_keychain_pass(account="gus@gbonfant.com", server="mail.messagingengine.com")
+remotepasseval = get_keychain_pass(account="gbonfant@fastmail.com", server="mail.messagingengine.com")
 folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
