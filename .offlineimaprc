@@ -1,0 +1,22 @@
+[general]
+ui = TTYUI
+accounts = gbonfant
+pythonfile = ~/.mutt/offlineimap.py
+fsync = false
+
+[Account gbonfant]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Mail/gus-gbonfant.com
+
+[Repository Remote]
+type = IMAP
+remotehost = mail.messagingengine.com
+remoteuser = gbonfant@fastmail.com
+remotepasseval = get_keychain_pass(account="gus@gbonfant.com", server="mail.messagingengine.com")
+folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
+ssl = yes
+sslcacertfile = /usr/local/etc/openssl/cert.pem
