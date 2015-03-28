@@ -1,0 +1,28 @@
+# --------------------
+# Basic
+# --------------------
+set mbox_type = Maildir
+set mail_check = 0
+
+# --------------------
+# Sidebar Patch
+# --------------------
+set sidebar_delim   = '  │'
+set sidebar_visible = yes
+set sidebar_width   = 24
+
+# --------------------
+# Account settings
+# --------------------
+
+# Default inbox.
+set spoolfile = "+gus-gbonfant.com/INBOX"
+
+# Mailboxes to show in the sidebar.
+mailboxes +gus-gbonfant.com/INBOX \
+            +gus-gbonfant.com/INBOX.Archive \
+            +gus-gbonfant.com/INBOX.Drafts \
+
+# Other special folders.
+set mbox      = "+gus-gbonfant.com/INBOX.Archive"
+set postponed = "+gus-gbonfant.com/INBOX.Drafts"
