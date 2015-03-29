@@ -96,6 +96,8 @@ bind pager R  group-reply
 # View attachments properly.
 bind attach <return> view-mailcap
 
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
 # --------------------
 # Sidebar Patch
 # --------------------
