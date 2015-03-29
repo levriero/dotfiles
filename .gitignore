@@ -15,3 +15,4 @@ fishd.*
 repl-history
 fzf_key_bindings.fish
 *.pyc
+.mutt/temp/*

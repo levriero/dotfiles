@@ -12,6 +12,7 @@ set signature        = ~/.mutt/sig
 # --------------------
 # Basic
 # --------------------
+set editor = "vim"
 set wait_key = no
 set mbox_type = Maildir
 set timeout = 3
@@ -125,3 +126,28 @@ mailboxes +gus-gbonfant.com/INBOX \
 # Other special folders.
 set mbox      = "+gus-gbonfant.com/INBOX.Archive"
 set postponed = "+gus-gbonfant.com/INBOX.Drafts"
+
+# Send mail settings
+set from     = "gus@gbonfant.com"
+set sendmail = "/usr/local/bin/msmtp -a gbonfant"
+set sendmail_wait = 0
+unset record
+
+# --------------------
+# Compose view options
+# --------------------
+set realname = "Gus Bonfante"        # who am i?
+set envelope_from                    # which from?
+set sig_dashes                       # dashes before sig
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+unset mime_forward                   # forward attachments as part of body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
