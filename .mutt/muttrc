@@ -1,4 +1,15 @@
 # --------------------
+# Paths
+# --------------------
+set alias_file       = ~/.mutt/alias
+set header_cache     = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set mailcap_path     = ~/.mutt/mailcap
+set tmpdir           = ~/.mutt/temp
+set signature        = ~/.mutt/sig
+
+# --------------------
 # Basic
 # --------------------
 set wait_key = no
@@ -70,6 +81,9 @@ set menu_scroll
 set tilde
 unset markers
 
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
 # --------------------
 # Pager Key Bindings
 # --------------------
@@ -77,9 +91,10 @@ bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
+bind pager R  group-reply
 
-set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-alternative_order text/plain text/enriched text/html
+# View attachments properly.
+bind attach <return> view-mailcap
 
 # --------------------
 # Sidebar Patch
