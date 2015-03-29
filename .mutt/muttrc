@@ -1,8 +1,85 @@
 # --------------------
 # Basic
 # --------------------
+set wait_key = no
 set mbox_type = Maildir
+set timeout = 3
 set mail_check = 0
+unset move
+set delete
+unset confirmappend
+set quit
+unset mark_old
+set beep_new
+set pipe_decode
+set thorough_search
+
+# --------------------
+# Colours
+# --------------------
+color indicator color237 white
+color normal white color237
+color status color240 color237
+
+# --------------------
+# Status Bar
+# --------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# --------------------
+# Header Options
+# --------------------
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+
+# --------------------
+# Index Key Bindings
+# --------------------
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>"
+
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# --------------------
+# Index View Options
+# --------------------
+set date_format = "%m/%d"
+set index_format = " %D  %-20.20F  %s"
+set sort = threads
+set sort_aux = reverse-last-date-received
+
+# --------------------
+# Pager View Options
+# --------------------
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+
+# --------------------
+# Pager Key Bindings
+# --------------------
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
 
 # --------------------
 # Sidebar Patch
@@ -12,11 +89,16 @@ set sidebar_visible = yes
 set sidebar_width   = 24
 
 # --------------------
+# Sidebar Navigation
+# --------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# --------------------
 # Account settings
 # --------------------
-
-# Default inbox.
-set spoolfile = "+gus-gbonfant.com/INBOX"
+set spoolfile = "+gus-gbonfant.com/INBOX" # Default inbox.
 
 # Mailboxes to show in the sidebar.
 mailboxes +gus-gbonfant.com/INBOX \
