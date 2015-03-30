@@ -64,11 +64,11 @@ hdr_order from: to: cc: date: subject:  # and in this order
 # --------------------
 bind index gg       first-entry
 bind index G        last-entry
-
 bind index R        group-reply
 bind index <tab>    sync-mailbox
 bind index <space>  collapse-thread
 bind index p        recall-message
+bind index N        search-opposite
 
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>"
@@ -111,6 +111,7 @@ bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
 bind pager R  group-reply
+bind pager N  search-opposite
 
 # View attachments properly.
 bind attach <return> view-mailcap
