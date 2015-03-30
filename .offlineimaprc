@@ -11,6 +11,11 @@ remoterepository = Remote
 [Repository Local]
 type = Maildir
 localfolders = ~/Mail/gus-gbonfant.com
+nametrans = lambda folder: {'Archive': 'INBOX.Archive',
+                            'Drafts':  'INBOX.Drafts',
+                            'Sent':    'INBOX.Sent Items',
+                            'Spam':    'INBOX.Junk Mail',
+                            }.get(folder, folder)
 
 [Repository Remote]
 type = IMAP
