@@ -136,6 +136,11 @@ set sendmail_wait = 0
 unset record
 
 # --------------------
+# Compose bindings
+# --------------------
+bind compose p postpone-message
+
+# --------------------
 # Compose view options
 # --------------------
 set realname = "Gus Bonfante"        # who am i?
