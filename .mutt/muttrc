@@ -120,8 +120,9 @@ set spoolfile = "+gus-gbonfant.com/INBOX" # Default inbox.
 
 # Mailboxes to show in the sidebar.
 mailboxes +gus-gbonfant.com/INBOX \
-            +gus-gbonfant.com/INBOX.Archive \
-            +gus-gbonfant.com/INBOX.Drafts \
+            +gus-gbonfant.com/Archive \
+            +gus-gbonfant.com/Drafts \
+            +gus-gbonfant.com/Sent \
 
 # Other special folders.
 set mbox      = "+gus-gbonfant.com/INBOX.Archive"

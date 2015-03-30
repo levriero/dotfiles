@@ -17,6 +17,11 @@ type = IMAP
 remotehost = mail.messagingengine.com
 remoteuser = gbonfant@fastmail.com
 remotepasseval = get_keychain_pass(account="gbonfant@fastmail.com", server="mail.messagingengine.com")
-folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
 ssl = yes
 sslcacertfile = /usr/local/etc/openssl/cert.pem
+folderfilter = lambda foldername: foldername not in ['INBOX.Trash']
+nametrans = lambda folder: {'INBOX.Archive':    'Archive',
+                            'INBOX.Drafts':     'Drafts',
+                            'INBOX.Sent Items': 'Sent',
+                            'INBOX.Junk Mail':  'Spam',
+                            }.get(folder, folder)
