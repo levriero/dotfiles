@@ -1,3 +1,6 @@
+" Use sh for shell commands
+set shell=/bin/sh
+
 call plug#begin('~/.nvim/plugged')
 
 " UI
@@ -50,9 +53,6 @@ syntax enable
 set t_Co=256
 set background=dark
 colorscheme seoul256
-
-" Don't redraw when running macros
-set lazyredraw
 
 " Maximum column number to highlight
 set synmaxcol=250
@@ -170,7 +170,7 @@ let g:netrw_liststyle = 3 " Use tree style
 " syntastic
 " -----------------------------------------------------------------------------
 let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_ruby_checkers = ['mri']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " -----------------------------------------------------------------------------
 " vim-signify
