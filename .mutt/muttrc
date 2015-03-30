@@ -133,10 +133,7 @@ set postponed = "+INBOX.Drafts"
 set mbox = "+INBOX.Archive"
 
 # Save sent mails to the Sent folder
-unset record
-
-# Save a copy of sent mails
-set copy
+set record = "+gus-gbonfant.com/Sent"
 
 # Mailboxes to show in the sidebar.
 mailboxes +gus-gbonfant.com/INBOX \
