@@ -81,6 +81,12 @@ macro index o "<shell-escape>offlineimap -qf INBOX<enter>"
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
+macro index,pager gi "<change-folder>=gus-gbonfant.com/INBOX<enter>" "Go to inbox"
+
+# Archive when hitting the move key
+macro index y "<save-message>+gus-gbonfant.com/Archive<enter>"
+macro pager y "<exit><save-message>+gus-gbonfant.com/Archive<enter>"
+
 # --------------------
 # Index View Options
 # --------------------
