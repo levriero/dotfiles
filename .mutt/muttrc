@@ -41,9 +41,9 @@ set signature = ~/.mutt/sig
 # --------------------
 # Colours
 # --------------------
-color indicator color237 white
-color normal white color237
-color status color240 color237
+color indicator color254 color244
+color normal color254 color237
+color status color66 color237
 
 # --------------------
 # Status Bar
@@ -83,9 +83,9 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 macro index,pager gi "<change-folder>=gus-gbonfant.com/INBOX<enter>" "Go to inbox"
 
-# Archive when hitting the move key
-macro index y "<save-message>+gus-gbonfant.com/Archive<enter>"
-macro pager y "<exit><save-message>+gus-gbonfant.com/Archive<enter>"
+# Archive when hitting e - Like gmail
+macro index e "<save-message>+gus-gbonfant.com/Archive<enter>"
+macro pager e "<exit><save-message>+gus-gbonfant.com/Archive<enter>"
 
 # --------------------
 # Index View Options
@@ -120,7 +120,7 @@ macro pager \Cu "|urlview<enter>" "call urlview to open links"
 # --------------------
 # Sidebar Patch
 # --------------------
-set sidebar_delim   = '  │'
+set sidebar_delim   = ' │'
 set sidebar_visible = yes
 set sidebar_width   = 24
 
