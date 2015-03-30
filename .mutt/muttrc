@@ -1,30 +1,42 @@
 # --------------------
-# Paths
-# --------------------
-set alias_file       = ~/.mutt/alias
-set header_cache     = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
-set certificate_file = ~/.mutt/certificates
-set mailcap_path     = ~/.mutt/mailcap
-set tmpdir           = ~/.mutt/temp
-set signature        = ~/.mutt/sig
-
-# --------------------
-# Basic
+# General
 # --------------------
 set editor = "vim"
+
+# Don't wait on external commands
 set wait_key = no
 set mbox_type = Maildir
+
+# Look for email after 3 seconds of inactivity
 set timeout = 3
+
+# Minimum time between email check
 set mail_check = 0
-unset move
-set delete
-unset confirmappend
-set quit
+
+# Don't update read counts very frequently when loading large mailboxes
+set read_inc = 1000
+
+# View HTML automatically
+auto_view text/html
+
+# Prefer text over html
+alternative_order text/plain text/enriched text/html
+
+# Move read emails when they're actually read
 unset mark_old
-set beep_new
-set pipe_decode
-set thorough_search
+
+# Organize into threads, sorting the threads by sender
+set sort = threads
+# set sort_aux=from
+set sort_aux = reverse-last-date-received
+
+# Paths
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/messages
+set certificate_file = ~/.mutt/certificates
+set mailcap_path = ~/.mutt/mailcap
+set tmpdir = ~/.mutt/temp
+set signature = ~/.mutt/sig
 
 # --------------------
 # Colours
@@ -44,6 +56,8 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 # --------------------
 ignore *                                # ignore all headers
 unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
 
 # --------------------
 # Index Key Bindings
@@ -72,8 +86,6 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 # --------------------
 set date_format = "%m/%d"
 set index_format = " %D  %-20.20F  %s"
-set sort = threads
-set sort_aux = reverse-last-date-received
 
 # --------------------
 # Pager View Options
@@ -84,7 +96,6 @@ set tilde
 unset markers
 
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-alternative_order text/plain text/enriched text/html
 
 # --------------------
 # Pager Key Bindings
@@ -117,7 +128,15 @@ bind index,pager <right>  sidebar-open
 # --------------------
 # Account settings
 # --------------------
-set spoolfile = "+gus-gbonfant.com/INBOX" # Default inbox.
+set spoolfile = "+gus-gbonfant.com/INBOX"
+set postponed = "+INBOX.Drafts"
+set mbox = "+INBOX.Archive"
+
+# Save sent mails to the Sent folder
+unset record
+
+# Save a copy of sent mails
+set copy
 
 # Mailboxes to show in the sidebar.
 mailboxes +gus-gbonfant.com/INBOX \
@@ -125,15 +144,10 @@ mailboxes +gus-gbonfant.com/INBOX \
             +gus-gbonfant.com/Drafts \
             +gus-gbonfant.com/Sent \
 
-# Other special folders.
-set mbox      = "+gus-gbonfant.com/INBOX.Archive"
-set postponed = "+gus-gbonfant.com/INBOX.Drafts"
-
 # Send mail settings
 set from     = "gus@gbonfant.com"
 set sendmail = "/usr/local/bin/msmtp -a gbonfant"
 set sendmail_wait = 0
-unset record
 
 # --------------------
 # Compose bindings
@@ -155,5 +169,9 @@ set forward_decode                   # decode when forwarding
 set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
-set include                          # include message in replies
-set forward_quote                    # include message in forwards
+
+# Add quote in replies
+set include
+
+# include message in forwards
+set forward_quote
