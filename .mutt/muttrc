@@ -41,9 +41,9 @@ set signature = ~/.mutt/sig
 # --------------------
 # Colours
 # --------------------
-color indicator color254 color244
-color normal color254 color237
-color status color66 color237
+# color indicator color254 color244
+# color normal color254 color237
+# color status color66 color237
 
 # --------------------
 # Status Bar
@@ -89,7 +89,7 @@ macro pager e "<exit><save-message>+gus-gbonfant.com/Archive<enter>"
 # --------------------
 # Index View Options
 # --------------------
-set date_format = "%m/%d"
+set date_format = "%m/%d %H:%M"
 set index_format = " %D  %-20.20F  %s"
 
 # --------------------
@@ -177,3 +177,5 @@ set include
 
 # include message in forwards
 set forward_quote
+
+source ~/.mutt/zenburn.muttrc
