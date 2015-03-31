@@ -18,7 +18,7 @@ color normal     color188 color237
 color error      color115 color236
 color markers    color142 color238
 color tilde      color108 color237
-color status     color144 color234
+color status     color144 color237
 
 # index stuff
 color indicator  color223 color236

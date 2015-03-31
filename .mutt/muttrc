@@ -82,9 +82,9 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 macro index,pager gi "<change-folder>=gus-gbonfant.com/INBOX<enter>" "Go to inbox"
 
-# Archive when hitting e - Like gmail
-macro index e "<save-message>+gus-gbonfant.com/Archive<enter>"
-macro pager e "<exit><save-message>+gus-gbonfant.com/Archive<enter>"
+# Archive when hitting a
+macro index a "<save-message>+gus-gbonfant.com/Archive<enter>"
+macro pager a "<exit><save-message>+gus-gbonfant.com/Archive<enter>"
 
 # --------------------
 # Index View Options
@@ -114,7 +114,7 @@ bind pager R  group-reply
 # View attachments properly.
 bind attach <return> view-mailcap
 
-macro pager \Cu "|urlview<enter>" "call urlview to open links"
+macro pager u "|urlview<enter>" "call urlview to open links"
 
 # --------------------
 # Sidebar Patch
