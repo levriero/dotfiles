@@ -295,6 +295,16 @@ nnoremap U :UndotreeToggle<cr>
 " -----------------------------------------------------------------------------
 " Mappings
 " -----------------------------------------------------------------------------
+
+" temporary tarmak keybindings
+nnoremap n j
+nnoremap e k
+nnoremap j e
+
+vnoremap n j
+vnoremap e k
+vnoremap j e
+
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap j gj
