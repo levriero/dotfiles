@@ -27,4 +27,12 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=1
 PROMPT_COMMAND='__git_ps1 "\W " "\\\$ " "[%s] "'
 
+# ------------------------------------------
+# Aliases
+# ------------------------------------------
+
+alias ..='cd ..'
+alias vi='vim'
+
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
