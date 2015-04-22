@@ -34,5 +34,4 @@ PROMPT_COMMAND='__git_ps1 "\W " "\\\$ " "[%s] "'
 alias ..='cd ..'
 alias vi='vim'
 
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
