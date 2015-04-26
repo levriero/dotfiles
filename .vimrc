@@ -187,8 +187,13 @@ let g:netrw_liststyle = 3 " Use tree style
 " -----------------------------------------------------------------------------
 " syntastic
 " -----------------------------------------------------------------------------
+let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_ruby_checkers = ['mri']
+let g:syntastic_error_symbol = "☠"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "☢"
+let g:syntastic_style_warning_symbol = "☹"
 
 " -----------------------------------------------------------------------------
 " vim-signify
