@@ -1,5 +1,3 @@
-require 'interactive_editor'
-
 Pry.commands.alias_command 'e', 'exit'
 Pry.commands.alias_command 'q', 'exit-program'
 Pry.commands.alias_command 'w', 'whereami'
