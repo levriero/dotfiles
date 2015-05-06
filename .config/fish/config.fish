@@ -14,3 +14,5 @@ status --is-interactive; and . (rbenv init -|psub)
 
 alias p=prevd
 alias n=nextd
+alias c=clear
+alias vi=vim
