@@ -322,6 +322,9 @@ nnoremap <Leader>n :e %:h/
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
+" regenerate ctags
+nnoremap <leader>r :!ctags -R .<cr>
+
 " ----------------------------------------------------------------------------
 " clojure
 " ----------------------------------------------------------------------------
