@@ -302,7 +302,6 @@ nnoremap U :UndotreeToggle<cr>
 " -----------------------------------------------------------------------------
 " Mappings
 " -----------------------------------------------------------------------------
-
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap j gj
