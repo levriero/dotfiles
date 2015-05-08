@@ -324,6 +324,9 @@ nnoremap <leader>= :wincmd =<cr>
 " regenerate ctags
 nnoremap <leader>r :!ctags -R .<cr>
 
+" where am I
+nnoremap <leader>w :echo @%<cr>
+
 " ----------------------------------------------------------------------------
 " clojure
 " ----------------------------------------------------------------------------
