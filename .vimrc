@@ -204,6 +204,7 @@ let g:signify_vcs_list = ['git']
 " lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
