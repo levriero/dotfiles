@@ -20,6 +20,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
 
 " Git
 Plug 'tpope/vim-fugitive'
