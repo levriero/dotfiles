@@ -33,6 +33,7 @@ Plug 'tpope/vim-repeat'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'junegunn/vim-after-object'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -299,6 +300,11 @@ vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 " -----------------------------------------------------------------------------
 let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<cr>
+
+" -----------------------------------------------------------------------------
+" vim-after-object
+" -----------------------------------------------------------------------------
+autocmd VimEnter * call after_object#enable('=', ':')
 
 " -----------------------------------------------------------------------------
 " Mappings
