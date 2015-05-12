@@ -34,7 +34,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'junegunn/vim-after-object'
 
 " tmux
@@ -296,12 +295,6 @@ nnoremap <Leader>ra :call RunAllSpecs()<CR>
 nnoremap <leader>ta :VtrAttachToPane<cr>
 nnoremap <leader>tl :VtrSendLinesToRunner<cr>
 vnoremap <leader>tl :VtrSendLinesToRunner<cr>
-
-" -----------------------------------------------------------------------------
-" Undotree
-" -----------------------------------------------------------------------------
-let g:undotree_WindowLayout = 2
-nnoremap U :UndotreeToggle<cr>
 
 " -----------------------------------------------------------------------------
 " vim-after-object
