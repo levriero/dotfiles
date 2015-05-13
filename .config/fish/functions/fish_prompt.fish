@@ -13,14 +13,14 @@ end
 
 function fish_prompt
   set fish_greeting ""
-  set -l magenta (set_color -o magenta)
+  set -l cyan (set_color -o cyan)
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red)
   set -l blue (set_color -o blue)
   set -l green (set_color -o green)
   set -l normal (set_color normal)
 
-  set -l cwd $magenta(basename (prompt_pwd))
+  set -l cwd $cyan(basename (prompt_pwd))
 
   # output the prompt, left to right
 
