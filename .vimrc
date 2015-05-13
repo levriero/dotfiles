@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 " UI
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'gbonfant/dracula-theme'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
 
@@ -60,7 +61,7 @@ syntax enable
 
 " Set colorscheme
 set t_Co=256
-colorscheme Dracula
+colorscheme dracula
 
 " Notify of running fast terminal, improves redrawing
 set ttyfast
