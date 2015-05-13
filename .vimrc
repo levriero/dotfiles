@@ -60,8 +60,7 @@ syntax enable
 
 " Set colorscheme
 set t_Co=256
-set background=dark
-colorscheme seoul256
+colorscheme Dracula
 
 " Notify of running fast terminal, improves redrawing
 set ttyfast
