@@ -23,6 +23,7 @@ Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
+Plug 'mhinz/vim-startify'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -232,9 +233,8 @@ endfunction
 " fzf
 " ----------------------------------------------------------------------------
 
-" -------------
 " Select buffer
-" -------------
+" ~~~~~~~~~~~~~~~~~~~
 function! s:buflist()
   redir => ls
   silent ls
@@ -246,9 +246,8 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-" ---------
 " Fuzzy ag
-" ---------
+" ~~~~~~~~~~~~~~~~~~~
 function! s:escape(path)
   return substitute(a:path, ' ', '\\ ', 'g')
 endfunction
@@ -298,6 +297,13 @@ vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 " vim-after-object
 " ----------------------------------------------------------------------------
 autocmd VimEnter * call after_object#enable('=', ':')
+
+
+" ----------------------------------------------------------------------------
+" startify
+" ----------------------------------------------------------------------------
+let g:startify_custom_header =
+      \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['','']
 
 " ----------------------------------------------------------------------------
 " Mappings
