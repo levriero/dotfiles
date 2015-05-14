@@ -148,6 +148,9 @@ set laststatus=2
 " Don't show default vim mode information
 set noshowmode
 
+" Set a maximum width of text, mostly for lengthmatters
+set textwidth=80
+
 " Set leader key to space
 let mapleader="\<space>"
 
