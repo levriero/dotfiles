@@ -331,6 +331,12 @@ nnoremap <leader>r :!ctags -R .<cr>
 " where am I
 nnoremap <leader>w :echo @%<cr>
 
+" save a session (uses startify)
+nnoremap <leader>ss :SSave<cr>
+
+" load a session (uses startify)
+nnoremap <leader>sl :SLoad<cr>
+
 " ----------------------------------------------------------------------------
 " clojure
 " ----------------------------------------------------------------------------
