@@ -314,7 +314,7 @@ nnoremap j gj
 nnoremap k gk
 inoremap jk <ESC>
 nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>s <C-w>s<C-w>j
+nnoremap <leader>h <C-w>s<C-w>j
 nnoremap ; :
 nnoremap : ;
 
