@@ -311,13 +311,27 @@ let g:startify_custom_header =
 " ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
+" clear those pesky search highlights
 nnoremap <leader><space> :noh<CR>
+
+" Open netrw
 nnoremap <leader>e :Explore<CR>
+
+" keep cursor positioning on navigation
 nnoremap j gj
 nnoremap k gk
+
+" <escape> it too far
 inoremap jk <ESC>
+
+" split horizontally
+nnoremap <leader>v <C-w>v<C-w>l
+
+" split vertically
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>h <C-w>s<C-w>j
+
+" One press command mode
 nnoremap ; :
 nnoremap : ;
 
