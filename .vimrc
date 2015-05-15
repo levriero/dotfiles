@@ -317,7 +317,7 @@ nnoremap <leader><space> :noh<CR>
 " Open netrw
 nnoremap <leader>e :Explore<CR>
 
-" keep cursor positioning on navigation
+" keep cursor position
 nnoremap j gj
 nnoremap k gk
 
