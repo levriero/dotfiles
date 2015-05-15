@@ -354,6 +354,9 @@ nnoremap <leader>ss :SSave<cr>
 " load a session (uses startify)
 nnoremap <leader>sl :SLoad<cr>
 
+" insert a binding.pry
+nnoremap <leader>bp obinding.pry<esc>
+
 " ----------------------------------------------------------------------------
 " clojure
 " ----------------------------------------------------------------------------
