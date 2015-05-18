@@ -1,8 +1,7 @@
 # General
 # ------------------------------------------
-# Bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -e ~/.git-completion.bash ]; then
+  source ~/.git-completion.bash
 fi
 
 # Environment variables
@@ -12,15 +11,10 @@ export CDPATH=.:$HOME:$HOME/Projects
 
 # Prompt
 # ------------------------------------------
-if [ -e ~/.git-prompt.sh ]; then
-  source ~/.git-prompt.sh
-fi
+base='\e[0m'
+boldcyan='\e[1;36m'
 
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWCOLORHINTS=1
-PROMPT_COMMAND='__git_ps1 "\W " "\\\$ " "[%s] "'
+PS1="${boldcyan}\W ${base}❯ "
 
 # Aliases
 # ------------------------------------------
