@@ -39,6 +39,25 @@ function prune-ds() {
   find . -name '.DS_Store' -delete
 }
 
+function tat() {
+  local session_name=${PWD##*/}
+  local session_exists=$(tmux ls | sed -E 's/:.*$//' | ag "^"$session_name"\$")
+
+  # tmux is running
+  if [ -n $TMUX ]; then
+    # session does not exist
+    if [ -z $session_exists ]; then
+      TMUX=''
+
+      tmux new-session -Ads $session_name
+    fi
+
+    tmux switch-client -t $session_name
+  else
+    tmux new-session -Ads $session_name
+  fi
+}
+
 # Path shenanigans
 # ------------------------------------------
 eval "$(rbenv init -)"
