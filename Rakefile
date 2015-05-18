@@ -21,9 +21,6 @@ task :setup do
   puts ' > Setting fish as default shell...'
   Rake::Task['shell'].invoke
 
-  puts ' > Installing gems...'
-  `bundle install`
-
   puts ' > Done!'
 end
 
