@@ -25,8 +25,25 @@ PROMPT_COMMAND='__git_ps1 "\W " "\\\$ " "[%s] "'
 # Aliases
 # ------------------------------------------
 alias ..='cd ..'
+alias g='git'
 alias c='clear'
 alias vi='vim'
+alias be='bundle exec'
+alias migrate='bundle exec rake db:migrate'
+
+# autocomplete `g` git alias
+__git_complete g __git_main
+
+# Functions
+# ------------------------------------------
+function ip() {
+  ipconfig getifaddr en0
+  ipconfig getifaddr en1
+}
+
+function prune-ds() {
+  find . -name '.DS_Store' -delete
+}
 
 # Path shenanigans
 # ------------------------------------------
