@@ -1,5 +1,4 @@
 brew 'ag'
-brew 'contacts'
 brew 'ctags'
 brew 'fish', args: ['--HEAD']
 brew 'git'
@@ -12,4 +11,4 @@ brew 'tig'
 brew 'tmux'
 brew 'tree'
 brew 'urlview'
-brew 'vim', args: ['--with-lua']
+brew 'vim', args: ['--HEAD']

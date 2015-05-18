@@ -4,8 +4,8 @@ task :setup do
   `git pull &> /dev/null`
 
   puts ' > Installing brew dependencies...'
-  `brew tap Homebrew/brewdler`
-  `brew brewdle`
+  `brew tap Homebrew/bundle`
+  `brew bundle`
 
   puts ' > Installing npm dependencies...'
   `npm install jshint`
