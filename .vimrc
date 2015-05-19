@@ -355,7 +355,7 @@ nnoremap <leader>ss :SSave<cr>
 nnoremap <leader>sl :SLoad<cr>
 
 " insert a binding.pry
-nnoremap <leader>bp obinding.pry<esc>
+nnoremap <leader>d obinding.pry<esc>
 
 " ----------------------------------------------------------------------------
 " clojure
