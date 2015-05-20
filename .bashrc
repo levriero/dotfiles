@@ -44,7 +44,7 @@ function tat() {
   local session_exists=$(tmux ls | sed -E 's/:.*$//' | ag "^"$session_name"\$")
 
   # tmux is running
-  if [ -n $TMUX ]; then
+  if [ -n "$TMUX" ]; then
     # session does not exist
     if [ -z $session_exists ]; then
       TMUX=''
