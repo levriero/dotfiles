@@ -27,6 +27,7 @@ alias g='git'
 alias c='clear'
 alias vi='vim'
 alias be='bundle exec'
+alias ls='ls -G'
 alias migrate='bundle exec rake db:migrate'
 
 # autocomplete `g` alias
