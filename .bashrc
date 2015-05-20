@@ -4,6 +4,10 @@ if [ -e ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
+
 # Environment variables
 # ------------------------------------------
 export EDITOR=vim
