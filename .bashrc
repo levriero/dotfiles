@@ -44,6 +44,8 @@ function prune-ds() {
   find . -name '.DS_Store' -delete
 }
 
+# - Create (or switch) to a tmux session named after the current directory
+# - Start tmux if no server is running
 function tat() {
   local session_name=${PWD##*/}
   local session_exists=$(tmux ls | sed -E 's/:.*$//' | ag "^"$session_name"\$")
