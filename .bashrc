@@ -44,6 +44,14 @@ function prune-ds() {
   find . -name '.DS_Store' -delete
 }
 
+# Switch to a new MAC address
+function remac() {
+  sudo /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -z
+  sudo ifconfig en0 ether $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+  sudo networksetup -detectnewhardware
+  echo $(ifconfig en0 | grep ether)
+}
+
 # - Create (or switch) to a tmux session named after the current directory
 # - Start tmux if no server is running
 function tat() {
