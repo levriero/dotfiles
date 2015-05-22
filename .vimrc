@@ -379,3 +379,19 @@ function! <SID>StripTrailingWhitespaces()
   let @/=_s
   call cursor(l, c)
 endfunction
+
+" <Leader>? | Google it
+" ----------------------------------------------------------------------------
+function! s:goog(pat)
+  let url = 'https://www.google.com/search?q='
+  " Excerpt from vim-unimpaired
+  let q = substitute(
+        \ '"'.a:pat.'"',
+        \ '[^A-Za-z0-9_.~-]',
+        \ '\="%".printf("%02X", char2nr(submatch(0)))',
+        \ 'g')
+  call system('open ' . url . q)
+endfunction
+
+nnoremap <leader>? :call <SID>goog(expand("<cWORD>"))<cr>
+xnoremap <leader>? "gy:call <SID>goog(@g)<cr>gv
