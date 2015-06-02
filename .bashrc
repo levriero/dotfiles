@@ -15,8 +15,8 @@ export CDPATH=.:$HOME:$HOME/Projects
 
 # Prompt
 # ------------------------------------------
-base='\e[0m'
-boldcyan='\e[1;36m'
+base='\[\e[0m\]'
+boldcyan='\[\e[1;36m\]'
 
 PS1="${boldcyan}\W ${base}❯ "
 
