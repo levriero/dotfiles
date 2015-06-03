@@ -163,24 +163,37 @@ endif
 " Autocommand
 " ----------------------------------------------------------------------------
 " Remove trailing whitespaces automatically when a file is saved
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+augroup strip_trailing_white_spaces
+  autocmd!
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+augroup END
 
 " Enable spell check and line wrapping for text files
-autocmd FileType markdown,text setlocal spell wrap linebreak nolist
+augroup spellcheck
+  autocmd!
+  autocmd FileType markdown,text setlocal spell wrap linebreak nolist
+augroup END
 
 " Save on buffer focus lost
-augroup AutoWrite
+augroup save_on_buffer_focus_lost
   autocmd! BufLeave * :update
 augroup END
 
 " Automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+augroup reposition_buffer_on_vim_resize
+  autocmd VimResized * :wincmd =
+augroup END
 
-autocmd BufNewFile,BufRead *.bats set filetype=sh
+" Use bash syntax for .bats files
+augroup set_filetype_for_bats_files
+  autocmd BufNewFile,BufRead *.bats set filetype=sh
+augroup END
 
 " show/hide current line when entering/leaving buffers
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+augroup toggle_cursorline
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
 
 " ----------------------------------------------------------------------------
 " netrw
