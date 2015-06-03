@@ -151,6 +151,12 @@ set noshowmode
 " Set a maximum width of text, mostly for lengthmatters
 set textwidth=80
 
+" Use real english
+set spelllang=en_gb
+
+" Add dictionary scanning
+set complete+=kspell
+
 " Set leader key to space
 let mapleader="\<space>"
 
