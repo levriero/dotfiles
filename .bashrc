@@ -8,6 +8,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
+# Vi mode
+set -o vi
+
 # Environment variables
 # ------------------------------------------
 export EDITOR=vim
