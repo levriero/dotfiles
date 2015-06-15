@@ -402,14 +402,10 @@ endfunction
 " <Leader>? | Google it
 " ----------------------------------------------------------------------------
 function! s:goog(pat)
-  let url = 'https://www.google.com/search?q='
-  " Excerpt from vim-unimpaired
-  let q = substitute(
-        \ '"'.a:pat.'"',
-        \ '[^A-Za-z0-9_.~-]',
-        \ '\="%".printf("%02X", char2nr(submatch(0)))',
-        \ 'g')
-  call system('open ' . url . q)
+  let q = '"'.substitute(a:pat, '["\n]', ' ', 'g').'"'
+  let q = substitute(q, '[[:punct:] ]',
+        \ '\=printf("%%%02X", char2nr(submatch(0)))', 'g')
+  call system('open https://www.google.com/search?q='.q)
 endfunction
 
 nnoremap <leader>? :call <SID>goog(expand("<cWORD>"))<cr>
