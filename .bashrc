@@ -4,8 +4,7 @@ if [ -e $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
-# Vi mode
-set -o vi
+set -o emacs
 
 # Environment variables
 # ------------------------------------------
