@@ -201,6 +201,14 @@ augroup toggle_cursorline
   autocmd WinLeave * setlocal nocursorline
 augroup END
 
+" Automatic rename of tmux window
+if exists('$TMUX') && !exists('$NORENAME')
+  augroup rename_tmux_window
+    autocmd BufEnter * call system('tmux rename-window '.expand('%:t:S'))
+    autocmd VimLeave * call system('tmux set-window automatic-rename on')
+  augroup END
+endif
+
 " ----------------------------------------------------------------------------
 " netrw
 " ----------------------------------------------------------------------------
