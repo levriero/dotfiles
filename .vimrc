@@ -47,6 +47,7 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-fireplace',        { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static',    { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'elixir-lang/vim-elixir',     { 'for': 'elixir' }
 Plug 'tpope/vim-rails'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
@@ -174,10 +175,10 @@ augroup strip_trailing_white_spaces
   autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 augroup END
 
-" Enable spell check and line wrapping for text files
+" Enable spell check for text files
 augroup spellcheck
   autocmd!
-  autocmd FileType markdown,text setlocal spell wrap linebreak nolist
+  autocmd FileType markdown,text setlocal spell
 augroup END
 
 " Save on buffer focus lost
