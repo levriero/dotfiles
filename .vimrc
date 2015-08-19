@@ -152,6 +152,12 @@ set noshowmode
 " Set a maximum width of text, mostly for lengthmatters
 set textwidth=80
 
+" Visual wrap my lines
+set wrap
+
+" Wrap on whitespace
+set lbr
+
 " Use real english
 set spelllang=en_gb
 
@@ -178,7 +184,7 @@ augroup END
 " Enable spell check for text files
 augroup spellcheck
   autocmd!
-  autocmd FileType markdown,text setlocal spell
+  autocmd FileType markdown,text setlocal spell textwidth=0
 augroup END
 
 " Save on buffer focus lost
