@@ -1,6 +1,7 @@
 brew 'ag'
 brew 'ctags'
 brew 'git'
+brew 'bash-completion'
 brew 'htop'
 brew 'msmtp'
 brew 'node'
