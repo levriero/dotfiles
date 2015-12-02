@@ -9,7 +9,7 @@ set -o emacs
 # Environment variables
 # ------------------------------------------
 export EDITOR=vim
-export CDPATH=.:$HOME:$HOME/Projects
+export CDPATH=.:$HOME:$HOME/Code
 
 # Prompt
 # ------------------------------------------
