@@ -7,9 +7,6 @@ task :setup do
   `brew tap Homebrew/bundle`
   `brew bundle`
 
-  puts ' > Installing npm dependencies...'
-  `npm install jshint`
-
   unless installed?('bundler')
     puts ' > Installing Bundler...'
     `gem install bundler`
@@ -17,9 +14,6 @@ task :setup do
 
   puts ' > Creating symlinks...'
   Rake::Task['symlink'].invoke
-
-  puts ' > Setting fish as default shell...'
-  Rake::Task['shell'].invoke
 
   puts ' > Done!'
 end
@@ -31,12 +25,6 @@ task :symlink do
 
     create_symlink(file)
   end
-end
-
-desc 'Sets fish as default shell'
-task :shell do
-  system("echo '/usr/local/bin/fish' | sudo tee -a /etc/shells")
-  system('chsh -s /usr/local/bin/fish')
 end
 
 desc 'Install vim-plug'
