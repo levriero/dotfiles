@@ -1,4 +1,5 @@
 " Set encoding to UTF-8
+" binding.pry
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -11,7 +12,6 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 " UI
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -28,6 +28,10 @@ Plug 'mhinz/vim-startify'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+
+" Writing
+Plug 'junegunn/goyo.vim'
+Plug 'jodosha/vim-devnotes'
 
 " Editing
 Plug 'tpope/vim-commentary'
@@ -244,13 +248,12 @@ let g:signify_vcs_list = ['git']
 let g:lightline = {
       \ 'colorscheme': 'gotham',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \   'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
+      \   'right': [['lineinfo'], ['percent'], ['devnotes', 'fileformat', 'fileencoding', 'filetype']],
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightlineFugitive',
-      \   'fileformat': 'LightlineFileFormat',
-      \   'fileencoding': 'LightlineFileEncoding',
+      \   'devnotes': 'LightlineDevnotes',
       \ }
       \ }
 
@@ -258,12 +261,8 @@ function! LightlineFugitive()
   return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
-function! LightlineFileFormat()
-  return ''
-endfunction
-
-function! LightlineFileEncoding()
-  return ''
+function! LightlineDevnotes()
+  return exists('*devnotes#statusline()') ? devnotes#statusline() : ''
 endfunction
 
 " ----------------------------------------------------------------------------
@@ -316,7 +315,7 @@ nnoremap <silent><Leader>b :call fzf#run({
 " ----------------------------------------------------------------------------
 " vim-rspec
 " ----------------------------------------------------------------------------
-let g:rspec_command = "call VtrSendCommand('spring rspec {spec}')"
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 
 nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>rn :call RunNearestSpec()<CR>
@@ -370,7 +369,7 @@ nnoremap ; :
 nnoremap : ;
 
 " create a new file in the open buffer dir
-nnoremap <Leader>n :e %:h/
+nnoremap <Leader>nf :e %:h/
 
 " zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -390,6 +389,9 @@ nnoremap <leader>sl :SLoad<cr>
 
 " insert a binding.pry
 nnoremap <leader>d obinding.pry<esc>
+
+" Invoke devnotes
+nnoremap <leader>nn :call DevNotes()<cr>
 
 " ----------------------------------------------------------------------------
 " clojure
