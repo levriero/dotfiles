@@ -31,7 +31,7 @@ Plug 'mhinz/vim-signify'
 
 " Writing
 Plug 'junegunn/goyo.vim'
-Plug 'jodosha/vim-devnotes'
+Plug 'gbonfant/vim-devnotes'
 
 " Editing
 Plug 'tpope/vim-commentary'
