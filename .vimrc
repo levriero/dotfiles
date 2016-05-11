@@ -196,11 +196,6 @@ augroup save_on_buffer_focus_lost
   autocmd! BufLeave * :update
 augroup END
 
-" Automatically rebalance windows on vim resize
-augroup reposition_buffer_on_vim_resize
-  autocmd VimResized * :wincmd =
-augroup END
-
 " Use bash syntax for .bats files
 augroup set_filetype_for_bats_files
   autocmd BufNewFile,BufRead *.bats set filetype=sh
