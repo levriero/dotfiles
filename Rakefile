@@ -1,6 +1,6 @@
 desc 'Set up dotfiles'
 task :setup do
-  puts '  > Pulling latest changes...'
+  puts ' > Pulling latest changes...'
   `git pull &> /dev/null`
 
   puts ' > Installing brew dependencies...'
