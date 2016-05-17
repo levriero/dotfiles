@@ -53,28 +53,24 @@ function remac() {
 
 # - Create (or switch) to a tmux session named after the current directory
 # - Start tmux if no server is running
-function tat() {
+function ta {
   local session_name=${PWD##*/}
-  local session_exists=$(tmux ls | sed -E 's/:.*$//' | ag "^"$session_name"\$")
 
-  # tmux is running
-  if [ -n "$TMUX" ]; then
-    # session does not exist
-    if [ -z $session_exists ]; then
-      TMUX=''
-
-      tmux new-session -Ads $session_name
+  if [ -z "$TMUX" ]; then
+    tmux new-session -As $session_name
+  else
+    if ! tmux ls | sed -E 's/:.*$//' | ag "^"$session_name"\$"; then
+      # if session does not exist create a detached session
+      TMUX='' tmux new-session -Ads $session_name
     fi
 
     tmux switch-client -t $session_name
-  else
-    tmux new-session -Ads $session_name
   fi
 }
 
-# fs [FUZZY PATTERN] - Select selected tmux session
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
+# Select a tmux session with fuzzy search
+#  - Bypass fuzzy finder if there's only one match (--select-1)
+#  - Exit if there's no match (--exit-0)
 fs() {
   local session
   session=$(tmux list-sessions -F "#{session_name}" | \
