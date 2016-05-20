@@ -53,7 +53,7 @@ function remac() {
 
 # - Create (or switch) to a tmux session named after the current directory
 # - Start tmux if no server is running
-function ta {
+function ta() {
   local session_name=${PWD##*/}
 
   if [ -z "$TMUX" ]; then
@@ -71,11 +71,15 @@ function ta {
 # Select a tmux session with fuzzy search
 #  - Bypass fuzzy finder if there's only one match (--select-1)
 #  - Exit if there's no match (--exit-0)
-fs() {
+function fs() {
   local session
   session=$(tmux list-sessions -F "#{session_name}" | \
     fzf --query="$1" --select-1 --exit-0) &&
   tmux switch-client -t "$session"
+}
+
+function psf() {
+  ps aux | fzf
 }
 
 # Path shenanigans
