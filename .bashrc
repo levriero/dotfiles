@@ -82,6 +82,18 @@ function psf() {
   ps aux | fzf
 }
 
+# Create a gif from a .mov file
+#  - Dependencies: ffmpeg, gifsicle
+function gif() {
+  local video_file=$1
+  local resolution=$2
+  local output=${3-output}
+  local fps=${4-20}
+
+  ffmpeg -i $video_file -s $resolution -pix_fmt rgb24 -r $fps -f gif - |
+  gifsicle --optimize=3 --delay=3 > $output.gif
+}
+
 # Path shenanigans
 # ------------------------------------------
 eval "$(rbenv init -)"
