@@ -4,6 +4,8 @@ if [ -e $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
+source $HOME/.git-prompt.sh
+
 set -o emacs
 
 # Environment variables
@@ -16,7 +18,7 @@ export CDPATH=.:$HOME:$HOME/Code
 base='\[\e[0m\]'
 boldcyan='\[\e[1;36m\]'
 
-PS1="${boldcyan}\W ${base}❯ "
+PS1="${boldcyan}\W${base}\$(__git_ps1) ❯ "
 
 # Aliases
 # ------------------------------------------
