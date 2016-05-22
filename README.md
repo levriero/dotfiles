@@ -1,9 +1,13 @@
-### Installation
+Installation
+---
 
 ```bash
 $ git clone git@github.com:gbonfant/dotfiles.git
-$ rake setup vim
+$ sh setup.sh
 ```
 
-### Extras
-To enable fuzzy search within vim install [fzf](https://github.com/junegunn/fzf)
+After installation
+---
+
++ Install [vim-plug](https://github.com/junegunn/fzf)
++ To enable fuzzy search install [fzf](https://github.com/junegunn/fzf)
