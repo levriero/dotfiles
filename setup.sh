@@ -23,12 +23,12 @@ echo "\n > Creating symlinks..."
 for file in $(ls -A); do
   if [[ $file =~ ^\. ]]; then
     if [ -f $HOME/$file ] || [ -d $HOME/$file ]; then
-      echo "  >> $file already exists"
+      echo "  >> $(tput setaf 3)$file already exists$(tput sgr0)"
     elif [ $file == '.git' ]; then
       continue
     else
-      echo "  >> Symlinking $file"
-      ls -s $file $HOME/$file
+      echo "  >> $(tput setaf 2)Symlinking $file$(tput sgr0)"
+      ln -s $PWD/$file $HOME/$file
     fi
   fi
 done
