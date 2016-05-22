@@ -5,12 +5,16 @@ set -e
 echo " > Pulling latest changes..."
 git pull &> /dev/null
 
-echo "\n > Installing brew dependencies..."
-brew tap Homebrew/bundle
-brew bundle
+brew bundle check
+
+if ! [ $? -eq 0 ]; then
+  echo "\n > Installing dependencies..."
+  brew tap Homebrew/bundle
+  brew bundle
+fi
 
 if ! hash bundle 2>/dev/null; then
-  echo "\n > Installing bundler"
+  echo "\n > Installing bundler..."
   gem install bundler
 fi
 
