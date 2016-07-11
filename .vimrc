@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 
 " UI
 Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
 Plug 'whatyouhide/vim-gotham'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
@@ -68,7 +69,8 @@ syntax enable
 
 " Set colorscheme
 set t_Co=256
-colorscheme gotham
+set background=dark
+colorscheme gruvbox
 
 " Notify of running fast terminal, improves redrawing
 set ttyfast
@@ -241,7 +243,7 @@ let g:signify_vcs_list = ['git']
 " lightline
 " ----------------------------------------------------------------------------
 let g:lightline = {
-      \ 'colorscheme': 'gotham',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
       \   'right': [['lineinfo'], ['percent'], ['devnotes', 'fileformat', 'fileencoding', 'filetype']],

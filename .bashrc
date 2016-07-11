@@ -4,8 +4,6 @@ if [ -e $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
-source $HOME/.git-prompt.sh
-
 set -o emacs
 
 # Environment variables
@@ -99,4 +97,10 @@ function gif() {
 # Path shenanigans
 # ------------------------------------------
 eval "$(rbenv init -)"
+
+# Source scripts
+# ------------------------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source $HOME/.git-prompt.sh
+source $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh
