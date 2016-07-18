@@ -14,17 +14,16 @@ call plug#begin('~/.vim/plugged')
 " UI
 Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
-Plug 'whatyouhide/vim-gotham'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-startify'
 
-" Navigation
+" File searching
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
-Plug 'mhinz/vim-startify'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -49,12 +48,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 
 " Languages
-Plug 'tpope/vim-fireplace',        { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static',    { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'elixir-lang/vim-elixir',     { 'for': 'elixir' }
 Plug 'tpope/vim-rails'
-Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'thoughtbot/vim-rspec'
