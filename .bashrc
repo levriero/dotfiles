@@ -10,6 +10,7 @@ set -o emacs
 # ------------------------------------------
 export EDITOR=vim
 export CDPATH=.:$HOME:$HOME/Code
+export GOPATH=$HOME/Code/go
 
 # Prompt
 # ------------------------------------------
