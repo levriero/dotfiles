@@ -335,8 +335,6 @@ let g:startify_custom_header =
 " ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
-" clear those pesky search highlights
-nnoremap <leader><space> :noh<CR>
 
 " Open netrw
 nnoremap <leader>e :Explore<CR>
@@ -344,9 +342,6 @@ nnoremap <leader>e :Explore<CR>
 " keep cursor position
 nnoremap j gj
 nnoremap k gk
-
-" <escape> it too far
-inoremap jk <ESC>
 
 " split horizontally
 nnoremap <leader>v <C-w>v<C-w>l
@@ -381,8 +376,11 @@ nnoremap <leader>sl :SLoad<cr>
 " insert a binding.pry
 nnoremap <leader>d obinding.pry<esc>
 
-" Invoke devnotes
+" open devnotes
 nnoremap <leader>nn :call DevNotes()<cr>
+
+" copy `pwd` to clipboard
+nnoremap <silent><leader>cp :let @+ = expand("%:p")<cr>
 
 " ----------------------------------------------------------------------------
 " clojure
