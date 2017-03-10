@@ -23,7 +23,7 @@ Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 Plug 'junegunn/vim-pseudocl'
-Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-slash'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -381,6 +381,9 @@ nnoremap <leader>nn :call DevNotes()<cr>
 
 " copy `pwd` to clipboard
 nnoremap <silent><leader>cp :let @+ = expand("%:p")<cr>
+
+" place the current search match at the center of the window
+noremap <plug>(slash-after) zz
 
 " ----------------------------------------------------------------------------
 " clojure
