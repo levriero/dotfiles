@@ -43,6 +43,7 @@ Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-after-object'
 Plug 'whatyouhide/vim-lengthmatters'
+Plug 'junegunn/vim-easy-align'
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -320,6 +321,16 @@ nnoremap <Leader>ra :call RunAllSpecs()<CR>
 nnoremap <leader>ta :VtrAttachToPane<cr>
 nnoremap <leader>tl :VtrSendLinesToRunner<cr>
 vnoremap <leader>tl :VtrSendLinesToRunner<cr>
+
+" ----------------------------------------------------------------------------
+" EasyAlign
+" ----------------------------------------------------------------------------
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " ----------------------------------------------------------------------------
 " vim-after-object
