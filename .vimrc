@@ -28,6 +28,7 @@ Plug 'junegunn/vim-slash'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+Plug 'junegunn/gv.vim'
 
 " Writing
 Plug 'junegunn/goyo.vim'
