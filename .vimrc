@@ -64,7 +64,7 @@ syntax enable
 " Set colorscheme
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+colorscheme seoul256
 
 " Notify of running fast terminal, improves redrawing
 set ttyfast
@@ -237,7 +237,7 @@ let g:signify_vcs_list = ['git']
 " lightline
 " ----------------------------------------------------------------------------
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
       \   'right': [['lineinfo'], ['percent'], ['devnotes', 'fileformat', 'fileencoding', 'filetype']],
