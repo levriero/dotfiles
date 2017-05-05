@@ -104,4 +104,3 @@ eval "$(rbenv init -)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source $HOME/.git-prompt.sh
-source $HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh

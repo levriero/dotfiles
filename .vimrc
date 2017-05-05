@@ -64,8 +64,8 @@ call plug#end()
 syntax enable
 
 " Set colorscheme
-set t_Co=256
 set background=dark
+let g:seoul256_background = 236
 colorscheme seoul256
 
 " Notify of running fast terminal, improves redrawing
