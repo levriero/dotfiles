@@ -98,8 +98,7 @@ function gif() {
 # Path shenanigans
 # ------------------------------------------
 eval "$(rbenv init -)"
-
-# Source scripts
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 # ------------------------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
