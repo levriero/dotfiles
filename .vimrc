@@ -308,7 +308,7 @@ nnoremap <silent><Leader>b :call fzf#run({
 " ----------------------------------------------------------------------------
 " vim-rspec
 " ----------------------------------------------------------------------------
-let g:rspec_command = "call VtrSendCommand('zeus rspec {spec}')"
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 
 nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
 nnoremap <Leader>rn :call RunNearestSpec()<CR>
