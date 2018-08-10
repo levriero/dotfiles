@@ -63,10 +63,14 @@ call plug#end()
 " Enable syntax highlighting
 syntax enable
 
+" true colors support
+set termguicolors
+
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+
 " Set colorscheme
-set background=dark
-let g:seoul256_background = 236
-colorscheme seoul256
+colors iceberg
 
 " Notify of running fast terminal, improves redrawing
 set ttyfast
@@ -75,14 +79,13 @@ set ttyfast
 set lazyredraw
 
 " Speed up scroll displaying
-set ttyscroll=3
+set ttyscroll=1
 
 " Maximum column number to highlight
 set synmaxcol=250
 
-" Show (relative) line numbers
+" Show  line numbers
 set number
-set relativenumber
 
 " Enable autoindent
 set autoindent
