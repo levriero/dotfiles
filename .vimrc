@@ -1,19 +1,19 @@
 " Set encoding to UTF-8
-" binding.pry
 scriptencoding utf-8
 set encoding=utf-8
 
 " Use sh for shell commands
 set shell=/bin/sh
 
-" Don't be backwards compatible with vi
+" Required for vim-plug
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
 " UI
 Plug 'junegunn/seoul256.vim'
-Plug 'morhetz/gruvbox'
+Plug 'cocopon/iceberg.vim'
+
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
@@ -239,7 +239,7 @@ let g:signify_vcs_list = ['git']
 " lightline
 " ----------------------------------------------------------------------------
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'iceberg',
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
       \   'right': [['lineinfo'], ['percent'], ['devnotes', 'fileformat', 'fileencoding', 'filetype']],
