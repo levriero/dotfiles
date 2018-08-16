@@ -79,8 +79,14 @@ function fs() {
   tmux switch-client -t "$session"
 }
 
+# Pipe process status to fzf
 function psf() {
   ps aux | fzf
+}
+
+# Delete all local branches except `master` and `staging`
+function gclean() {
+  git for-each-ref --format '%(refname:short)' refs/heads | grep -v 'master\|staging' | xargs git branch -D
 }
 
 # Create a gif from a .mov file
@@ -93,6 +99,11 @@ function gif() {
 
   ffmpeg -i $video_file -s $resolution -pix_fmt rgb24 -r $fps -f gif - |
   gifsicle --optimize=3 --delay=3 > $output.gif
+}
+
+# Return a somewhat unique timestamp for file naming.
+function ts() {
+  date +%Y%m%d%H%M%S
 }
 
 # Path shenanigans
