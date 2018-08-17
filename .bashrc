@@ -30,9 +30,6 @@ alias ls='ls -G'
 alias migrate='bundle exec rake db:migrate'
 alias rials='rails'
 
-# autocomplete `g` alias
-__git_complete g __git_main
-
 # Functions
 # ------------------------------------------
 function ip() {

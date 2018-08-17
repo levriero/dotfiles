@@ -12,7 +12,3 @@
 
 -- Verbose error reports.
 \set VERBOSITY verbose
-
--- If a command is run more than once in a row, only store it once in the
--- history.
-\set HISTCONTROL ignoredups

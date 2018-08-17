@@ -5,18 +5,12 @@ set -e
 echo " > Pulling latest changes..."
 git pull &> /dev/null
 
-brew bundle check
+# declare -a dependencies=("ag" "ctags" "git" "rbenv" "reattach-to-user-namespace" "tmux" "vim")
 
-if ! [ $? -eq 0 ]; then
-  echo "\n > Installing dependencies..."
-  brew tap Homebrew/bundle
-  brew bundle
-fi
-
-if ! hash bundle 2>/dev/null; then
-  echo "\n > Installing bundler..."
-  gem install bundler
-fi
+# for i in "${dependencies[@]}"
+# do
+#   # implement me
+# done
 
 echo "\n > Creating symlinks..."
 
