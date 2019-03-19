@@ -1,6 +1,7 @@
 " Set encoding to UTF-8
-scriptencoding utf-8
 set encoding=utf-8
+set termencoding=utf8
+scriptencoding utf-8
 
 " Use sh for shell commands
 set shell=/bin/sh
@@ -20,6 +21,7 @@ call plug#begin('~/.vim/plugged')
 " UI
 Plug 'junegunn/seoul256.vim'
 Plug 'cocopon/iceberg.vim'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
@@ -67,29 +69,41 @@ call plug#end()
 " ----------------------------------------------------------------------------
 " General Settings
 " ----------------------------------------------------------------------------
-" Enable syntax highlighting
-syntax enable
 
-" true colors support
+" Enable true colours
 set termguicolors
 
-let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+" Enable syntax highlighting
+syntax enable
 
 " Set colorscheme
 colors iceberg
 
+set background=dark
+" colors solarized
+
+" Scroll
+set scrolloff=8
+set sidescroll=1
+set sidescrolloff=16
+
 " Notify of running fast terminal, improves redrawing
-set ttyfast
+" set ttyfast
 
 " Don't redraw when running macros
-set lazyredraw
+" set lazyredraw
 
 " Speed up scroll displaying
-set ttyscroll=1
+" set ttyscroll=1
 
 " Maximum column number to highlight
-set synmaxcol=250
+" set synmaxcol=250
 
 " Show  line numbers
 set number
@@ -136,6 +150,9 @@ set ignorecase
 " Use case-sensitive searching if expression contains capital letter
 set smartcase
 
+" Searches wrap around the end of the file
+set wrapscan
+
 " Apply global substitutions by default
 set gdefault
 
@@ -164,13 +181,13 @@ set noshowmode
 " Set a maximum width of text, mostly for lengthmatters
 set textwidth=80
 
-" Visual wrap my lines
+" Visual wrap lines
 set wrap
 
 " Wrap on whitespace
 set lbr
 
-" Use real english
+" Support for british english
 set spelllang=en_gb
 
 " Add dictionary scanning

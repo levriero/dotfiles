@@ -113,3 +113,4 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source $HOME/.git-prompt.sh
+source $HOME/code/alacritty/alacritty-completions.bash
