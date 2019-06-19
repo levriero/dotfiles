@@ -17,7 +17,7 @@ export GOPATH=$HOME/Code/go
 base='\[\e[0m\]'
 boldcyan='\[\e[1;36m\]'
 
-PS1="${boldcyan}\W${base}\$(__git_ps1) ❯ "
+PS1="${boldcyan}\W${base}\$(__git_ps1) → "
 
 # Aliases
 # ------------------------------------------
@@ -111,6 +111,8 @@ PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # Source scripts
 # ------------------------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 source $HOME/.git-prompt.sh
 source $HOME/code/alacritty/alacritty-completions.bash
