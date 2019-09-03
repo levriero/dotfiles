@@ -27,7 +27,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 
-" File searching
+" " File searching
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
@@ -392,11 +392,10 @@ nnoremap j gj
 nnoremap k gk
 
 " split horizontally
-nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>h <C-w>s<C-w>j
 
 " split vertically
 nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>h <C-w>s<C-w>j
 
 " One press command mode
 nnoremap ; :
