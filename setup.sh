@@ -5,13 +5,6 @@ set -e
 echo " > Pulling latest changes..."
 git pull &> /dev/null
 
-# declare -a dependencies=("ag" "ctags" "git" "rbenv" "reattach-to-user-namespace" "tmux" "vim")
-
-# for i in "${dependencies[@]}"
-# do
-#   # implement me
-# done
-
 echo "\n > Creating symlinks..."
 
 for file in $(ls -A); do

@@ -1,6 +1,7 @@
 " Set encoding to UTF-8
 set encoding=utf-8
-set termencoding=utf8
+set fileencoding=utf-8
+set termencoding=utf-8
 scriptencoding utf-8
 
 " Use sh for shell commands
@@ -22,6 +23,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ayu-theme/ayu-vim'
 
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'itchyny/lightline.vim'
@@ -82,11 +84,15 @@ endif
 " Enable syntax highlighting
 syntax enable
 
-" Set colorscheme
-colors iceberg
+" ayu colorscheme settings
+" let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
 
-set background=dark
-" colors solarized
+" Set colorscheme
+" colors iceberg
+colorscheme ayu
+
 
 " Scroll
 set scrolloff=8

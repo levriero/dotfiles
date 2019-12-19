@@ -17,3 +17,6 @@ fzf_key_bindings.fish
 *.pyc
 *.rdb
 .mutt/temp/*
+
+# Google cloud config & logs
+.config/gcloud
