@@ -281,6 +281,14 @@ autocmd! User GoyoEnter call <SID>goyo_enter()
 let g:gtfo#terminals = { 'unix': 'kitty -d' }
 
 " ----------------------------------------------------------------------------
+" IndentLine
+" ----------------------------------------------------------------------------
+let g:indentLine_char = ''
+let g:indentLine_first_char = ''
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+
+" ----------------------------------------------------------------------------
 " Mappings
 " ----------------------------------------------------------------------------
 
