@@ -68,7 +68,7 @@ alias ber="bundle exec rake"
 base='\[\e[0m\]'
 boldcyan='\[\e[1;36m\]'
 
-PS1="${boldcyan}\W${base}\$(__git_ps1) → "
+PS1="${boldcyan} \W${base}\$(__git_ps1) → "
 
 # --------------------------------------------------------------------
 # fzf
@@ -191,3 +191,5 @@ function nn() {
 
 # rbenv
 eval "$(rbenv init -)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

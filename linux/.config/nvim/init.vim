@@ -7,12 +7,13 @@ Plug 'arcticicestudio/nord-vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/indentLine'
 
 " " File searching
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/vim-slash'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Git
@@ -50,7 +51,9 @@ call plug#end()
 syntax enable
 
 " Set colorscheme
-colorscheme nord
+set termguicolors
+let ayucolor="light"
+colorscheme ayu
 
 " Show  line numbers
 set number
@@ -134,6 +137,9 @@ set wrap
 " Wrap on whitespace
 set lbr
 
+" disable netrw history
+let netrw_dirhistmax = 0
+
 " Set leader key to space
 let mapleader="\<space>"
 
@@ -202,7 +208,7 @@ let g:signify_vcs_list = ['git']
 " lightline
 " ----------------------------------------------------------------------------
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'ayu',
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
       \   'right': [['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype']],
@@ -220,48 +226,12 @@ endfunction
 " fzf
 " ----------------------------------------------------------------------------
 
-" Select buffer
-" ~~~~~~~~~~~~~~~~~~~
-function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
-
-" Fuzzy ag
-" ~~~~~~~~~~~~~~~~~~~
-function! s:escape(path)
-  return substitute(a:path, ' ', '\\ ', 'g')
-endfunction
-
-function! AgHandler(line)
-  let parts = split(a:line, ':')
-  let [fn, lno] = parts[0 : 1]
-  execute 'e '. s:escape(fn)
-  execute lno
-  normal! zz
-endfunction
-
-command! -nargs=+ Search call fzf#run({
-      \ 'source': 'ag "<args>"',
-      \ 'sink': function('AgHandler'),
-      \ 'options': '+m',
-      \ 'down': '40%'
-      \ })
-
-nnoremap <leader>f :Search<space>
-nnoremap <silent><Leader>p :call fzf#run({ 'down': '40%', 'sink': 'e'})<CR>
-nnoremap <silent><Leader>b :call fzf#run({
-      \   'source':  reverse(<sid>buflist()),
-      \   'sink':    function('<sid>bufopen'),
-      \   'options': '+m',
-      \   'down':    len(<sid>buflist()) + 2
-      \ })<CR>
+nnoremap <leader>f :Rg<space>
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>c :Commits<CR>
+nnoremap <leader>cb :BCommits<CR>
 
 " ----------------------------------------------------------------------------
 " vim-rspec
