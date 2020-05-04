@@ -185,8 +185,11 @@ endif
 " ----------------------------------------------------------------------------
 " netrw
 " ----------------------------------------------------------------------------
-let g:netrw_list_hide = '.git,.sass-cache'
-let g:netrw_liststyle = 3 " Use tree style
+let g:netrw_list_hide    = '.git/'
+let g:netrw_liststyle    = 3  " Use tree style
+let g:netrw_banner       = 0  " Hide directory banner
+let g:netrw_browse_split = 4  " Open files in the previous window
+let g:netrw_winsize      = 20 " Width percentage
 
 " ----------------------------------------------------------------------------
 " syntastic
@@ -293,7 +296,7 @@ let g:indentLine_setColors = 0
 " ----------------------------------------------------------------------------
 
 " Open netrw
-nnoremap <leader>e :Explore<CR>
+nnoremap <leader>e :Vex<CR>
 
 " keep cursor position
 nnoremap j gj
