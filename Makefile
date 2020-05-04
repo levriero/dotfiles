@@ -1,5 +1,5 @@
 install:
-	stow --restow --target="${HOME}" linux
+	stow --restow --target="${HOME}" config
 
 dependencies:
-	sudo apt install stow zsh-syntax-highlighting
+	sudo apt install stow
