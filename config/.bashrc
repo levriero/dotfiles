@@ -192,4 +192,5 @@ function nn() {
 # rbenv
 eval "$(rbenv init -)"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# git completion
+source /usr/share/git-core/contrib/completion/git-prompt.sh
