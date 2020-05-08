@@ -13,7 +13,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/vim-slash'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 
 " Git
@@ -43,7 +44,7 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-rails'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'thoughtbot/vim-rspec'
+Plug 'vim-test/vim-test'
 
 call plug#end()
 
@@ -237,20 +238,20 @@ nnoremap <leader>c :Commits<CR>
 nnoremap <leader>cb :BCommits<CR>
 
 " ----------------------------------------------------------------------------
-" vim-rspec
+" vim-test
 " ----------------------------------------------------------------------------
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+let test#strategy = "vtr"
 
-nnoremap <Leader>rc :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <Leader>rl :call RunLastSpec()<CR>
-nnoremap <Leader>ra :call RunAllSpecs()<CR>
+nnoremap <Leader>rc :TestFile<CR>
+nnoremap <Leader>rn :TestNearest<CR>
+nnoremap <Leader>rl :TestLast<CR>
+" Visits the test file from which you last run your tests
+nnoremap <Leader>rv :TestVisit<CR>
 
 " ----------------------------------------------------------------------------
 " VimTmuxRunner
 " ----------------------------------------------------------------------------
 nnoremap <leader>ta :VtrAttachToPane<cr>
-nnoremap <leader>tl :VtrSendLinesToRunner<cr>
 vnoremap <leader>tl :VtrSendLinesToRunner<cr>
 
 " ----------------------------------------------------------------------------
