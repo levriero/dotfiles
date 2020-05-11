@@ -3,13 +3,12 @@ call plug#begin('~/.vim/plugged')
 " UI
 " Plug 'cocopon/iceberg.vim'
 Plug 'ayu-theme/ayu-vim'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
-Plug 'Yggdroot/indentLine'
 
-" " File searching
+" File searching
 Plug 'justinmk/vim-gtfo'
 Plug 'duggiefresh/vim-easydir'
 Plug 'junegunn/vim-slash'
@@ -282,15 +281,7 @@ autocmd! User GoyoEnter call <SID>goyo_enter()
 " ----------------------------------------------------------------------------
 " gtfo.vim
 " ----------------------------------------------------------------------------
-let g:gtfo#terminals = { 'unix': 'kitty -d' }
-
-" ----------------------------------------------------------------------------
-" IndentLine
-" ----------------------------------------------------------------------------
-let g:indentLine_char = ''
-let g:indentLine_first_char = ''
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
+let g:gtfo#terminals = { 'unix': 'alacritty --working-directory $(pwd -P) &' }
 
 " ----------------------------------------------------------------------------
 " Mappings
