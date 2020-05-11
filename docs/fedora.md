@@ -20,3 +20,11 @@ DefaultSession=gnome-xorg.desktop
 ```
 
 3.  Save the custom.conf file.
+
+## Gnome
+
+Fedora sets a sane repeat interval but the delay is too high: 500ms as of 32. Change it to half of that:
+
+```
+gsettings set org.gnome.desktop.peripherals.keyboard delay 250
+```
