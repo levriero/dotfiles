@@ -30,6 +30,10 @@ export HISTFILESIZE=
 export HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S:   "
 [ -z "$TMPDIR" ] && TMPDIR=/tmp
 
+# gsutils
+# https://github.com/GoogleCloudPlatform/gsutil/issues/29#issuecomment-525063367
+export CLOUDSDK_GSUTIL_PYTHON=python3
+
 # Global
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
