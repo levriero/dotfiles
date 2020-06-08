@@ -1,59 +1,156 @@
-call plug#begin('~/.vim/plugged')
+" ----------------------------------------------------------------------------
+" Plugins
+" ----------------------------------------------------------------------------
 
-" UI
-" Plug 'cocopon/iceberg.vim'
+call plug#begin(stdpath('data') . '/plugged')
+
+" Color Schemes
+Plug 'rakr/vim-one'
 Plug 'ayu-theme/ayu-vim'
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arzg/vim-colors-xcode'
 
-Plug 'itchyny/lightline.vim'
-Plug 'mhinz/vim-startify'
-
-" File searching
-Plug 'justinmk/vim-gtfo'
-Plug 'duggiefresh/vim-easydir'
-Plug 'junegunn/vim-slash'
-
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
-
-" Git
-Plug 'tpope/vim-fugitive'
+" Signify uses the sign column to indicate added, modified and removed lines
+" in a file that is managed by a version control system (VCS).
 Plug 'mhinz/vim-signify'
+
+" A light and configurable statusline/tabline plugin for Vim.
+Plug 'itchyny/lightline.vim'
+
+" Git wrapper.
+Plug 'tpope/vim-fugitive'
+
+" A git commit browser.
 Plug 'junegunn/gv.vim'
 
-" Writing
+" A command-line fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" A simple way to create, edit and save files and parent directories
+Plug 'duggiefresh/vim-easydir'
+
+" Enhancing in-buffer search experience
+Plug 'junegunn/vim-slash'
+
+" Distraction-free writing
 Plug 'junegunn/goyo.vim'
 
-" Editing
+" Comment stuff out
 Plug 'tpope/vim-commentary'
+
+" Quoting/parenthesizing
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-repeat'
-Plug 'ervandew/supertab'
-Plug 'scrooloose/syntastic'
-Plug 'junegunn/vim-after-object'
-Plug 'whatyouhide/vim-lengthmatters'
+
+" Syntax checking
+Plug 'vim-syntastic/syntastic'
+
+" A Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
 
-" tmux
-Plug 'christoomey/vim-tmux-navigator'
+" Ruby on Rails power tools
+Plug 'tpope/vim-rails'
+
+" File system explorer
+Plug 'preservim/nerdtree'
+
+" A simple, vimscript only, command runner for sending commands from vim to tmux.
 Plug 'christoomey/vim-tmux-runner'
 
-" Languages
-Plug 'tpope/vim-rails'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" A Vim wrapper for running tests on different granularities.
 Plug 'vim-test/vim-test'
 
+" Wisely add 'end' in ruby, vim script, and others
+Plug 'tpope/vim-endwise'
+
+" Distraction-free writing in Vim
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
+
+let s:darwin = has('mac')
+
+
+"
+" xcode colorscheme (light high contrast)
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:xcodelighthc_dim_punctuation = 0
+
+"
+" signify
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:signify_sign_change = '┃'
+let g:signify_sign_delete = '•'
+
+"
+" lightline
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:lightline = {
+      \ 'colorscheme': 'ayu_light',
+      \ 'active': {
+      \ 'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
+      \ 'right': [['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype']],
+      \ },
+      \ 'component_function': {
+      \ 'fugitive': 'LightlineFugitive'
+      \ }
+      \ }
+
+"
+" fzf
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if s:darwin
+  set rtp+=/usr/local/opt/fzf
+endif
+
+
+"
+" syntastic
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list            = 1
+let g:syntastic_check_on_open            = 1
+let g:syntastic_check_on_wq              = 0
+
+"
+" vim-test
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let test#strategy = "vtr"
+
+"
+" syntastic
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:syntastic_error_symbol         = "☠"
+let g:syntastic_warning_symbol       = "⚠"
+let g:syntastic_style_error_symbol   = "☢"
+let g:syntastic_style_warning_symbol = "☹"
+
+
+" ----------------------------------------------------------------------------
+" General
+" ----------------------------------------------------------------------------
 
 " Enable syntax highlighting
 syntax enable
 
-" Set colorscheme
+" Colorscheme
 set termguicolors
-let ayucolor="light"
-colorscheme ayu
+colorscheme xcodelighthc
+
+set background=light
+
+" Use system clipboard
+if s:darwin
+  set clipboard=unnamed
+else
+  set clipboard=unnamedplus
+endif
+
+" Enable auto-reading of files if they have been changed from the outside
+set autoread
 
 " Show  line numbers
 set number
@@ -61,32 +158,17 @@ set number
 " Enable autoindent
 set autoindent
 
-" Show bracket matches
-set showmatch
-
-" Enable auto-reading of files if they have been changed from the outside
-set autoread
-
-" Save on 'focus' switch
-set autowrite
-set autowriteall
-
-" Sane backspacing
-set backspace=indent,eol,start
-
-" Disable backup files
-set nobackup
-set noswapfile
-
-" Hide buffers instead of closing them
-set hidden
-
-" Split new buffers to the right
-set splitright
+" Use 2 spaces for indentation
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " Autocomplete commands
 set showcmd
 set wildmenu
+
+" Show bracket matches
+set showmatch
 
 " Hightlight search matches
 set hlsearch
@@ -94,58 +176,134 @@ set hlsearch
 " Incremental search
 set incsearch
 
-" Case-insensitive searching
+" Searches wrap around the end of the file
+set wrapscan
+
+" Case-insensitive search
 set ignorecase
 
 " Use case-sensitive searching if expression contains capital letter
 set smartcase
 
-" Searches wrap around the end of the file
-set wrapscan
-
-" Apply global substitutions by default
-set gdefault
-
 " Hightlight whitespace characters
 set list
 set listchars=tab:▸\ ,trail:·
 
-" Use 2 spaces for indentation
-set expandtab
-set tabstop=2
-set shiftwidth=2
-
-" Use the CLIPBOARD register
-set clipboard=unnamedplus
-
-" Disable beeping sounds
-set noerrorbells
-set novisualbell
-
 " Display status var
 set laststatus=2
 
-" Don't show default vim mode information
+" Save on 'focus' switch
+set autowrite
+set autowriteall
+
+" Hide showmode
 set noshowmode
 
-" Set a maximum width of text, mostly for lengthmatters
-set textwidth=80
-
-" Visual wrap lines
-set wrap
-
-" Wrap on whitespace
-set lbr
-
-" disable netrw history
-let netrw_dirhistmax = 0
+" Default updatetime 4000ms is not good for async update
+set updatetime=100
 
 " Set leader key to space
 let mapleader="\<space>"
 
+
+" ----------------------------------------------------------------------------
+" Functions
+" ----------------------------------------------------------------------------
+
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+
+function! LightlineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+" ----------------------------------------------------------------------------
+" Key Mappings
+" ----------------------------------------------------------------------------
+
+" keep cursor position
+nnoremap j gj
+nnoremap k gk
+
+" Faster command mode
+nnoremap ; :
+nnoremap : ;
+
+" Vertical buffer split
+nnoremap <leader>v <C-w>v<C-w>l
+
+" Horizontal buffer split
+nnoremap <leader>h <C-w>s<C-w>j
+
+" create a new file in the open buffer dir
+nnoremap <Leader>nf :e %:h/
+
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" where am I
+nnoremap <leader>w :echo @%<cr>
+
+" copy `pwd` to clipboard
+nnoremap <silent><leader>cp :let @+ = expand("%:p")<cr>
+
+" ruby specific: insert breakpoint
+nnoremap <leader>d obinding.pry<esc>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" fzf mappings
+nnoremap <leader>f :Rg<space>
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>c :Commits<CR>
+nnoremap <leader>cb :BCommits<CR>
+
+" Open NERDTree
+nnoremap <leader>e :NERDTreeToggle<CR>
+
+" <tab> / <s-tab> | Circular windows navigation
+nnoremap <tab>   <c-w>w
+nnoremap <S-tab> <c-w>W
+
+" run current test file (vim-test)
+nnoremap <Leader>rc :TestFile<CR>
+
+" run nearest test file (vim-test)
+nnoremap <Leader>rn :TestNearest<CR>
+
+" run last test file (vim-test)
+nnoremap <Leader>rl :TestLast<CR>
+
+" visits the test file from which you last run your tests
+nnoremap <Leader>rv :TestVisit<CR>
+
+" attach to existing tmux pane
+nnoremap <leader>ra :VtrAttachToPane<cr>
+
+" send VISUAL selection to attached pane
+vnoremap <leader>rs :VtrSendLinesToRunner<cr>
+
 " ----------------------------------------------------------------------------
 " Autocommand
 " ----------------------------------------------------------------------------
+
 " Remove trailing whitespaces automatically when a file is saved
 augroup strip_trailing_white_spaces
   autocmd!
@@ -163,189 +321,16 @@ augroup save_on_buffer_focus_lost
   autocmd! BufLeave * :update
 augroup END
 
-" Use bash syntax for .bats files
-augroup set_filetype_for_bats_files
-  autocmd BufNewFile,BufRead *.bats set filetype=sh
-augroup END
-
 " show/hide current line when entering/leaving buffers
 augroup toggle_cursorline
   autocmd WinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" Automatic rename of tmux window
+" Rename tmux window with file name
 if exists('$TMUX') && !exists('$NORENAME')
   augroup rename_tmux_window
     autocmd BufEnter * call system('tmux rename-window '.expand('%:t:S'))
     autocmd VimLeave * call system('tmux set-window automatic-rename on')
   augroup END
 endif
-
-" ----------------------------------------------------------------------------
-" netrw
-" ----------------------------------------------------------------------------
-let g:netrw_list_hide    = '.git/'
-let g:netrw_liststyle    = 3  " Use tree style
-let g:netrw_banner       = 0  " Hide directory banner
-let g:netrw_browse_split = 2  " Split vertically and open file
-let g:netrw_winsize      = 20 " Width percentage
-
-" ----------------------------------------------------------------------------
-" syntastic
-" ----------------------------------------------------------------------------
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jsxhint']
-let g:syntastic_ruby_checkers = ['mri']
-let g:syntastic_error_symbol = "☠"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "☢"
-let g:syntastic_style_warning_symbol = "☹"
-
-" ----------------------------------------------------------------------------
-" vim-signify
-" ----------------------------------------------------------------------------
-let g:signify_vcs_list = ['git']
-
-" ----------------------------------------------------------------------------
-" lightline
-" ----------------------------------------------------------------------------
-let g:lightline = {
-      \ 'colorscheme': 'ayu',
-      \ 'active': {
-      \   'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
-      \   'right': [['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype']],
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightlineFugitive'
-      \ }
-      \ }
-
-function! LightlineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
-
-" ----------------------------------------------------------------------------
-" fzf
-" ----------------------------------------------------------------------------
-
-nnoremap <leader>f :Rg<space>
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>c :Commits<CR>
-nnoremap <leader>cb :BCommits<CR>
-
-" ----------------------------------------------------------------------------
-" vim-test
-" ----------------------------------------------------------------------------
-let test#strategy = "vtr"
-
-nnoremap <Leader>rc :TestFile<CR>
-nnoremap <Leader>rn :TestNearest<CR>
-nnoremap <Leader>rl :TestLast<CR>
-" Visits the test file from which you last run your tests
-nnoremap <Leader>rv :TestVisit<CR>
-
-" ----------------------------------------------------------------------------
-" VimTmuxRunner
-" ----------------------------------------------------------------------------
-nnoremap <leader>ta :VtrAttachToPane<cr>
-vnoremap <leader>tl :VtrSendLinesToRunner<cr>
-
-" ----------------------------------------------------------------------------
-" EasyAlign
-" ----------------------------------------------------------------------------
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-" ----------------------------------------------------------------------------
-" vim-after-object
-" ----------------------------------------------------------------------------
-autocmd VimEnter * call after_object#enable('=', ':')
-
-
-" ----------------------------------------------------------------------------
-" Goyo
-" ----------------------------------------------------------------------------
-function! s:goyo_enter()
-  LengthmattersDisable
-endfunction
-
-autocmd! User GoyoEnter call <SID>goyo_enter()
-
-" ----------------------------------------------------------------------------
-" gtfo.vim
-" ----------------------------------------------------------------------------
-let g:gtfo#terminals = { 'unix': 'alacritty --working-directory $(pwd -P) &' }
-
-" ----------------------------------------------------------------------------
-" Mappings
-" ----------------------------------------------------------------------------
-
-" Open netrw
-nnoremap <leader>e :Lex<CR>
-
-" keep cursor position
-nnoremap j gj
-nnoremap k gk
-
-" split horizontally
-nnoremap <leader>h <C-w>s<C-w>j
-
-" split vertically
-nnoremap <leader>v <C-w>v<C-w>l
-
-" One press command mode
-nnoremap ; :
-nnoremap : ;
-
-" create a new file in the open buffer dir
-nnoremap <Leader>nf :e %:h/
-
-" zoom a vim pane, <C-w>= to re-balance
-nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>
-
-" regenerate ctags
-nnoremap <leader>r :!ctags -R .<cr>
-
-" where am I
-nnoremap <leader>w :echo @%<cr>
-
-" save a session (uses startify)
-nnoremap <leader>ss :SSave<cr>
-
-" load a session (uses startify)
-nnoremap <leader>sl :SLoad<cr>
-
-" insert a binding.pry
-nnoremap <leader>d obinding.pry<esc>
-
-" open devnotes
-nnoremap <leader>nn :call DevNotes()<cr>
-
-" copy `pwd` to clipboard
-nnoremap <silent><leader>cp :let @+ = expand("%:p")<cr>
-
-" place the current search match at the center of the window
-noremap <plug>(slash-after) zz
-
-" ----------------------------------------------------------------------------
-" Functions
-" ----------------------------------------------------------------------------
-function! <SID>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
