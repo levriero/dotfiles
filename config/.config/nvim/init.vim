@@ -135,7 +135,7 @@ let g:syntastic_style_warning_symbol = "☹"
 " mucomplete / omnicomplete
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 set completeopt+=menuone
-set completeopt+=noinsert
+set completeopt+=noselect
 
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#completion_delay       = 1
