@@ -47,6 +47,9 @@ Plug 'vim-syntastic/syntastic'
 " A Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
 
+" Vim/Ruby Configuration Files
+Plug 'vim-ruby/vim-ruby'
+
 " Ruby on Rails power tools
 Plug 'tpope/vim-rails'
 
@@ -65,10 +68,12 @@ Plug 'tpope/vim-endwise'
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim'
 
+" Minimalist autocompletion plugin
+Plug 'lifepillar/vim-mucomplete'
+
 call plug#end()
 
 let s:darwin = has('mac')
-
 
 "
 " xcode colorscheme (light high contrast)
@@ -126,6 +131,14 @@ let g:syntastic_warning_symbol       = "⚠"
 let g:syntastic_style_error_symbol   = "☢"
 let g:syntastic_style_warning_symbol = "☹"
 
+"
+" mucomplete / omnicomplete
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+set completeopt+=menuone
+set completeopt+=noinsert
+
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#completion_delay       = 1
 
 " ----------------------------------------------------------------------------
 " General
@@ -332,3 +345,11 @@ if exists('$TMUX') && !exists('$NORENAME')
     autocmd VimLeave * call system('tmux set-window automatic-rename on')
   augroup END
 endif
+
+" Auto completion settings for ruby files
+augroup filetype_ruby
+  autocmd!
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading    = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_rails             = 1
+augroup END
