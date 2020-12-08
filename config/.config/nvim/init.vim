@@ -68,12 +68,21 @@ Plug 'tpope/vim-endwise'
 " Distraction-free writing in Vim
 Plug 'junegunn/goyo.vim'
 
-" Minimalist autocompletion plugin
-Plug 'lifepillar/vim-mucomplete'
+" Asynchronous completion framework for neovim
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Defines text objects to target text after the designated characters.
+Plug 'junegunn/vim-after-object'
 
 call plug#end()
 
 let s:darwin = has('mac')
+
+
+"
+" deoplete
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:deoplete#enable_at_startup = 1
 
 "
 " xcode colorscheme (light high contrast)
@@ -131,14 +140,6 @@ let g:syntastic_warning_symbol       = "⚠"
 let g:syntastic_style_error_symbol   = "☢"
 let g:syntastic_style_warning_symbol = "☹"
 
-"
-" mucomplete / omnicomplete
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set completeopt+=menuone
-set completeopt+=noselect
-
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#completion_delay       = 1
 
 " ----------------------------------------------------------------------------
 " General
@@ -213,9 +214,11 @@ set noshowmode
 " Default updatetime 4000ms is not good for async update
 set updatetime=100
 
+" Do not create swap files
+set noswapfile
+
 " Set leader key to space
 let mapleader="\<space>"
-
 
 " ----------------------------------------------------------------------------
 " Functions
@@ -280,7 +283,7 @@ nmap ga <Plug>(EasyAlign)
 
 " fzf mappings
 nnoremap <leader>f :Rg<space>
-nnoremap <leader>p :Files<CR>
+nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>c :Commits<CR>
@@ -329,11 +332,13 @@ augroup END
 
 " Save on buffer focus lost
 augroup save_on_buffer_focus_lost
-  autocmd! BufLeave * :update
+  autocmd!
+  autocmd BufLeave * :update
 augroup END
 
 " show/hide current line when entering/leaving buffers
 augroup toggle_cursorline
+  autocmd!
   autocmd WinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
 augroup END
@@ -341,15 +346,14 @@ augroup END
 " Rename tmux window with file name
 if exists('$TMUX') && !exists('$NORENAME')
   augroup rename_tmux_window
+    autocmd!
     autocmd BufEnter * call system('tmux rename-window '.expand('%:t:S'))
     autocmd VimLeave * call system('tmux set-window automatic-rename on')
   augroup END
 endif
 
-" Auto completion settings for ruby files
-augroup filetype_ruby
+" Enable vim-after-object mappings
+augroup enable_after_object
   autocmd!
-  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading    = 1
-  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-  autocmd FileType ruby,eruby let g:rubycomplete_rails             = 1
+  autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 augroup END
