@@ -78,6 +78,9 @@ call plug#end()
 
 let s:darwin = has('mac')
 
+" disable sql omnicompletion
+" :help ft-sql :help sql-completion-customization
+let g:omni_sql_no_default_maps = 1
 
 "
 " deoplete
