@@ -1,10 +1,11 @@
 [user]
-  name  = Gus Bonfante
-  email = gus@gbonfante.com
+  name  = Gus B
+  email = 807237+gsbf@users.noreply.github.com
+  signingkey = 2C9789EC4F1CC783
 [color]
   ui = true
 [core]
-  editor = nvim
+  editor = vim
 [push]
   default = simple
 [help]
@@ -46,3 +47,5 @@
 [mergetool "meld"]
   trustExitCode = true
   cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+[commit]
+  gpgsign = true
