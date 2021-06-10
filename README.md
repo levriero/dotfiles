@@ -1,12 +1,8 @@
-Dotfiles
----
+Installation
+------------
 
-Managed by [GNU Stow](https://www.gnu.org/software/stow/)
-
-
-```bash
-git clone git@github.com:gbonfant/dotfiles.git && cd dotfiles
-
-make dependencies
-make install
+```sh
+% cd ~
+% git clone https://github.com:gsbf/dotfiles.git
+% ~/dotfiles/setup.sh
 ```
