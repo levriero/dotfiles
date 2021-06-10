@@ -2,7 +2,7 @@ Installation
 ------------
 
 ```sh
-% cd ~
-% git clone https://github.com:gsbf/dotfiles.git
-% ~/dotfiles/setup.sh
+cd ~
+git clone git@github.com:gsbf/dotfiles.git
+bash ~/dotfiles/setup.sh
 ```
