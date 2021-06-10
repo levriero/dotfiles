@@ -2,15 +2,16 @@
 " Plugins
 " ----------------------------------------------------------------------------
 
-call plug#begin(stdpath('data') . '/plugged')
+call plug#begin('~/.vim/plugged')
 
 " Color Schemes
 Plug 'rakr/vim-one'
 Plug 'ayu-theme/ayu-vim'
 Plug 'arzg/vim-colors-xcode'
 
-" Signify uses the sign column to indicate added, modified and removed lines
-" in a file that is managed by a version control system (VCS).
+Plug 'ghifarit53/tokyonight-vim'
+
+" Indicates vcs changes
 Plug 'mhinz/vim-signify'
 
 " A light and configurable statusline/tabline plugin for Vim.
@@ -26,14 +27,14 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Vim LSP client
+Plug 'dense-analysis/ale'
+
 " A simple way to create, edit and save files and parent directories
-Plug 'duggiefresh/vim-easydir'
+" Plug 'duggiefresh/vim-easydir'
 
 " Enhancing in-buffer search experience
 Plug 'junegunn/vim-slash'
-
-" Distraction-free writing
-Plug 'junegunn/goyo.vim'
 
 " Comment stuff out
 Plug 'tpope/vim-commentary'
@@ -41,23 +42,17 @@ Plug 'tpope/vim-commentary'
 " Quoting/parenthesizing
 Plug 'tpope/vim-surround'
 
-" Syntax checking
-Plug 'vim-syntastic/syntastic'
-
 " A Vim alignment plugin
 Plug 'junegunn/vim-easy-align'
 
 " Vim/Ruby Configuration Files
-Plug 'vim-ruby/vim-ruby'
+" Plug 'vim-ruby/vim-ruby'
 
 " Ruby on Rails power tools
 Plug 'tpope/vim-rails'
 
 " File system explorer
-Plug 'preservim/nerdtree'
-
-" A simple, vimscript only, command runner for sending commands from vim to tmux.
-Plug 'christoomey/vim-tmux-runner'
+" Plug 'preservim/nerdtree'
 
 " A Vim wrapper for running tests on different granularities.
 Plug 'vim-test/vim-test'
@@ -66,31 +61,50 @@ Plug 'vim-test/vim-test'
 Plug 'tpope/vim-endwise'
 
 " Distraction-free writing in Vim
-Plug 'junegunn/goyo.vim'
-
-" Asynchronous completion framework for neovim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'junegunn/goyo.vim'
 
 " Defines text objects to target text after the designated characters.
 Plug 'junegunn/vim-after-object'
 
 call plug#end()
 
+
+"
+" helpers
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let s:darwin = has('mac')
 
-" disable sql omnicompletion
-" :help ft-sql :help sql-completion-customization
-let g:omni_sql_no_default_maps = 1
 
 "
-" deoplete
+" ALE
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:deoplete#enable_at_startup = 1
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 1
+let g:ale_sign_warning = "☢"
+let g:ale_sign_error = "☹"
 
-"
-" xcode colorscheme (light high contrast)
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:xcodelighthc_dim_punctuation = 0
+let g:ale_linters = {
+      \   'ruby': ['standardrb', 'solargraph'],
+      \}
+
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'ruby': ['standardrb'],
+      \}
+
+
+function! SmartInsertCompletion() abort
+  " Use the default CTRL-N in completion menus
+  if pumvisible()
+    return "\<C-n>"
+  endif
+
+  " Exit and re-enter insert mode, and use insert completion
+  return "\<C-c>a\<C-n>"
+endfunction
+
+inoremap <silent> <C-n> <C-R>=SmartInsertCompletion()<CR>
+
 
 "
 " signify
@@ -102,7 +116,7 @@ let g:signify_sign_delete = '•'
 " lightline
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let g:lightline = {
-      \ 'colorscheme': 'ayu_light',
+      \ 'colorscheme': 'tokyonight',
       \ 'active': {
       \ 'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
       \ 'right': [['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype']],
@@ -116,19 +130,9 @@ let g:lightline = {
 " fzf
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if s:darwin
-  set rtp+=/usr/local/opt/fzf
+  set rtp+=/opt/homebrew/opt/fzf
 endif
 
-
-"
-" syntastic
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq   = 0
 
 "
 " vim-test
@@ -136,12 +140,13 @@ let g:syntastic_check_on_wq   = 0
 let test#strategy = "vtr"
 
 "
-" syntastic
+" omnicomplete
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:syntastic_error_symbol         = "☠"
-let g:syntastic_warning_symbol       = "⚠"
-let g:syntastic_style_error_symbol   = "☢"
-let g:syntastic_style_warning_symbol = "☹"
+set completeopt=menu,menuone,noinsert,noselect
+
+"disable sql omnicompletion
+":help ft-sql :help sql-completion-customization
+let g:omni_sql_no_default_maps = 1
 
 
 " ----------------------------------------------------------------------------
@@ -152,10 +157,18 @@ let g:syntastic_style_warning_symbol = "☹"
 syntax enable
 
 " Colorscheme
-set termguicolors
-colorscheme xcodelighthc
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-set background=light
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
+
+
+
+" colorscheme xcodelighthc
 
 " Use system clipboard
 if s:darwin
@@ -163,6 +176,8 @@ if s:darwin
 else
   set clipboard=unnamedplus
 endif
+
+set backspace=indent,eol,start
 
 " Enable auto-reading of files if they have been changed from the outside
 set autoread
@@ -286,14 +301,14 @@ nmap ga <Plug>(EasyAlign)
 
 " fzf mappings
 nnoremap <leader>f :Rg<space>
-nnoremap <leader>p :GFiles<CR>
+nnoremap <leader>p :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>c :Commits<CR>
 nnoremap <leader>cb :BCommits<CR>
 
 " Open NERDTree
-nnoremap <leader>e :NERDTreeToggle<CR>
+" nnoremap <leader>e :NERDTreeToggle<CR>
 
 " <tab> / <s-tab> | Circular windows navigation
 nnoremap <tab>   <c-w>w
@@ -316,6 +331,16 @@ nnoremap <leader>ra :VtrAttachToPane<cr>
 
 " send VISUAL selection to attached pane
 vnoremap <leader>rs :VtrSendLinesToRunner<cr>
+
+
+" ALE mappings
+" ~~~~~~~~~~~~
+nnoremap <buffer> gd :ALEGoToDefinition<CR>
+nnoremap <buffer> gr :ALEFindReferences<CR>
+nnoremap <buffer> gR :ALERename<CR>
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " ----------------------------------------------------------------------------
 " Autocommand
