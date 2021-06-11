@@ -50,6 +50,9 @@ call plug#begin('~/.vim/plugged')
   " A Vim wrapper for running tests on different granularities.
   Plug 'vim-test/vim-test'
 
+  " Easily interact with tmux from vim
+  Plug 'preservim/vimux'
+
   " Wisely add 'end' in ruby, vim script, and others
   Plug 'tpope/vim-endwise'
 
@@ -129,7 +132,7 @@ endif
 "
 " vim-test
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let test#strategy = "vtr"
+let test#strategy = "vimux"
 
 "
 " omnicomplete
@@ -329,6 +332,10 @@ vnoremap <leader>rs :VtrSendLinesToRunner<cr>
 nnoremap <buffer> gd :ALEGoToDefinition<CR>
 nnoremap <buffer> gr :ALEFindReferences<CR>
 nnoremap <buffer> gR :ALERename<CR>
+
+nnoremap gd :ALEGoToDefinition<CR>
+nnoremap gr :ALEFindReferences<CR>
+nnoremap gR :ALERename<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
