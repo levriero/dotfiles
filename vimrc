@@ -3,69 +3,61 @@
 " ----------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
+  " Color Schemes
+  Plug 'drewtempelmeyer/palenight.vim'
+  Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
-" Color Schemes
-Plug 'rakr/vim-one'
-Plug 'ayu-theme/ayu-vim'
-Plug 'arzg/vim-colors-xcode'
+  " Indicates vcs changes
+  Plug 'mhinz/vim-signify'
 
-Plug 'ghifarit53/tokyonight-vim'
+  " A light and configurable statusline/tabline plugin for Vim.
+  Plug 'itchyny/lightline.vim'
 
-" Indicates vcs changes
-Plug 'mhinz/vim-signify'
+  " Git wrapper.
+  Plug 'tpope/vim-fugitive'
 
-" A light and configurable statusline/tabline plugin for Vim.
-Plug 'itchyny/lightline.vim'
+  " A git commit browser.
+  Plug 'junegunn/gv.vim'
 
-" Git wrapper.
-Plug 'tpope/vim-fugitive'
+  " A command-line fuzzy finder
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
-" A git commit browser.
-Plug 'junegunn/gv.vim'
+  " Vim LSP client
+  Plug 'dense-analysis/ale'
 
-" A command-line fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+  " A simple way to create, edit and save files and parent directories
+  Plug 'duggiefresh/vim-easydir'
 
-" Vim LSP client
-Plug 'dense-analysis/ale'
+  " Enhancing in-buffer search experience
+  Plug 'junegunn/vim-slash'
 
-" A simple way to create, edit and save files and parent directories
-" Plug 'duggiefresh/vim-easydir'
+  " Comment stuff out
+  Plug 'tpope/vim-commentary'
 
-" Enhancing in-buffer search experience
-Plug 'junegunn/vim-slash'
+  " Quoting/parenthesizing
+  Plug 'tpope/vim-surround'
 
-" Comment stuff out
-Plug 'tpope/vim-commentary'
+  " A Vim alignment plugin
+  Plug 'junegunn/vim-easy-align'
 
-" Quoting/parenthesizing
-Plug 'tpope/vim-surround'
+  " A collection of language packs for Vim.
+  Plug 'sheerun/vim-polyglot'
 
-" A Vim alignment plugin
-Plug 'junegunn/vim-easy-align'
+  " Ruby on Rails power tools
+  Plug 'tpope/vim-rails'
 
-" Vim/Ruby Configuration Files
-" Plug 'vim-ruby/vim-ruby'
+  " A Vim wrapper for running tests on different granularities.
+  Plug 'vim-test/vim-test'
 
-" Ruby on Rails power tools
-Plug 'tpope/vim-rails'
+  " Wisely add 'end' in ruby, vim script, and others
+  Plug 'tpope/vim-endwise'
 
-" File system explorer
-" Plug 'preservim/nerdtree'
+  " Distraction-free writing in Vim
+  Plug 'junegunn/goyo.vim'
 
-" A Vim wrapper for running tests on different granularities.
-Plug 'vim-test/vim-test'
-
-" Wisely add 'end' in ruby, vim script, and others
-Plug 'tpope/vim-endwise'
-
-" Distraction-free writing in Vim
-" Plug 'junegunn/goyo.vim'
-
-" Defines text objects to target text after the designated characters.
-Plug 'junegunn/vim-after-object'
-
+  " Defines text objects to target text after the designated characters.
+  Plug 'junegunn/vim-after-object'
 call plug#end()
 
 
@@ -116,7 +108,7 @@ let g:signify_sign_delete = '•'
 " lightline
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 let g:lightline = {
-      \ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'material_vim',
       \ 'active': {
       \ 'left': [['mode', 'paste'], ['fugitive', 'readonly', 'filename', 'modified']],
       \ 'right': [['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype']],
@@ -153,22 +145,21 @@ let g:omni_sql_no_default_maps = 1
 " General
 " ----------------------------------------------------------------------------
 
-" Enable syntax highlighting
-syntax enable
-
-" Colorscheme
+" GUI colors shenanigans
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set termguicolors
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
 
-colorscheme tokyonight
+" Enable syntax highlighting
+syntax on
 
+" Colorscheme
+let g:material_theme_style = 'palenight' " default, palenight, ocean, lighter, and darker
+let g:material_terminal_italics = 1
+colorscheme material
 
-
-" colorscheme xcodelighthc
+" let g:palenight_terminal_italics=1
 
 " Use system clipboard
 if s:darwin
@@ -383,5 +374,5 @@ endif
 " Enable vim-after-object mappings
 augroup enable_after_object
   autocmd!
-  autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+  autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ', ',')
 augroup END

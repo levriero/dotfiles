@@ -1,6 +1,5 @@
 set -x HOMEBREW_NO_ANALYTICS 1
 set -x EDITOR "vim"
-
 set -x TERM tmux-256color
 
 # cargo
@@ -17,19 +16,38 @@ end
 status --is-interactive; and source (rbenv init -|psub)
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/macmini/google-cloud-sdk/path.fish.inc' ]; . '/Users/macmini/google-cloud-sdk/path.fish.inc'; end
+if [ -f "($HOME)/google-cloud-sdk/path.fish.inc" ]; . "($HOME)/google-cloud-sdk/path.fish.inc"; end
 
 # TokyoNight Color Palette
-set -l foreground c0caf5
-set -l selection 33467C
-set -l comment 565f89
-set -l red f7768e
-set -l orange ff9e64
-set -l yellow e0af68
-set -l green 9ece6a
-set -l purple 9d7cd8
-set -l cyan 7dcfff
-set -l pink bb9af7
+# set -l foreground c0caf5
+# set -l selection 33467C
+# set -l comment 565f89
+# set -l red f7768e
+# set -l orange ff9e64
+# set -l yellow e0af68
+# set -l green 9ece6a
+# set -l purple 9d7cd8
+# set -l cyan 7dcfff
+# set -l pink bb9af7
+
+# Material Default Colors
+set -l bg         263238
+set -l fg         eeffff
+set -l invisibles 65738e
+set -l caret      ffcc00
+set -l comment    546e7a
+set -l selection  2c3b41
+set -l red        ff5370
+set -l orange     f78c6c
+set -l yellow     ffcb6b
+set -l green      c3e88d
+set -l cyan       89ddff
+set -l blue       82aaff
+set -l paleblue   b2ccd6
+set -l purple     c792ea
+set -l brown      c17e70
+set -l pink       f07178
+set -l violet     bb80b3
 
 # Syntax Highlighting Colors
 set -g fish_color_normal $foreground
