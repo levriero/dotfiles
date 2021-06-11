@@ -128,7 +128,6 @@ if s:darwin
   set rtp+=/opt/homebrew/opt/fzf
 endif
 
-
 "
 " vim-test
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,11 +157,9 @@ set termguicolors
 syntax on
 
 " Colorscheme
-let g:material_theme_style = 'palenight' " default, palenight, ocean, lighter, and darker
+let g:material_theme_style = 'default' " default, palenight, ocean, lighter, and darker
 let g:material_terminal_italics = 1
 colorscheme material
-
-" let g:palenight_terminal_italics=1
 
 " Use system clipboard
 if s:darwin

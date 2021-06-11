@@ -1,3 +1,18 @@
+# bash-completion@2
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+# Git prompt
+GIT_PROMPT_IGNORE_SUBMODULES=1 # avoid searching for changed files in submodules
+GIT_PROMPT_SHOW_UNTRACKED_FILES=no # can be no, normal or all; determines counting of untracked files
+GIT_PROMPT_WITH_VIRTUAL_ENV=0 # avoid setting virtual environment infos for node/python/conda environments
+# GIT_PROMPT_THEME=Single_line_Minimalist
+GIT_PROMPT_THEME=Single_line_Solarized_Lamda
+
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
 # --------------------------------------------------------------------
 # Options
 # --------------------------------------------------------------------
@@ -8,16 +23,8 @@ shopt -s histappend
 # Check the window size after each command ($LINES, $COLUMNS)
 shopt -s checkwinsize
 
-# Make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# Bash completion
-[ -f /etc/bash_completion ] && . /etc/bash_completion
-
-# enable color support
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
+### Better-looking less for binary files
+[ -x /usr/bin/lesspipe    ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # --------------------------------------------------------------------
 # Environment Variables
@@ -38,9 +45,9 @@ export CLOUDSDK_GSUTIL_PYTHON=python3
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export EDITOR=nvim
+export EDITOR=vim
 
-export CDPATH=".:$HOME:$HOME/code"
+export CDPATH=".:$HOME:$HOME/Code"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 # --------------------------------------------------------------------
@@ -53,26 +60,13 @@ alias vi=$EDITOR
 alias vim=$EDITOR
 alias tmux="tmux -2"
 
-alias ls='ls -h --group-directories-first --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
+alias ls='ls -G'
 alias gitv='git log --graph --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
+# Ruby
 alias be="bundle exec"
 alias ber="bundle exec rake"
 
-
-# --------------------------------------------------------------------
-# Prompt
-# --------------------------------------------------------------------
-base='\[\e[0m\]'
-boldcyan='\[\e[1;36m\]'
-
-PS1="${boldcyan} \W${base}\$(__git_ps1) → "
 
 # --------------------------------------------------------------------
 # fzf
@@ -184,11 +178,6 @@ function ta() {
   fi
 }
 
-# Make a new note
-function nn() {
-  nvim ~/Tresors/Documents/Notes/${1}.txt -c Goyo
-}
-
 # --------------------------------------------------------------------
 # Extras
 # --------------------------------------------------------------------
@@ -198,6 +187,3 @@ eval "$(rbenv init -)"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# git completion
-source /usr/share/git-core/contrib/completion/git-prompt.sh
