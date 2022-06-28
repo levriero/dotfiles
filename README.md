@@ -2,7 +2,7 @@ Installation
 ------------
 
 ```sh
-cd ~
-git clone git@github.com:gsbf/dotfiles.git
-bash ~/dotfiles/setup.sh
+cd $HOME
+git clone git@github.com:pannarex/dotfiles.git
+bash $HOME/dotfiles/setup.sh
 ```
