@@ -1,18 +1,3 @@
-# bash-completion@2
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
-
-# Git prompt
-GIT_PROMPT_IGNORE_SUBMODULES=1 # avoid searching for changed files in submodules
-GIT_PROMPT_SHOW_UNTRACKED_FILES=no # can be no, normal or all; determines counting of untracked files
-GIT_PROMPT_WITH_VIRTUAL_ENV=0 # avoid setting virtual environment infos for node/python/conda environments
-# GIT_PROMPT_THEME=Single_line_Minimalist
-GIT_PROMPT_THEME=Single_line_Solarized_Lamda
-
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
-  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
-fi
-
 # --------------------------------------------------------------------
 # Options
 # --------------------------------------------------------------------
@@ -48,7 +33,28 @@ export LC_ALL=en_US.UTF-8
 export EDITOR=vim
 
 export CDPATH=".:$HOME:$HOME/Code"
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+
+# --------------------------------------------------------------------
+# Git prompt & Completion
+# --------------------------------------------------------------------
+
+# bash-completion@2
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+# Git prompt
+GIT_PROMPT_IGNORE_SUBMODULES=1 # avoid searching for changed files in submodules
+GIT_PROMPT_SHOW_UNTRACKED_FILES=no # can be no, normal or all; determines counting of untracked files
+GIT_PROMPT_WITH_VIRTUAL_ENV=0 # avoid setting virtual environment infos for node/python/conda environments
+# GIT_PROMPT_THEME=Single_line_Minimalist
+GIT_PROMPT_THEME=Single_line_Solarized_Lamda
+
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
 
 # --------------------------------------------------------------------
 # Aliases
@@ -183,7 +189,7 @@ function ta() {
 # --------------------------------------------------------------------
 
 # rbenv
-eval "$(rbenv init -)"
+[ -f rbenv ] && eval "$(rbent init -)"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
