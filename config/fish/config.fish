@@ -18,6 +18,11 @@ status --is-interactive; and source (rbenv init -|psub)
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "($HOME)/google-cloud-sdk/path.fish.inc" ]; . "($HOME)/google-cloud-sdk/path.fish.inc"; end
 
+# ---
+# aliases
+# ---
+# alias vim "nvim"
+
 # TokyoNight Color Palette
 # set -l foreground c0caf5
 # set -l selection 33467C

@@ -8,15 +8,21 @@ ln -sf dotfiles/tmux.conf     .tmux.conf
 ln -sf dotfiles/vimrc         .vimrc
 
 rm -rf .config/fish
+rm -rf .config/nvim
+
 ln -sF ~/dotfiles/config/fish ~/.config/fish
+ln -sF ~/dotfiles/config/nvim ~/.config/nvim
 
 command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew..."; \
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
 
 read -r -p "Install dependencies? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  brew install bash bash-completion@2 ctags fzf git git-lfs node redis ripgrep ruby tig tmux vim
+  brew install ctags fd fzf git git-lfs node redis ripgrep ruby tig tree tmux neovim
   $(brew --prefix)/opt/fzf/install
+
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 else
   exit 0
 fi
