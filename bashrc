@@ -189,7 +189,7 @@ function ta() {
 # --------------------------------------------------------------------
 
 # rbenv
-[ -f rbenv ] && eval "$(rbent init -)"
+eval "$(rbenv init - bash)"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

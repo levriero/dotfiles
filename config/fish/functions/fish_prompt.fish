@@ -37,11 +37,16 @@ function fish_prompt
     end
   end
 
+  # Notify if a command took more than 5 minutes
+  if [ "$CMD_DURATION" -gt 300000 ]
+    echo The last command took (math "$CMD_DURATION/1000") seconds.
+  end
+
   echo -n -s $initial_indicator $whitespace $cwd $git_info $whitespace $ahead $status_indicator $whitespace
 end
 
 function _git_ahead
-  set -l commits (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null)
+  set -l commits (command git rev-list --left-right '@{upstream}...HEAD' 2>/dev/null)
   if [ $status != 0 ]
     return
   end
@@ -61,9 +66,10 @@ function _git_ahead
 end
 
 function _git_branch_name
-  echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+  echo (command git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
 end
 
 function _is_git_dirty
-  echo (command git status -s --ignore-submodules=dirty ^/dev/null)
+  echo (command git status -s --ignore-submodules=dirty 2>/dev/null)
 end
+

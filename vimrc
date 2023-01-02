@@ -44,6 +44,9 @@ call plug#begin('~/.vim/plugged')
   " A collection of language packs for Vim.
   Plug 'sheerun/vim-polyglot'
 
+  " Vim's runtime files for ruby support
+  Plug 'vim-ruby/vim-ruby'
+
   " Ruby on Rails power tools
   Plug 'tpope/vim-rails'
 
@@ -73,19 +76,19 @@ let s:darwin = has('mac')
 "
 " ALE
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-let g:ale_completion_enabled = 1
-let g:ale_set_highlights = 1
+" let g:ale_completion_enabled = 1
+" let g:ale_set_highlights = 1
 let g:ale_sign_warning = "☢"
 let g:ale_sign_error = "☹"
 
-let g:ale_linters = {
-      \   'ruby': ['standardrb', 'solargraph'],
-      \}
+" let g:ale_linters = {
+"       \   'ruby': ['standardrb', 'solargraph'],
+"       \}
 
-let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'ruby': ['standardrb'],
-      \}
+" let g:ale_fixers = {
+"       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+"       \   'ruby': ['standardrb'],
+"       \}
 
 
 function! SmartInsertCompletion() abort
@@ -380,3 +383,10 @@ augroup enable_after_object
   autocmd!
   autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ', ',')
 augroup END
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
