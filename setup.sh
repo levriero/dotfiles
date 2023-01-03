@@ -18,7 +18,7 @@ command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew..."; \
 
 read -r -p "Install dependencies? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  brew install ctags fd fzf git git-lfs node redis ripgrep ruby tig tree tmux neovim
+  brew install ctags fd fzf git git-lfs node redis ripgrep ruby tig tree tmux neovim wget
   $(brew --prefix)/opt/fzf/install
 
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\

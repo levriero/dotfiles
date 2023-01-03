@@ -10,22 +10,42 @@ vim.g.loaded_perl_provider = 0
 -- Leader as space
 vim.g.mapleader = [[ ]]
 
-vim.wo.number = true
-
 -- Use macOS system clipboard
-if vim.fn.has "macunix" then
+if vim.fn.has 'macunix' then
   opt.clipboard:append { 'unnamedplus' }
 end
 
 -- Settings
+opt.guicursor = ''
+
+opt.nu = true
+opt.relativenumber = true
+
 opt.autoindent = true
 opt.smartindent = true
-opt.hlsearch = true
-opt.backup = false
+
 opt.showcmd = true
-opt.expandtab = true
-opt.shiftwidth = 2
+
 opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+opt.undofile = true
+
+opt.hlsearch = false
+opt.incsearch = true
+
+opt.termguicolors = true
+
 opt.ignorecase = true
 opt.smartcase = true
-opt.termguicolors = true
+
+opt.updatetime = 50
+
+opt.signcolumn = 'yes'
+
+-- opt.colorcolumn = '80'

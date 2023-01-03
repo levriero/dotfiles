@@ -19,3 +19,12 @@ keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<cr>', { silent = true })
 -- Navigate buffers with tab
 keymap.set('n', '<tab>', '<C-w>w')
 keymap.set('n', '<S-tab>', '<C-w>W')
+
+-- Move highlighted blocks up/down
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- delete highlighted word into the void register
+keymap.set('x', '<leader>p', "\"_dP")
+
+keymap.set('n', 'Q', '<nop>')

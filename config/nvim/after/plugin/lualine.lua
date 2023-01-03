@@ -4,12 +4,13 @@ if (not status) then return end
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'gruvbox'
+    --- @usage 'rose-pine' | 'rose-pine-alt'
+    theme = 'rose-pine'
   },
   sections = {
     lualine_a = {
       {
-        'filename', 
+        'filename',
         path = 1
       }
     },
