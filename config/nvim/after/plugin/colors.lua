@@ -1,6 +1,6 @@
 require('rose-pine').setup({
   --- @usage 'main' | 'moon'
-	dark_variant = 'main',
+	dark_variant = 'moon',
   disable_italics = true,
 })
 
