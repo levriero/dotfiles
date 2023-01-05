@@ -27,4 +27,8 @@ keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- delete highlighted word into the void register
 keymap.set('x', '<leader>p', "\"_dP")
 
-keymap.set('n', 'Q', '<nop>')
+-- evenly distribute windows
+keymap.set('n', '<leader>=', ':wincmd =<CR>')
+
+-- maximize focus window
+keymap.set('n', '<leader>-', ':wincmd _<CR>:wincmd |<CR>')

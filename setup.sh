@@ -18,11 +18,10 @@ command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew..."; \
 
 read -r -p "Install dependencies? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  brew install ctags fd fzf git git-lfs node redis ripgrep ruby tig tree tmux neovim wget
+  brew install ctags fish fd fzf git git-lfs node redis ripgrep ruby tig tree tmux neovim wget
   $(brew --prefix)/opt/fzf/install
 
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 else
   exit 0
 fi

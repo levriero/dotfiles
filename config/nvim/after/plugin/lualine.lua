@@ -1,19 +1,33 @@
-local status, lualine = pcall(require, 'lualine')
-if (not status) then return end
+-- Bubbles config for lualine
+-- Author: lokesh-krishna
+-- MIT license, see LICENSE for more details.
 
-lualine.setup {
+require('lualine').setup {
   options = {
-    icons_enabled = true,
-    --- @usage 'rose-pine' | 'rose-pine-alt'
-    theme = 'rose-pine'
+    theme = 'auto',
+    component_separators = '|',
+    section_separators = { left = '', right = '' },
   },
   sections = {
     lualine_a = {
-      {
-        'filename',
-        path = 1
-      }
+      { 'mode', separator = { left = '' }, right_padding = 2 },
     },
-    lualine_x = {'encoding', 'filetype'}
-  }
+    lualine_b = { 'filename', 'branch' },
+    lualine_c = { 'fileformat' },
+    lualine_x = {},
+    lualine_y = { 'filetype', 'progress' },
+    lualine_z = {
+      { 'location', separator = { right = '' }, left_padding = 2 },
+    },
+  },
+  inactive_sections = {
+    lualine_a = { 'filename' },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = { 'location' },
+  },
+  tabline = {},
+  extensions = {},
 }

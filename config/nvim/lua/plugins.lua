@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- colorscheme
-  use { 'rose-pine/neovim', as = 'rose-pine' }
+  use { 'catppuccin/nvim', as = 'catppuccin' }
 
   -- file explorer
   use 'nvim-tree/nvim-tree.lua'
@@ -67,8 +67,14 @@ return require('packer').startup(function(use)
   -- undo tree visualizer
   use 'mbbill/undotree'
 
-  -- git
-  use 'tpope/vim-fugitive'
+  -- clear search highlight when cursor is moved
+  use 'junegunn/vim-slash'
+
+  -- commenting
+  use 'numToStr/Comment.nvim'
+
+  -- git decorations
+  use 'lewis6991/gitsigns.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

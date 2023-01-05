@@ -1,19 +1,22 @@
-require('rose-pine').setup({
-  --- @usage 'main' | 'moon'
-	dark_variant = 'moon',
-  disable_italics = true,
+require('catppuccin').setup({
+  integrations = {
+    native_lsp = {
+      enabled = true,
+      virtual_text = {
+        errors = { 'italic' },
+        hints = { 'italic' },
+        warnings = { 'italic' },
+        information = { 'italic' },
+      },
+      underlines = {
+        errors = { 'underline' },
+        hints = { 'underline' },
+        warnings = { 'underline' },
+        information = { 'underline' },
+      },
+    },
+  }
 })
 
--- set colorscheme after options
-vim.cmd('colorscheme rose-pine')
-
-local utils = {}
-
-function utils.define_autogroups(definitions)
-  for group_name, definition in pairs(definitions) do
-    for _, def in pairs(definition) do
-    end
-  end
-end
-
-return utils
+-- setup must be called before loading
+vim.cmd.colorscheme 'catppuccin-macchiato'

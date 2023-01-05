@@ -36,7 +36,7 @@ opt.backup = false
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 opt.undofile = true
 
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 
 opt.termguicolors = true
@@ -47,5 +47,7 @@ opt.smartcase = true
 opt.updatetime = 50
 
 opt.signcolumn = 'yes'
+
+opt.cursorline = true
 
 -- opt.colorcolumn = '80'
