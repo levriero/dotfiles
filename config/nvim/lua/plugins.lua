@@ -75,6 +75,15 @@ return require('packer').startup(function(use)
 
   -- git decorations
   use 'lewis6991/gitsigns.nvim'
+  --
+  -- -- add "end" to certain structures wisely
+  use 'RRethy/nvim-treesitter-endwise'
+
+  -- persist and toggle multiple terminals 
+  use { 'akinsho/toggleterm.nvim', tag = '2.*' }
+
+  -- running tests on different granularities
+  use 'vim-test/vim-test'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

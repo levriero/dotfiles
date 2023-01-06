@@ -1,5 +1,5 @@
 set -x HOMEBREW_NO_ANALYTICS 1
-set -x EDITOR "vim"
+set -x EDITOR "nvim"
 set -x TERM tmux-256color
 
 set -x NVMDIR $XDG_CONFIG_HOME/.nvm

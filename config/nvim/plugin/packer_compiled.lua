@@ -164,6 +164,11 @@ _G.packer_plugins = {
     path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-endwise"] = {
+    loaded = true,
+    path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/nvim-treesitter-endwise",
+    url = "https://github.com/RRethy/nvim-treesitter-endwise"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -184,20 +189,25 @@ _G.packer_plugins = {
     path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
-  },
   ["vim-slash"] = {
     loaded = true,
     path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/vim-slash",
     url = "https://github.com/junegunn/vim-slash"
+  },
+  ["vim-test"] = {
+    loaded = true,
+    path = "/Users/macmini/.local/share/nvim/site/pack/packer/start/vim-test",
+    url = "https://github.com/vim-test/vim-test"
   }
 }
 

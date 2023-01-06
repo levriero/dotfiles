@@ -5,6 +5,7 @@
 require('lualine').setup {
   options = {
     theme = 'auto',
+    globalstatus = true,
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },
@@ -29,5 +30,5 @@ require('lualine').setup {
     lualine_z = { 'location' },
   },
   tabline = {},
-  extensions = {},
+  extensions = {'nvim-tree'},
 }
