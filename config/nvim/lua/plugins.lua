@@ -85,6 +85,8 @@ return require('packer').startup(function(use)
   -- running tests on different granularities
   use 'vim-test/vim-test'
 
+  use { 'glepnir/lspsaga.nvim', branch = 'main' }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
