@@ -1,7 +1,8 @@
 local keymap = vim.keymap.set
-local saga = require('lspsaga')
 
-saga.init_lsp_saga({})
+require('lspsaga').init_lsp_saga {
+  custom_kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
+}
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -20,3 +21,9 @@ keymap('n', 'gn', '<cmd>Lspsaga rename<CR>', { silent = true })
 -- also support open/vsplit/etc operation check definition_action_keys
 -- support tagstack C-t jump back
 keymap('n', 'gp', '<cmd>Lspsaga peek_definition<CR>', { silent = true })
+
+-- Show line diagnostics
+keymap('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', { silent = true })
+
+-- Outline
+keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', { silent = true })

@@ -1,5 +1,11 @@
 require('catppuccin').setup({
   integrations = {
+    lsp_saga = true,
+    mason = true,
+    nvimtree = true,
+    treesitter = true,
+    telescope = true,
+    cmp = true,
     native_lsp = {
       enabled = true,
       virtual_text = {
