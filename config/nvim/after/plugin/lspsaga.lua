@@ -1,8 +1,23 @@
 local keymap = vim.keymap.set
+local colors = require("catppuccin.palettes").get_palette('macchiato')
 
-require('lspsaga').init_lsp_saga {
-  custom_kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
-}
+require('lspsaga').setup({
+  ui = {
+    colors = {
+      normal_bg = colors.base,
+      red = colors.red,
+      magenta = colors.flamingo,
+      orange = colors.peach,
+      yellow = colors.yellow,
+      green = colors.green,
+      cyan = colors.sky,
+      blue = colors.blue,
+      purple = colors.lavender,
+      white = '#d1d4cf',
+      black = colors.surface1
+    }
+  }
+})
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -23,7 +38,11 @@ keymap('n', 'gn', '<cmd>Lspsaga rename<CR>', { silent = true })
 keymap('n', 'gp', '<cmd>Lspsaga peek_definition<CR>', { silent = true })
 
 -- Show line diagnostics
-keymap('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', { silent = true })
+-- keymap('n', '<leader>cd', '<cmd>Lspsaga show_line_diagnostics<CR>', { silent = true })
+keymap('n', 'gi', '<cmd>Lspsaga show_line_diagnostics<CR>', { silent = true })
 
 -- Outline
 keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', { silent = true })
+
+-- Go to definition
+keymap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>')
