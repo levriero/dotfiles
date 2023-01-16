@@ -1,11 +1,13 @@
 -- toggle cusor line
 vim.api.nvim_create_autocmd({ 'WinEnter', 'WinLeave' }, {
   pattern = { '*' },
-  callback = function (ev)
-    if ev == 'WinEnter' then
-      vim.api.nvim_set_option_value('cursorline', '', 'local')
-    elseif ev == 'WinLeave' then
-      vim.api.nvim_set_option_value('nocursorline', '', 'local')
+  callback = function (table)
+    local event = table['event']
+
+    if event == 'WinEnter' then
+      vim.api.nvim_set_option_value('cursorline', true, { scope = 'local' })
+    elseif event == 'WinLeave' then
+      vim.api.nvim_set_option_value('cursorline', false, { scope = 'local' })
     end
   end
 })
