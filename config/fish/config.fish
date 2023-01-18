@@ -1,6 +1,6 @@
 set -x HOMEBREW_NO_ANALYTICS 1
 set -x EDITOR "nvim"
-set -x TERM screen-256color
+set -x TERM xterm-256color
 
 set -x NVMDIR $XDG_CONFIG_HOME/.nvm
 
