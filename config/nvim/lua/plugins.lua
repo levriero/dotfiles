@@ -12,6 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+  -- package manager
   use 'wbthomason/packer.nvim'
 
   -- colorscheme
@@ -26,7 +27,10 @@ return require('packer').startup(function(use)
   -- status line
   use 'nvim-lualine/lualine.nvim'
 
-  -- syntax highlighting 
+  -- "gc" to comment visual regions / lines
+  use 'numToStr/Comment.nvim'
+
+  -- highlight, edit, and navigate code
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -35,58 +39,103 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- fuzzy finder
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  -- additional text objects via treesitter
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-  -- lsp
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
-
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
-
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
-  }
-
-  -- undo tree visualizer
-  use 'mbbill/undotree'
-
-  -- clear search highlight when cursor is moved
-  use 'junegunn/vim-slash'
-
-  -- commenting
-  use 'numToStr/Comment.nvim'
-
-  -- git decorations
-  use 'lewis6991/gitsigns.nvim'
-  --
-  -- -- add "end" to certain structures wisely
+  -- Add "end" to certain structures wisely
   use 'RRethy/nvim-treesitter-endwise'
+
+  -- LSP Configuration & Plugins
+  use {
+    'neovim/nvim-lspconfig',
+    requires = {
+      -- automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- useful status updates for LSP
+      'j-hui/fidget.nvim',
+
+      -- additional lua configuration, makes nvim stuff amazing
+      'folke/neodev.nvim',
+    },
+  }
+
+  -- autocompletion
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  }
+
+  -- fuzzy Finder (files, lsp, etc)
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+
+  -- fuzzy Finder Algorithm which requires local dependencies to be built.
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make',
+    cond = vim.fn.executable 'make' == 1
+  }
+
+  -- Git related plugins
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use 'lewis6991/gitsigns.nvim'
 
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
 
-  -- running tests on different granularities
-  use 'vim-test/vim-test'
+  -- Detect tabstop and shiftwidth automatically
+  use 'tpope/vim-sleuth'
 
-  -- lsp plugin
-  use { 'glepnir/lspsaga.nvim', branch = 'main' }
+  -- -- fuzzy finder
+  -- use {
+  --   'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  --   requires = { {'nvim-lua/plenary.nvim'} }
+  -- }
+  --
+  -- -- lsp
+  -- use {
+  --   'VonHeikemen/lsp-zero.nvim',
+  --   requires = {
+  --     -- LSP Support
+  --     {'neovim/nvim-lspconfig'},
+  --     {'williamboman/mason.nvim'},
+  --     {'williamboman/mason-lspconfig.nvim'},
+  --
+  --     -- Autocompletion
+  --     {'hrsh7th/nvim-cmp'},
+  --     {'hrsh7th/cmp-buffer'},
+  --     {'hrsh7th/cmp-path'},
+  --     {'saadparwaiz1/cmp_luasnip'},
+  --     {'hrsh7th/cmp-nvim-lsp'},
+  --     {'hrsh7th/cmp-nvim-lua'},
+  --
+  --     -- Snippets
+  --     {'L3MON4D3/LuaSnip'},
+  --     {'rafamadriz/friendly-snippets'},
+  --   }
+  -- }
+  --
+  -- -- undo tree visualizer
+  -- use 'mbbill/undotree'
+  --
+  -- -- clear search highlight when cursor is moved
+  -- use 'junegunn/vim-slash'
+  --
+  --
+  -- -- git decorations
+  -- use 'lewis6991/gitsigns.nvim'
+  -- --
+  --
+  -- -- persist and toggle multiple terminals
+  -- use { 'akinsho/toggleterm.nvim', tag = '2.*' }
+  --
+  -- -- running tests on different granularities
+  -- use 'vim-test/vim-test'
+  --
+  -- -- lsp plugin
+  -- use { 'glepnir/lspsaga.nvim', branch = 'main' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
