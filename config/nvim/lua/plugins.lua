@@ -79,8 +79,8 @@ return require('packer').startup(function(use)
   -- -- add "end" to certain structures wisely
   use 'RRethy/nvim-treesitter-endwise'
 
-  -- persist and toggle multiple terminals 
-  use { 'akinsho/toggleterm.nvim', tag = '2.*' }
+  -- Add indentation guides even on blank lines
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- running tests on different granularities
   use 'vim-test/vim-test'
