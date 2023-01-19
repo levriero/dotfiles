@@ -128,11 +128,11 @@ return require('packer').startup(function(use)
   -- use 'lewis6991/gitsigns.nvim'
   -- --
   --
-  -- -- persist and toggle multiple terminals
-  -- use { 'akinsho/toggleterm.nvim', tag = '2.*' }
-  --
-  -- -- running tests on different granularities
-  -- use 'vim-test/vim-test'
+  -- Persist and toggle multiple terminals
+  use { 'akinsho/toggleterm.nvim', tag = '2.*' }
+
+  -- running tests on different granularities
+  use 'vim-test/vim-test'
   --
   -- -- lsp plugin
   -- use { 'glepnir/lspsaga.nvim', branch = 'main' }
