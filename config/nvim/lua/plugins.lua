@@ -90,11 +90,11 @@ return require('packer').startup(function(use)
 
   -- -- undo tree visualizer
   -- use 'mbbill/undotree'
-  --
-  -- -- clear search highlight when cursor is moved
-  -- use 'junegunn/vim-slash'
-  --
-  --
+
+  -- Clear search highlight when cursor is moved
+  use 'junegunn/vim-slash'
+
+
   -- -- git decorations
   -- use 'lewis6991/gitsigns.nvim'
   -- --
