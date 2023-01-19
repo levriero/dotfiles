@@ -88,17 +88,12 @@ return require('packer').startup(function(use)
   -- Detect tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
 
-  -- -- undo tree visualizer
-  -- use 'mbbill/undotree'
+  -- undo tree visualizer
+  use 'mbbill/undotree'
 
   -- Clear search highlight when cursor is moved
   use 'junegunn/vim-slash'
 
-
-  -- -- git decorations
-  -- use 'lewis6991/gitsigns.nvim'
-  -- --
-  --
   -- Persist and toggle multiple terminals
   use { 'akinsho/toggleterm.nvim', tag = '2.*' }
 
