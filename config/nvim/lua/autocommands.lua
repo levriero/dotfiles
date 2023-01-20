@@ -1,5 +1,7 @@
 -- toggle cusor line
+local toggle_cursor_line_group = vim.api.nvim_create_augroup('ToggleCursorLine', { clear = true })
 vim.api.nvim_create_autocmd({ 'WinEnter', 'WinLeave' }, {
+  group = toggle_cursor_line_group,
   pattern = { '*' },
   callback = function (table)
     local event = table['event']
@@ -13,7 +15,9 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'WinLeave' }, {
 })
 
 -- remove trailing whitespace
-vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+local remove_trailing_whitespace = vim.api.nvim_create_augroup('RemoveTrailingWhitespace', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = remove_trailing_whitespace,
   pattern = { '*' },
   command = [[%s/\s\+$//e]],
 })
