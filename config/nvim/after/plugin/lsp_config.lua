@@ -1,13 +1,3 @@
--- local lsp = require('lsp-zero')
---
--- lsp.preset('recommended')
---
--- lsp.ensure_installed({
---   'sumneko_lua',
--- })
---
--- lsp.setup()
-
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -146,4 +136,3 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
