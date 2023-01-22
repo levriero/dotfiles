@@ -6,6 +6,8 @@
   ui = true
 [core]
   editor = nvim
+[init]
+  defaultBranch = main
 [push]
   default = simple
 [help]
