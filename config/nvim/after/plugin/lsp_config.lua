@@ -55,7 +55,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   solargraph = {},
-
+  gopls = {},
   sumneko_lua = {
     Lua = {
       workspace = { checkThirdParty = false },
