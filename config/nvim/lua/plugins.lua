@@ -97,11 +97,11 @@ return require('packer').startup(function(use)
   -- Persist and toggle multiple terminals
   use { 'akinsho/toggleterm.nvim', tag = '2.*' }
 
-  -- running tests on different granularities
+  -- Running tests on different granularities
   use 'vim-test/vim-test'
-  --
-  -- -- lsp plugin
-  -- use { 'glepnir/lspsaga.nvim', branch = 'main' }
+
+  -- Fancier vim.ui
+  use 'stevearc/dressing.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
