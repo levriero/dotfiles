@@ -1,11 +1,26 @@
+local U = require "catppuccin.utils.colors"
+
 require('catppuccin').setup({
+  transparent_background = true,
+  custom_highlights = function (colors)
+    return {
+      CursorLine = {
+        bg = U.vary_color({ latte = U.lighten(colors.mantle, 0.70, C.base) }, U.darken(colors.surface0, 0.64, colors.base)),
+      },
+    }
+  end,
   integrations = {
-    lsp_saga = true,
+    cmp = true,
+    fidget = true,
+    gitsigns = true,
     mason = true,
     nvimtree = true,
-    treesitter = true,
     telescope = true,
-    cmp = true,
+    treesitter = true,
+    indent_blankline = {
+      enabled = true,
+      colored_indent_levels = false,
+    },
     native_lsp = {
       enabled = true,
       virtual_text = {
