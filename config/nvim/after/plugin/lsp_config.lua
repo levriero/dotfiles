@@ -1,11 +1,9 @@
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
+local on_attach = function(client, bufnr)
+  local navic = require('nvim-navic')
+
+  -- Create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
     if desc then
@@ -13,6 +11,10 @@ local on_attach = function(_, bufnr)
     end
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+  end
+
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')

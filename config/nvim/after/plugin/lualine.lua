@@ -1,3 +1,5 @@
+local navic = require('nvim-navic')
+
 require('lualine').setup {
   options = {
     theme = 'catppuccin',
@@ -11,7 +13,15 @@ require('lualine').setup {
     winbar = {},
   },
   sections = {
-    lualine_c = { {'filename', file_status = true, path = 1} },
-    lualine_x = { {'filetype'}, {'encoding'} },
+    lualine_c = { { 'filename', file_status = true, path = 1 } },
+    lualine_x = { { 'filetype' }, { 'encoding' } },
   },
+  winbar = {
+    lualine_c = { { navic.get_location, cond = navic.is_available } },
+    lualine_x = { 'filetype' }
+  },
+  inactive_winbar = {
+    lualine_c = { { navic.get_location, cond = navic.is_available } },
+    lualine_x = { 'filetype' }
+  }
 }

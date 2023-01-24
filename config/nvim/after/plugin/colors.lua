@@ -36,6 +36,10 @@ require('catppuccin').setup({
         information = { 'underline' },
       },
     },
+    navic = {
+      enabled = true,
+      custom_bg = 'NONE'
+    },
   }
 })
 
