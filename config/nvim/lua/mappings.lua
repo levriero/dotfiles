@@ -8,7 +8,7 @@ keymap.set('n', ':', ';')
 keymap.set('n', '<leader>v', '<C-w>v<C-w>l', { desc = '[v]ertical buffer split' })
 
 -- Horizontal buffer split
-keymap.set('n', '<leader>h', '<C-w>s<C-w>j', { desc = '[h]orizontal buffer split' })
+-- keymap.set('n', '<leader>h', '<C-w>s<C-w>j', { desc = '[h]orizontal buffer split' })
 
 -- Copy file path to clipboard
 keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<cr>', { desc = '[C]opy file [P]ath' })
@@ -16,7 +16,6 @@ keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<cr>', { desc = '[C]opy fi
 -- Navigate buffers with tab
 keymap.set('n', '<tab>', '<C-w>w')
 keymap.set('n', '<S-tab>', '<C-w>W')
-
 
 -- No-op for space in normal/visual as it's used as leader
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
