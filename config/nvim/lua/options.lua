@@ -64,3 +64,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- Enable break indent
 vim.o.breakindent = true
+
+-- Timeout on command composition
+vim.o.timeout = true
+vim.o.timeoutlen = 300

@@ -5,16 +5,13 @@ keymap.set('n', ';', ':')
 keymap.set('n', ':', ';')
 
 -- Vertical buffer split
-keymap.set('n', '<leader>v', '<C-w>v<C-w>l')
+keymap.set('n', '<leader>v', '<C-w>v<C-w>l', { desc = '[v]ertical buffer split' })
 
 -- Horizontal buffer split
-keymap.set('n', '<leader>h', '<C-w>s<C-w>j')
+keymap.set('n', '<leader>h', '<C-w>s<C-w>j', { desc = '[h]orizontal buffer split' })
 
--- Output file path
-keymap.set('n', '<leader>w', ':echo @%<cr>')
-
--- Copy `pwd` to clipboard
-keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<cr>', { silent = true })
+-- Copy file path to clipboard
+keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<cr>', { desc = '[C]opy file [P]ath' })
 
 -- Navigate buffers with tab
 keymap.set('n', '<tab>', '<C-w>w')
@@ -29,10 +26,10 @@ keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }
 keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Evenly distribute windows
-keymap.set('n', '<leader>=', ':wincmd =<CR>')
+keymap.set('n', '<leader>=', ':wincmd =<CR>', { desc = 'Make all windows (almost) equally high and wide' })
 
 -- Maximize focus window
-keymap.set('n', '<leader>-', ':wincmd _<CR>:wincmd |<CR>')
+keymap.set('n', '<leader>-', ':wincmd _<CR>:wincmd |<CR>', { desc = 'Maximize current window' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
