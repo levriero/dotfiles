@@ -4,8 +4,11 @@ vim.g.loaded_netrwPlugin = 1
 
 require('nvim-tree').setup({
   open_on_setup = false,
+  update_focused_file = {
+    enable = true
+  },
   view = {
-    width = 35
+    width = 30
   },
 })
 
