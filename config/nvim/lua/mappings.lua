@@ -20,16 +20,13 @@ keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<cr>', { silent = true })
 keymap.set('n', '<tab>', '<C-w>w')
 keymap.set('n', '<S-tab>', '<C-w>W')
 
+
+-- No-op for space in normal/visual as it's used as leader
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
 -- Remap for dealing with word wrap
 keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Move highlighted blocks up/down
--- keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
--- keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-
--- Delete highlighted word into the void register
-keymap.set('x', '<leader>p', "\"_dP")
 
 -- Evenly distribute windows
 keymap.set('n', '<leader>=', ':wincmd =<CR>')

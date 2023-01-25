@@ -39,11 +39,17 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- additional text objects via treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  -- Additional text objects via treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
 
   -- Add "end" to certain structures wisely
-  use 'RRethy/nvim-treesitter-endwise'
+  use {
+    'RRethy/nvim-treesitter-endwise',
+    after = 'nvim-treesitter',
+  }
 
   -- LSP Configuration & Plugins
   use {

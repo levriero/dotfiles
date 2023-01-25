@@ -24,6 +24,9 @@ vim.o.guicursor = ''
 vim.wo.number = true
 vim.o.relativenumber = true
 
+-- enable mouse mode
+vim.o.mouse = 'a'
+
 vim.o.autoindent = true
 vim.o.smartindent = true
 
