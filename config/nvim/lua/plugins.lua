@@ -118,6 +118,9 @@ return require('packer').startup(function(use)
   -- Display keybindings for command that started typing
   use 'folke/which-key.nvim'
 
+  -- Surround actions
+  use 'echasnovski/mini.surround'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
