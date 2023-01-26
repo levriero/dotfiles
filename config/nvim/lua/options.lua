@@ -67,4 +67,4 @@ vim.o.breakindent = true
 
 -- Timeout on command composition
 vim.o.timeout = true
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 500
