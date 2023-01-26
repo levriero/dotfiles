@@ -33,10 +33,10 @@ require('gitsigns').setup({
     -- Actions
     map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>', '[s]tage hunk')
     map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>', '[r]eset hunk')
-    map('n', '<leader>hS', gs.stage_buffer, '[S]tage buffer')
     map('n', '<leader>hu', gs.undo_stage_hunk, '[u]ndo stage hunk')
-    map('n', '<leader>hR', gs.reset_buffer, '[R]eset buffer')
     map('n', '<leader>hp', gs.preview_hunk, '[p]review hunk')
+    map('n', '<leader>hS', gs.stage_buffer, '[S]tage buffer')
+    map('n', '<leader>hR', gs.reset_buffer, '[R]eset buffer')
     map('n', '<leader>hb', function() gs.blame_line { full = true } end, '[b]lame line')
     map('n', '<leader>hd', gs.diffthis, '[d]iff this')
     map('n', '<leader>hD', function() gs.diffthis('~') end, '[D]iff this ~')
