@@ -16,7 +16,7 @@ require('lualine').setup {
     lualine_c = {
       { 'filename', file_status = true, path = 1 }
     },
-    lualine_x = { 'buffers' },
+    lualine_x = { 'searchcount' },
     lualine_y = { '' },
     lualine_z = { 'location' },
   },
