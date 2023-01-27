@@ -6,15 +6,19 @@ require('lualine').setup {
     icons_enabled = true,
     globalstatus = true,
     component_separators = '',
-    section_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
   },
   disabled_filetypes = {
     statusline = {},
     winbar = {},
   },
   sections = {
-    lualine_c = { { 'filename', file_status = true, path = 1 } },
-    lualine_x = { 'encoding' },
+    lualine_c = {
+      { 'filename', file_status = true, path = 1 }
+    },
+    lualine_x = { 'buffers' },
+    lualine_y = { '' },
+    lualine_z = { 'location' },
   },
   winbar = {
     lualine_c = { { navic.get_location, cond = navic.is_available } },
