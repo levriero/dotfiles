@@ -192,4 +192,3 @@ function ta() {
 eval "$(rbenv init - bash)"
 
 # fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
