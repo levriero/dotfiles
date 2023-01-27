@@ -14,7 +14,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_c = { { 'filename', file_status = true, path = 1 } },
-    lualine_x = { { 'filetype' }, { 'encoding' } },
+    lualine_x = { 'encoding' },
   },
   winbar = {
     lualine_c = { { navic.get_location, cond = navic.is_available } },
