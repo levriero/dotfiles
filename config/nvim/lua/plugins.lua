@@ -110,16 +110,13 @@ return require('packer').startup(function(use)
   use 'stevearc/dressing.nvim'
 
   -- Shows current code context in winbar
-  use {
-    'SmiteshP/nvim-navic',
-    requires = 'neovim/nvim-lspconfig'
-  }
+  use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
 
   -- Display keybindings for command that started typing
   use 'folke/which-key.nvim'
 
-  -- Surround actions
-  use 'echasnovski/mini.surround'
+  -- General-purpose motion
+  use { 'ggandor/leap.nvim', requires = { 'tpope/vim-repeat' } }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
