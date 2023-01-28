@@ -18,8 +18,7 @@ if vim.fn.has 'macunix' then
   opt.clipboard:append { 'unnamedplus' }
 end
 
-vim.o.guicursor = ''
-
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 -- relative line numbers
 vim.wo.number = true
 vim.o.relativenumber = true
@@ -57,7 +56,7 @@ vim.o.updatetime = 50
 
 vim.o.signcolumn = 'yes'
 
-vim.o.cursorline = true
+vim.o.cursorline = false
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
