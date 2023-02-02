@@ -28,3 +28,5 @@ set fish_greeting
 
 # pure-fish/pure
 set pure_enable_single_line_prompt true
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
