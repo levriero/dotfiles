@@ -51,8 +51,6 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config.
 local servers = {
-  solargraph = {},
-  gopls = {},
   sumneko_lua = {
     Lua = {
       workspace = { checkThirdParty = false },
