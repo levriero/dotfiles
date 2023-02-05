@@ -18,11 +18,9 @@ command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew..."; \
 
 read -r -p "Install dependencies? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  brew install bat ctags fish fd fzf git git-lfs redis ripgrep tig tree tmux neovim wget
+  brew install bat fish fd fzf git redis ripgrep tig tree tmux neovim wget
 
   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-else
-  exit 0
 fi
 
 read -r -p "Install JS toolchain? [y/N] " response
@@ -30,8 +28,6 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
   curl https://get.volta.sh | bash
 
   volta install node
-else
-  exit 0
 fi
 
 read -r -p "Install Ruby toolchain? [y/N] " response
@@ -39,8 +35,6 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
   brew install rbenv ruby-build
 
   rbenv init
-else
-  exit 0
 fi
 
 echo "Done!"
