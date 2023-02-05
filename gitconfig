@@ -1,7 +1,7 @@
 [user]
   name  = Gus B.
   email = 807237+levriero@users.noreply.github.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFx/s7UvqygOTsJkaBPjzqFYTm2ryeLmEYmYPtulJIN
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFx/s7UvqygOTsJkaBPjzqFYTm2ryeLmEYmYPtulJIN
 [color]
   ui = true
 [core]
@@ -30,11 +30,6 @@
   ps  = push -u origin HEAD
 [fetch]
   prune = true
-[filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
 [diff]
   tool = meld
 [difftool]
