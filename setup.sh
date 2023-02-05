@@ -21,6 +21,8 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
   brew install bat fish fd fzf git redis ripgrep tig tree tmux neovim wget
 
   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 read -r -p "Install JS toolchain? [y/N] " response
