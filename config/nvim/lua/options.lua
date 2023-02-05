@@ -5,6 +5,11 @@ vim.o.fileencoding = 'utf-8'
 -- use homebrew python installation
 vim.g.python3_host_prog = '$HOMEBREW_PREFIX/bin/python3'
 
+-- volta workaround for npm global package
+if vim.fn.executable('volta') == 1 then
+  vim.g.node_host_prog = vim.fn.trim(vim.fn.system('volta which neovim-node-host'))
+end
+
 -- do not load perl provider
 vim.g.loaded_perl_provider = 0
 
