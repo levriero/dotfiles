@@ -9,9 +9,11 @@ ln -sf dotfiles/vimrc         .vimrc
 
 rm -rf .config/fish
 rm -rf .config/nvim
+rm -rf .config/lf
 
 ln -sF ~/dotfiles/config/fish ~/.config/fish
 ln -sF ~/dotfiles/config/nvim ~/.config/nvim
+ln -sF ~/dotfiles/config/lf ~/.config/lf
 
 command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew..."; \
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }
