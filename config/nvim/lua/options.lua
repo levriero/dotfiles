@@ -40,8 +40,8 @@ vim.o.swapfile = false
 vim.o.backup = false
 
 -- save undo history
-vim.o.undodir = os.getenv('HOME') .. '/.vim/undodir'
-vim.o.undofile = true
+-- vim.o.undodir = os.getenv('HOME') .. '/.vim/undodir'
+-- vim.o.undofile = true
 
 vim.o.hlsearch = true
 vim.o.incsearch = true
