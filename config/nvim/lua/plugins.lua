@@ -24,32 +24,16 @@ return require('packer').startup(function(use)
   -- file icons (for nvim-tree, lualine, etc.)
   use 'nvim-tree/nvim-web-devicons'
 
-  -- status line
-  use 'nvim-lualine/lualine.nvim'
+  -- fuzzy Finder (files, lsp, etc)
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
-  -- "gc" to comment visual regions / lines
-  use 'numToStr/Comment.nvim'
-
-  -- highlight, edit, and navigate code
+  -- fuzzy Finder Algorithm which requires local dependencies to be built.
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end,
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make',
+    cond = vim.fn.executable 'make' == 1
   }
 
-  -- Additional text objects via treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-  }
-
-  -- Add "end" to certain structures wisely
-  use {
-    'RRethy/nvim-treesitter-endwise',
-    after = 'nvim-treesitter',
-  }
 
   -- LSP Configuration & Plugins
   use {
@@ -73,14 +57,34 @@ return require('packer').startup(function(use)
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
 
-  -- fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+  -- Shows current code context in winbar
+  use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
 
-  -- fuzzy Finder Algorithm which requires local dependencies to be built.
+  -- status line
+  use { 'nvim-lualine/lualine.nvim', requires = 'SmiteshP/nvim-navic' }
+
+  -- "gc" to comment visual regions / lines
+  use 'numToStr/Comment.nvim'
+
+  -- highlight, edit, and navigate code
   use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make',
-    cond = vim.fn.executable 'make' == 1
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
+  }
+
+  -- Additional text objects via treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
+
+  -- Add "end" to certain structures wisely
+  use {
+    'RRethy/nvim-treesitter-endwise',
+    after = 'nvim-treesitter',
   }
 
   -- Git related plugins
@@ -109,15 +113,12 @@ return require('packer').startup(function(use)
   -- Fancier vim.ui
   use 'stevearc/dressing.nvim'
 
-  -- Shows current code context in winbar
-  use { 'SmiteshP/nvim-navic', requires = 'neovim/nvim-lspconfig' }
-
   -- Display keybindings for command that started typing
   use 'folke/which-key.nvim'
 
   -- General-purpose motion
   use { 'ggandor/leap.nvim', requires = { 'tpope/vim-repeat' } }
-
+  --
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
