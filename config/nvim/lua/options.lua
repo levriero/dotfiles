@@ -17,13 +17,12 @@ vim.g.loaded_perl_provider = 0
 vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[ ]]
 
--- use macOS system clipboard
-if vim.fn.has 'macunix' then
- local opt = vim.opt
-  opt.clipboard:append { 'unnamedplus' }
-end
+-- use system clipboard
+vim.o.clipboard = 'unnamedplus'
 
+-- display cursor as single line when in insert mode
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+
 -- relative line numbers
 vim.wo.number = true
 vim.o.relativenumber = true
