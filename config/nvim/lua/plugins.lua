@@ -34,7 +34,6 @@ return require('packer').startup(function(use)
     cond = vim.fn.executable 'make' == 1
   }
 
-
   -- LSP Configuration & Plugins
   use {
     'neovim/nvim-lspconfig',
@@ -118,7 +117,10 @@ return require('packer').startup(function(use)
 
   -- General-purpose motion
   use { 'ggandor/leap.nvim', requires = { 'tpope/vim-repeat' } }
-  --
+
+  -- Copy text to the system clipboard using the ANSI OSC52 sequence.
+  use {'ojroques/nvim-osc52'}
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
