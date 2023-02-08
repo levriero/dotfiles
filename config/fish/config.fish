@@ -4,6 +4,7 @@ set -x EDITOR "nvim"
 set -x TERM xterm-256color
 set -x TERMINFO xterm-256color
 
+set -x XDG_CONFIG_HOME $HOME/.config
 set -x NVMDIR $XDG_CONFIG_HOME/.nvm
 
 # cargo
