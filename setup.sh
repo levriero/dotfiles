@@ -6,16 +6,19 @@ ln -sf dotfiles/bashrc        .bashrc
 ln -sf dotfiles/gitconfig     .gitconfig
 ln -sf dotfiles/tmux.conf     .tmux.conf
 ln -sf dotfiles/vimrc         .vimrc
+ln -sf dotfiles/sshrc         $HOME/.ssh/rc
 
 rm -rf .config/fish
 rm -rf .config/nvim
 rm -rf .config/lf
 rm -rf .config/lazygit
+rm -rf .config/alacritty
 
 ln -sF ~/dotfiles/config/fish ~/.config/fish
 ln -sF ~/dotfiles/config/nvim ~/.config/nvim
 ln -sF ~/dotfiles/config/lf ~/.config/lf
 ln -sF ~/dotfiles/config/lazygit ~/.config/lazygit
+ln -sF ~/dotfiles/config/alacritty ~/.config/alacritty
 
 command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew..."; \
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; }

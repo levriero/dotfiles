@@ -5,6 +5,7 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x NVMDIR $XDG_CONFIG_HOME/.nvm
 
 set -x EDITOR "nvim"
+set -x SHELL /opt/homebrew/bin/fish
 
 # cargo
 set PATH $HOME/.cargo/bin $PATH
