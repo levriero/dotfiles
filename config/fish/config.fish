@@ -38,3 +38,6 @@ set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 # zoxide
 zoxide init fish | source
+
+# starship
+starship init fish | source
