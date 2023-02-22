@@ -29,8 +29,10 @@ if [ -f "($HOME)/google-cloud-sdk/path.fish.inc" ]; . "($HOME)/google-cloud-sdk/
 
 set fish_greeting
 
-# pure-fish/pure
-set pure_enable_single_line_prompt true
+set -g hydro_color_pwd $fish_color_command
+set -g hydro_color_prompt $fish_color_param
+set -g hydro_color_git $fish_color_quote
+set -g hydro_color_duration $fish_color_redirection
 
 # volta
 set -gx VOLTA_HOME "$HOME/.volta"
@@ -38,6 +40,3 @@ set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 # zoxide
 zoxide init fish | source
-
-# starship
-starship init fish | source
