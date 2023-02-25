@@ -29,10 +29,14 @@ if [ -f "($HOME)/google-cloud-sdk/path.fish.inc" ]; . "($HOME)/google-cloud-sdk/
 
 set fish_greeting
 
+# hydro colors
 set -g hydro_color_pwd $fish_color_command
 set -g hydro_color_prompt $fish_color_param
 set -g hydro_color_git $fish_color_quote
 set -g hydro_color_duration $fish_color_redirection
+
+# abbreviations
+abbr lg "lazygit"
 
 # volta
 set -gx VOLTA_HOME "$HOME/.volta"
