@@ -1,46 +1,33 @@
-set -x TERM xterm-256color
-set -x TERMINFO xterm-256color
+set -gx fish_greeting
 
-set -x XDG_CONFIG_HOME $HOME/.config
-set -x NVMDIR $XDG_CONFIG_HOME/.nvm
+set -gx TERM xterm-256color
+set -gx TERMINFO xterm-256color
+set -gx SHELL /opt/homebrew/bin/fish
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx EDITOR "nvim"
+set -gx HOMEBREW_NO_ANALYTICS 1
 
-set -x EDITOR "nvim"
-set -x SHELL /opt/homebrew/bin/fish
+set -gx VOLTA_HOME "$HOME/.volta"
 
-# cargo
-set PATH $HOME/.cargo/bin $PATH
-
-set -x HOMEBREW_NO_ANALYTICS 1
-
-# homebrew
-if status --is-interactive
-  eval (/opt/homebrew/bin/brew shellenv)
-end
+set -gx PATH $VOLTA_HOME/bin $PATH
+set -gx PATH $HOME/.cargo/bin $PATH
 
 # ruby-build installs a non-Homebrew OpenSSL for each Ruby version installed and these are never upgraded.
 # To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following
-set RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@1.1)"
-
-# rbenv
-status --is-interactive; and source (rbenv init -|psub)
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "($HOME)/google-cloud-sdk/path.fish.inc" ]; . "($HOME)/google-cloud-sdk/path.fish.inc"; end
-
-set fish_greeting
+set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=/opt/homebrew/openssl@2.1"
 
 # hydro colors
-set hydro_color_pwd $fish_color_command
-set hydro_color_prompt $fish_color_param
-set hydro_color_git $fish_color_quote
-set hydro_color_duration $fish_color_redirection
+set --g hydro_color_pwd $fish_color_command
+set --g hydro_color_prompt $fish_color_param
+set --g hydro_color_git $fish_color_quote
+set --g hydro_color_duration $fish_color_redirection
 
-# abbreviations
-abbr lg "lazygit"
+if status --is-interactive
+  eval (/opt/homebrew/bin/brew shellenv)
+	source (rbenv init -|psub)
 
-# volta
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
+	# abbreviations
+	abbr --add lg "lazygit"
+end
 
-# zoxide
 zoxide init fish | source
