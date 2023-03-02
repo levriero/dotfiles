@@ -1,6 +1,0 @@
-# Commands in this file are executed by ssh when the user logs in, just before the user's shell (or
-# command) is started.  See the sshd(8) manual page for more information.
-
-if [ -S "$SSH_AUTH_SOCK" ]; then
-  ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
-fi
