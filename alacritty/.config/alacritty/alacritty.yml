@@ -7,7 +7,7 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  - ~/.config/alacritty/rose-pine/rose-pine.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -30,7 +30,8 @@ font:
   # bold:
   #  style: "Bold"
   italic:
-    style: "Thin Italic"
+    # style: "Thin Italic"
+    style: "ExtraLight"
   # bold_italic:
   #   style: "Semibold Italic"
   size: 18
