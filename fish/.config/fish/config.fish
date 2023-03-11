@@ -1,7 +1,5 @@
 set -gx fish_greeting
 
-set -gx TERM xterm-256color
-set -gx TERMINFO xterm-256color
 set -gx SHELL /opt/homebrew/bin/fish
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx EDITOR "nvim"
