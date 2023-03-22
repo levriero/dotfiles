@@ -14,12 +14,6 @@ set -gx PATH $HOME/.cargo/bin $PATH
 # To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=/opt/homebrew/openssl@2.1"
 
-# hydro colors
-set --g hydro_color_pwd $fish_color_command
-set --g hydro_color_prompt $fish_color_param
-set --g hydro_color_git $fish_color_quote
-set --g hydro_color_duration $fish_color_redirection
-
 if status --is-interactive
   eval (/opt/homebrew/bin/brew shellenv)
 	source (rbenv init -|psub)
