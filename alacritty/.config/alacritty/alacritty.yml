@@ -34,7 +34,7 @@ font:
     style: "ExtraLight"
   # bold_italic:
   #   style: "Semibold Italic"
-  size: 18
+  size: 20
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
