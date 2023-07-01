@@ -26,13 +26,13 @@ live_config_reload: true
 font:
   normal:
     family: "JetBrainsMono Nerd Font"
-    style: "Thin"
-  bold:
-    style: "Bold"
+    style: "Light"
+  # bold:
+  #   style: "Bold"
   italic:
-    style: "Thin Italic"
+    style: "Light Italic"
   # bold_italic:
-  #   style: "Semibold Italic"
+  #   style: "Bold Italic"
   size: 20
 
   # Offset is the extra space around each character. `offset.y` can be thought
@@ -73,17 +73,17 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: full
+  decorations: buttonless
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 1.0 #0.97
+  opacity: 1.0
 
   # Startup mode (changes require restart)
   # Default: _"Windowed"_
   # "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
-  startup_mode: "SimpleFullscreen"
+  startup_mode: "Maximized"
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
