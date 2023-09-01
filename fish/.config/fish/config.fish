@@ -16,10 +16,10 @@ set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=/opt/homebrew/openssl@2.1"
 
 if status --is-interactive
   eval (/opt/homebrew/bin/brew shellenv)
-	source (rbenv init -|psub)
 
 	# abbreviations
 	abbr --add lg "lazygit"
 end
 
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 zoxide init fish | source
