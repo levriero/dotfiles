@@ -4,7 +4,7 @@ local wezterm = require "wezterm"
 -- This table will hold the configuration.
 local config = {}
 
--- Represents a window that is managed by the multiplexer
+-- Exposes functions that operate on the multiplexer layer.
 local mux = wezterm.mux
 
 wezterm.on('gui-attached', function(_)
@@ -23,6 +23,16 @@ end)
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
+
+-- Specifies the height of a new window, expressed in character cells.
+config.initial_rows = 38
+
+-- Specifies the width of a new window, expressed in character cells.
+config.initial_cols = 140
+
+-- Disable the title bar but enable the resizable border
+-- NOTE: removing RESIZE from the set of decorations causes problems with resizing and minimizing the window.
+config.window_decorations = "RESIZE"
 
 -- Colorscheme
 config.color_scheme = "Tokyo Night"
