@@ -1,5 +1,8 @@
 [color]
-  ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
 [core]
   editor = nvim
 [init]
