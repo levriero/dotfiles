@@ -4,6 +4,7 @@ set -gx SHELL /opt/homebrew/bin/fish
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx EDITOR "nvim"
 set -gx HOMEBREW_NO_ANALYTICS 1
+set -gx GPG_TTY (tty)
 
 set -gx VOLTA_HOME "$HOME/.volta"
 
