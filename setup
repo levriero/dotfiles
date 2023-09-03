@@ -5,7 +5,7 @@ command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew..."; \
 
 read -r -p "Install dependencies? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  brew install bat fish fd fzf git ripgrep tig tree tmux neovim zoxide
+  brew install bat fish fd fzf git ripgrep tig tree tmux neovim wget zoxide
 
   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
