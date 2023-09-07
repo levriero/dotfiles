@@ -4,20 +4,6 @@ local wezterm = require "wezterm"
 -- This table will hold the configuration.
 local config = {}
 
--- Exposes functions that operate on the multiplexer layer.
-local mux = wezterm.mux
-
-wezterm.on('gui-attached', function(_)
-  -- maximize all displayed windows on startup
-  local workspace = mux.get_active_workspace()
-
-  for _, window in ipairs(mux.all_windows()) do
-    if window:get_workspace() == workspace then
-      window:gui_window():maximize()
-    end
-  end
-end)
-
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
 if wezterm.config_builder then
@@ -83,7 +69,7 @@ config.colors = {
 
 -- This function constructs a lua table that corresponds to the internal FontAttributes struct that is used to select a single named font:
 config.font = wezterm.font("JetBrains Mono", { weight = "Light" })
-config.font_size = 19.0
+config.font_size = 23.0
 
 -- and finally, return the configuration to wezterm
 return config
