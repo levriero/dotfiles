@@ -10,6 +10,9 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+-- Spawn a fish shell in login mode
+config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
+
 -- Specifies the height of a new window, expressed in character cells.
 config.initial_rows = 38
 
