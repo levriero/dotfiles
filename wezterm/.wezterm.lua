@@ -71,7 +71,7 @@ config.colors = {
 }
 
 -- This function constructs a lua table that corresponds to the internal FontAttributes struct that is used to select a single named font:
-config.font = wezterm.font("JetBrains Mono", { weight = "Light" })
+config.font = wezterm.font("JetBrainsMono NF", { weight = "Light" })
 config.font_size = 23.0
 
 -- and finally, return the configuration to wezterm
