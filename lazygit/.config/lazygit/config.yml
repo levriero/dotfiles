@@ -18,4 +18,4 @@ gui:
       - "#89b4fa" # Blue
     unstagedChangesColor:
       - red # Red
-  showIcons: true
+  nerdFontsVersion: "3"
