@@ -36,3 +36,8 @@ A utility script is available to install system dependencies or tools I use on a
 
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - [Nerd Fonts](https://www.nerdfonts.com/)
+
+```bash
+brew tap homebrew/cask-fonts
+brew install font-jetbrains-mono-nerd-font
+```
