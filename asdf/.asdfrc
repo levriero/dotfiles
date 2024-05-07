@@ -1,0 +1,2 @@
+# Delete source code after successful install
+always_keep_download = no
