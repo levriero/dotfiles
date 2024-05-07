@@ -7,9 +7,6 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx EDITOR "nvim"
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx GPG_TTY (tty)
-set -gx VOLTA_HOME "$HOME/.volta"
-
-fish_add_path $VOLTA_HOME/bin
 
 if status --is-interactive
 	# exports environment variables needed for brew to work
