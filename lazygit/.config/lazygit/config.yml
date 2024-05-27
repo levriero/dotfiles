@@ -19,3 +19,5 @@ gui:
     unstagedChangesColor:
       - red # Red
   nerdFontsVersion: "3"
+git:
+  overrideGpg: true
