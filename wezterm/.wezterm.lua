@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require "wezterm"
+local wezterm = require("wezterm")
 
 -- This table will hold the configuration.
 local config = {}
@@ -73,6 +73,15 @@ config.colors = {
 -- This function constructs a lua table that corresponds to the internal FontAttributes struct that is used to select a single named font:
 config.font = wezterm.font("JetBrainsMono NF", { weight = "Light" })
 config.font_size = 16.0
+
+config.keys = {
+	-- Toggles full screen mode for the current window.
+	{
+		key = "n",
+		mods = "SUPER",
+		action = wezterm.action.ToggleFullScreen,
+	},
+}
 
 -- and finally, return the configuration to wezterm
 return config
