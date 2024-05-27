@@ -8,25 +8,23 @@ set -gx EDITOR "nvim"
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx GPG_TTY (tty)
 
-if status --is-interactive
-	# exports environment variables needed for brew to work
-  eval (/opt/homebrew/bin/brew shellenv)
+# exports environment variables needed for brew to work
+eval (/opt/homebrew/bin/brew shellenv)
 
-	#
-	# abbreviations
-	#
-	abbr --add lg "lazygit"
+#
+# abbreviations
+#
+abbr --add lg "lazygit"
 
-	#
-	# script sourcing
-	#
+#
+# script sourcing
+#
 
-	# asdf
-	source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# asdf
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
-	# zoxide
-	zoxide init fish | source
-end
+# zoxide
+zoxide init fish | source
 
 #
 # Colours
