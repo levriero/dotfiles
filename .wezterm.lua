@@ -10,9 +10,6 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
--- Spawn a fish shell in login mode
-config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
-
 -- Specifies the height of a new window, expressed in character cells.
 config.initial_rows = 38
 
@@ -77,7 +74,7 @@ config.font_size = 16.0
 config.keys = {
 	-- Toggles full screen mode for the current window.
 	{
-		key = "n",
+		key = "z",
 		mods = "SUPER",
 		action = wezterm.action.ToggleFullScreen,
 	},
