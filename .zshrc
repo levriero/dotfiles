@@ -16,9 +16,43 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Plugins
+# -------
 # Load powerlevel10k theme
 zinit ice depth "1" # git clone depth
 zinit light romkatv/powerlevel10k
 
+# Fish shell-like syntax highlighting
+zinit light zsh-users/zsh-syntax-highlighting
+
+# Additional completion definitions
+zinit light zsh-users/zsh-completions
+
+# Fish-like fast/unobtrusive autosuggestions
+zinit light zsh-users/zsh-autosuggestions
+
+# Load completions
+autoload -U compinit && compinit
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Keybinds
+# --------
+# emacs mode
+bindkey -e
+
+# History
+# --------
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
