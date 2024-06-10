@@ -1,11 +1,11 @@
 # Private config goes in the include
 [include]
-	path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
   editor = nvim
 [init]
