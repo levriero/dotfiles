@@ -17,7 +17,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Plugins
-# -------
+# ------------------
 # Load powerlevel10k theme
 zinit ice depth "1" # git clone depth
 zinit light romkatv/powerlevel10k
@@ -31,6 +31,9 @@ zinit light zsh-users/zsh-completions
 # Fish-like fast/unobtrusive autosuggestions
 zinit light zsh-users/zsh-autosuggestions
 
+# Replace default completion selection menu with fzf
+zinit light Aloxaf/fzf-tab
+
 # Load completions
 autoload -U compinit && compinit
 
@@ -38,12 +41,13 @@ autoload -U compinit && compinit
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybinds
-# --------
-# emacs mode
+# ------------------
 bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # History
-# --------
+# ------------------
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -56,3 +60,23 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+
+# Completion styling
+# ------------------
+# Match lowercase and uppercase characters
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Display ls --color style on completions
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Disable default completion menu
+zstyle ':completion:*' menu no
+
+# Aliases
+# ------------------
+alias ls='ls --color'
+
+
+# Shell integrations
+# ------------------
+eval "$(fzf --zsh)"
