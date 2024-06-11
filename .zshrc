@@ -37,6 +37,9 @@ zinit light Aloxaf/fzf-tab
 # Load completions
 autoload -U compinit && compinit
 
+# Re-play all catched compdef calls
+zinit cdreplay -q
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -71,6 +74,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Disable default completion menu
 zstyle ':completion:*' menu no
+
+# Display preview of directories on cd autocompletion
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 # ------------------
