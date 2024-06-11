@@ -19,6 +19,12 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
+# Initial Zinit's hash definition
+declare -A ZINIT
+
+# Do not set aliases such as zi or zini
+ZINIT[NO_ALIASES]=1
+
 # Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
