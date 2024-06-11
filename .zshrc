@@ -5,6 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Exported variables
+# ------------------
+export HOMEBREW_NO_ANALYTICS=1
+
+# Plugins
+# ------------------
 # Set the directory we want to install zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -16,8 +22,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Plugins
-# ------------------
 # Load powerlevel10k theme
 zinit ice depth "1" # git clone depth
 zinit light romkatv/powerlevel10k
