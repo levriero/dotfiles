@@ -78,6 +78,9 @@ zstyle ':completion:*' menu no
 # Display preview of directories on cd autocompletion
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+# Enable previews on zoxide autocompletions
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
 # Aliases
 # ------------------
 alias ls='ls --color'
@@ -86,3 +89,4 @@ alias ls='ls --color'
 # Shell integrations
 # ------------------
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
