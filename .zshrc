@@ -101,4 +101,3 @@ alias lg='lazygit'
 # ------------------
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-. /opt/homebrew/opt/asdf/libexec/asdf.sh

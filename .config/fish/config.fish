@@ -20,9 +20,6 @@ abbr --add lg "lazygit"
 # script sourcing
 #
 
-# asdf
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-
 # zoxide
 zoxide init fish | source
 
