@@ -43,6 +43,52 @@ config.keys = {
 		mods = "SUPER",
 		action = wezterm.action.ToggleFullScreen,
 	},
+
+	-- Splits the current pane in half horizontally.
+	{
+		key = "p",
+		mods = "SUPER",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+
+	-- Splits the current pane in half vertically.
+	{
+		key = "d",
+		mods = "SUPER",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+
+	-- Activate an adjacent pane in the specified direction.
+	{
+		key = "LeftArrow",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "RightArrow",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "UpArrow",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "DownArrow",
+		mods = "SUPER",
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
+
+	-- Closes the current pane.
+	-- If that was the last pane in the tab, closes the tab.
+	-- If that was the last tab, closes that window.
+	-- If that was the last window, wezterm terminates.
+	{
+		key = "w",
+		mods = "CMD",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
 }
 
 -- and finally, return the configuration to wezterm
