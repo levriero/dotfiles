@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Set cache directory
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
+
 # Exported variables
 # ------------------
 export HOMEBREW_NO_ANALYTICS=1
@@ -45,7 +48,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Load completions
-autoload -U compinit && compinit
+autoload -U compinit && compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 
 # Re-play all catched compdef calls
 zinit cdreplay -q
@@ -62,7 +65,7 @@ bindkey '^n' history-search-forward
 # History
 # ------------------
 HISTSIZE=5000
-HISTFILE=~/.zsh_history
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
@@ -85,6 +88,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Disable default completion menu
 zstyle ':completion:*' menu no
 
+# Set directory for completion's cache
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+
 # Display preview of directories on cd autocompletion
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
@@ -96,8 +102,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias lg='lazygit'
 
-
 # Shell integrations
 # ------------------
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
+[[ -f $ZDOTDIR/mise.zsh ]] && source $ZDOTDIR/mise.zsh
