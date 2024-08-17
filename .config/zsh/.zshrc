@@ -48,7 +48,11 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Load completions
+autoload bashcompinit && bashcompinit
 autoload -U compinit && compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
+
+# AWS CLI autocomplete
+complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
 
 # Re-play all catched compdef calls
 zinit cdreplay -q
@@ -77,7 +81,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion styling
+# Completion patterns
 # ------------------
 # Match lowercase and uppercase characters
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
