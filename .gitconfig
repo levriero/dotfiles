@@ -1,6 +1,10 @@
 # Private config goes in the include
 [include]
   path = ~/.gitconfig.local
+[gpg]
+  format = ssh
+[commit]
+  gpgsign = true
 [color]
   diff = auto
   status = auto
