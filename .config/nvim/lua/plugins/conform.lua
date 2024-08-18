@@ -17,6 +17,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				terraform = { "terraform_fmt" },
+				yaml = { "yq" },
 			},
 		},
 	},
