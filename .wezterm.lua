@@ -21,7 +21,7 @@ config.initial_cols = 140
 config.window_decorations = "RESIZE"
 
 -- Colorscheme
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "Catppuccin Mocha"
 
 -- If set to true, when there is only a single tab, the tab bar is hidden from the display.
 -- If a second tab is created, the tab will be shown.
