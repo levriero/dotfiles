@@ -11,14 +11,15 @@ if wezterm.config_builder then
 end
 
 -- Specifies the height of a new window, expressed in character cells.
-config.initial_rows = 38
+config.initial_rows = 40
 
 -- Specifies the width of a new window, expressed in character cells.
-config.initial_cols = 140
+config.initial_cols = 165
 
 -- Disable the title bar but enable the resizable border
 -- NOTE: removing RESIZE from the set of decorations causes problems with resizing and minimizing the window.
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 
 -- Colorscheme
 config.color_scheme = "Catppuccin Mocha"
