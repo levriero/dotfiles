@@ -8,6 +8,7 @@ return {
   -- language packs
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.ruby" },
+  { import = "astrocommunity.pack.terraform" },
 
   -- others
   { import = "astrocommunity.colorscheme.catppuccin" },
