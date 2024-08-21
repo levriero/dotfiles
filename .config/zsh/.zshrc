@@ -11,6 +11,8 @@ fi
 # Exported variables
 # ------------------
 export HOMEBREW_NO_ANALYTICS=1
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # Plugins
 # ------------------
