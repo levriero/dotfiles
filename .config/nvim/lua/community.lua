@@ -8,6 +8,7 @@ return {
   -- language packs
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.ruby" },
+  { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.terraform" },
 
   -- others
