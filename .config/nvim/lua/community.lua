@@ -10,6 +10,7 @@ return {
   { import = "astrocommunity.pack.ruby" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.terraform" },
+  { import = "astrocommunity.pack.docker" },
 
   -- others
   { import = "astrocommunity.colorscheme.catppuccin" },
