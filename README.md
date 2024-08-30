@@ -6,6 +6,8 @@
 
 ## 🌿 Information
 
+<img src=".github/assets/preview.png" alt="UI Preview"/>
+
 - **Terminal:** [wezterm](https://github.com/wez/wezterm)
 - **Shell:** [zsh](https://www.zsh.org/)
 - **Text Editor:** [neovim](https://github.com/neovim/neovim)
