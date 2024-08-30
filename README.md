@@ -1,43 +1,29 @@
-# Dotfiles
+<div align="center">
+  <img src="https://img.shields.io/github/last-commit/levriero/dotfiles?style=for-the-badge&logo=github&color=a6da95&logoColor=D9E0EE&labelColor=302D41"/>
+  <img src="https://img.shields.io/github/repo-size/levriero/dotfiles?style=for-the-badge&logo=dropbox&color=7dc4e4&logoColor=D9E0EE&labelColor=302D41"/>
+  <img src="https://img.shields.io/github/license/levriero/dotfiles?style=for-the-badge&logo=powerpages&color=cba6f7&logoColor=D9E0EE&labelColor=302D41"/>
+</div>
 
-My personal dotfiles.
+## 🌿 Information
 
-## Installation
+- **Terminal:** [wezterm](https://github.com/wez/wezterm)
+- **Shell:** [zsh](https://www.zsh.org/)
+- **Text Editor:** [neovim](https://github.com/neovim/neovim)
+- **Neovim Config**: [astronvim](https://github.com/AstroNvim/AstroNvim)
+- **Font**: [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 
-Fork and review these dotfiles before applying them. Remove and modify things as you wish.
+## 📦 Installation
 
-### Stow
-All the dotfiles are managed with [GNU Stow](https://www.gnu.org/software/stow/) so you can confidently apply and remove these configurations as you need without messing your current setup.
+#### Files are structured to create symlinks using [stow](https://www.gnu.org/software/stow/)
 
+#### Clone the repo
 
-Clone the repo in your root directory
-```bash
-cd $HOME && git clone git@github.com:levriero/dotfiles.git && cd dotfiles
+```sh
+git clone https://github.com/levriero/dotfiles
 ```
 
-Install `stow`
-```bash
-brew install stow
-```
+#### Create symlinks
 
-Tell stow to create symlinks
-```bash
-stow */
-```
-
-### Setup script
-A utility script is available to install system dependencies or tools I use on a daily basis.
-
-```bash
-./setup
-```
-
-# Fonts
-
-- [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-- [Nerd Fonts](https://www.nerdfonts.com/)
-
-```bash
-brew tap homebrew/cask-fonts
-brew install font-jetbrains-mono-nerd-font
+```sh
+cd dotfiles && stow .
 ```
