@@ -13,3 +13,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   - ripgrep
   - homebrew (macOS)
   - etc
+
+- Install language packages
+  - delve https://github.com/go-delve/delve/tree/master/Documentation/installation
