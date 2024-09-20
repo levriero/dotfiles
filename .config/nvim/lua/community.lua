@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.terraform" },
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.markdown" },
 
   -- others
   { import = "astrocommunity.colorscheme.catppuccin" },
