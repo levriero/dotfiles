@@ -1,0 +1,5 @@
+ts () {
+  local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+  echo "$timestamp" | tee >(pbcopy)
+}

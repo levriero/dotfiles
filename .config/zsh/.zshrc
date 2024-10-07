@@ -117,5 +117,10 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 [[ -f $ZDOTDIR/mise.zsh ]] && source $ZDOTDIR/mise.zsh
 
+# Functions
+# ------------------
+fpath=( $XDG_CONFIG_HOME/zsh/functions "${fpath[@]}" )
+autoload -Uz $XDG_CONFIG_HOME/zsh/functions/*
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
