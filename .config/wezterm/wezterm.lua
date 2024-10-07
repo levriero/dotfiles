@@ -16,9 +16,16 @@ config.initial_rows = 44
 -- Specifies the width of a new window, expressed in character cells.
 config.initial_cols = 192
 
--- Disable the title bar but enable the resizable border
--- NOTE: removing RESIZE from the set of decorations causes problems with resizing and minimizing the window.
-config.window_decorations = "RESIZE"
+-- Place window management buttons into the tab bar instead of showing a title bar.
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+
+-- Controls the amount of padding between the window border and the terminal cells.
+config.window_padding = {
+	left = "1cell",
+	right = "1cell",
+	top = "1cell",
+	bottom = "0.5cell",
+}
 
 -- Colorscheme
 config.color_scheme = "Catppuccin Mocha"
