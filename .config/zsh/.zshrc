@@ -8,6 +8,9 @@ fi
 # Set cache directory
 [ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
 
+# Set history directory
+[ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
+
 # Exported variables
 # ------------------
 export HOMEBREW_NO_ANALYTICS=1
