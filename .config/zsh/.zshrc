@@ -17,6 +17,9 @@ export HOMEBREW_NO_ANALYTICS=1
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
+# pipx
+export PATH="$PATH:$HOME/.local/bin"
+
 # Plugins
 # ------------------
 # Set the directory we want to install zinit and plugins
@@ -57,7 +60,15 @@ autoload bashcompinit && bashcompinit
 autoload -U compinit && compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 
 # AWS CLI autocomplete
-complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
+if command -v aws &>/dev/null; then
+  complete -C "${HOMEBREW_PREFIX}/bin/aws_completer" aws
+fi
+
+# pipx autocomplete
+# Run `pipx install argcomplete` if autocomplete is not present
+if command -v pipx &>/dev/null; then
+  eval "$(register-python-argcomplete pipx)"
+fi
 
 # Re-play all catched compdef calls
 zinit cdreplay -q
