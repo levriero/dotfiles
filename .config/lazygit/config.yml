@@ -1,21 +1,14 @@
+# Config relating to the Lazygit UI
 gui:
-  theme:
-    lightTheme: false
-    activeBorderColor:
-      - "#a6e3a1" # Green
-      - bold
-    inactiveBorderColor:
-      - "#cdd6f4" # Text
-    optionsTextColor:
-      - "#89b4fa" # Blue
-    selectedLineBgColor:
-      - "#313244" # Surface0
-    selectedRangeBgColor:
-      - "#313244" # Surface0
-    cherryPickedCommitBgColor:
-      - "#94e2d5" # Teal
-    cherryPickedCommitFgColor:
-      - "#89b4fa" # Blue
-    unstagedChangesColor:
-      - red # Red
+  # Nerd fonts version to use.
+  # One of: '2' | '3' | empty string (default)
+  # If empty, do not show icons.
   nerdFontsVersion: "3"
+
+# Config relating to git
+git:
+  # Do not spawn a separate process when using GPG
+  overrideGpg: true
+
+# Don't display introductory popups upon opening Lazygit.
+disableStartupPopups: false
