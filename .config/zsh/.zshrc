@@ -20,6 +20,9 @@ export PATH=$GOPATH/bin:$PATH
 # pipx
 export PATH="$PATH:$HOME/.local/bin"
 
+# environment specific variables
+[[ -s $HOME/.vars.zsh ]] && source $HOME/.vars.zsh
+
 # Plugins
 # ------------------
 # Set the directory we want to install zinit and plugins
