@@ -1,4 +1,4 @@
 [tools]
-ruby = "3.3.3"
+ruby = "3.3.5"
 terraform = "1.9.2"
 python = "3.12.7"
